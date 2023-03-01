@@ -20,4 +20,6 @@ namespace ReceptAppen2.ViewModels
             RandomRecipes = task.Result;
         }
     }
+
+    //TODO: Skaffa en detailsida
 }

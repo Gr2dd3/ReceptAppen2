@@ -17,10 +17,14 @@ namespace ReceptAppen2.ViewModels
 
         public RecipeSearchViewModel()
         {
-            RecipeSearch = new RecipeSearch();
-            var task = Task.Run(() => RecipeSearchService.GetRecipeSearchAsync());
-            task.Wait();
-            RecipeSearch = task.Result;
+            if (SessionsData.User is not null)
+            {
+                //TODO: Skicka med login
+                RecipeSearch = new RecipeSearch();
+                var task = Task.Run(() => RecipeSearchService.GetRecipeSearchAsync());
+                task.Wait();
+                RecipeSearch = task.Result;
+            }
         }
     }
 }

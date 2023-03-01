@@ -10,7 +10,7 @@ namespace ReceptAppen2.Services
 {
     internal class RecipeSearchService
     {
-        public static async Task<RecipeSearch> GetRecipeSearchAsync()
+        public static async Task<RecipeSearch> GetRecipeSearchAsync(/*string apiKey*/)
         {
             // Mattias
             string hardCodedUser = "ODYxMjMwMDI3MDo0ODQzMTE=";
