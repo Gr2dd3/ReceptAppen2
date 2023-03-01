@@ -1,0 +1,116 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ReceptAppen2"
+             x:Class="ReceptAppen2.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!--  JL Batman  -->
+            <Color x:Key="Primary">#9b919c</Color>
+            <Color x:Key="PrimaryDark">#685f60</Color>
+            <Color x:Key="Accent">#f1b950</Color>
+
+            <Color x:Key="LightBackground">#E1E1E1</Color>
+            <Color x:Key="DarkBackground">#2c302f</Color>
+
+            <Color x:Key="LabelText">#242424</Color>
+            <Color x:Key="LabelTextDark">#9b919c</Color>
+
+            <Color x:Key="CardBackground">#9b919c</Color>
+            <Color x:Key="CardBackgroundDark">#44496f</Color>
+
+            <!--  The dark night  -->
+            <!--<Color x:Key="Primary">#505c7c</Color>
+            <Color x:Key="PrimaryDark">#242424</Color>
+            <Color x:Key="Accent">#fdff00</Color>
+
+            <Color x:Key="LightBackground">#505c7c</Color>
+            <Color x:Key="DarkBackground">#282e3c</Color>
+
+            <Color x:Key="LabelText">#282e3c</Color>
+            <Color x:Key="LabelTextDark">#242424</Color>
+
+            <Color x:Key="CardBackground">#505c7c</Color>
+            <Color x:Key="CardBackgroundDark">#282e3c</Color>-->
+
+            <!--  The Telltale  -->
+            <!--<Color x:Key="Primary">#8f8175</Color>
+            <Color x:Key="PrimaryDark">#433529</Color>
+            <Color x:Key="Accent">#bfb7b0</Color>
+
+            <Color x:Key="LightBackground">#bfb7b0</Color>
+            <Color x:Key="DarkBackground">#1d2434</Color>
+
+            <Color x:Key="LabelText">#afa59d</Color>
+            <Color x:Key="LabelTextDark">#547c99</Color>
+
+            <Color x:Key="CardBackground">#547c99</Color>
+            <Color x:Key="CardBackgroundDark">#1d2434</Color>-->
+
+            <Style ApplyToDerivedTypes="True" TargetType="Page">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" />
+            </Style>
+
+            <Style ApplyToDerivedTypes="True" TargetType="NavigationPage">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" />
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+
+            <Style x:Key="BaseLabel" TargetType="Label">
+                <Setter Property="FontFamily" Value="OpenSansRegular" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LabelText}, Dark={StaticResource LabelTextDark}}" />
+            </Style>
+
+            <Style
+                x:Key="MicroLabel"
+                BasedOn="{StaticResource BaseLabel}"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="10" />
+            </Style>
+
+            <Style
+                x:Key="SmallLabel"
+                BasedOn="{StaticResource BaseLabel}"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+
+            <Style
+                x:Key="MediumLabel"
+                BasedOn="{StaticResource BaseLabel}"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+
+            <Style
+                x:Key="LargeLabel"
+                BasedOn="{StaticResource BaseLabel}"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+            </Style>
+
+            <Style ApplyToDerivedTypes="True" TargetType="RefreshView">
+                <Setter Property="RefreshColor" Value="{StaticResource Primary}" />
+            </Style>
+
+            <Style x:Key="ButtonOutline" TargetType="Button">
+                <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" />
+                <Setter Property="TextColor" Value="{StaticResource Primary}" />
+                <Setter Property="BorderColor" Value="{StaticResource Primary}" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="CornerRadius" Value="20" />
+            </Style>
+            <Style x:Key="CardView" TargetType="Frame">
+                <Setter Property="BorderColor" Value="#c2d6e7" />
+                <Setter Property="HasShadow" Value="{OnPlatform iOS=false, MacCatalyst=false, Default=true}" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource CardBackground}, Dark={StaticResource CardBackgroundDark}}" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="IsClippedToBounds" Value="True" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
