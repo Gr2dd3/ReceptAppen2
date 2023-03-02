@@ -9,7 +9,12 @@ namespace ReceptAppen2.Models
     internal class Ingredientgroup
     {
         public int Portions { get; set; }
-        public Ingredient[] Ingredients { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
         public string GroupName { get; set; }
+
+        public Ingredientgroup()
+        {
+            Ingredients = new List<Ingredient>();
+        }
     }
 }

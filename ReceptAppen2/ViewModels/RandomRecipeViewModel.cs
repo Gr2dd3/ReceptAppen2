@@ -1,16 +1,20 @@
-﻿using ReceptAppen2.Models;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ReceptAppen2.Models;
 using ReceptAppen2.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ReceptAppen2.ViewModels
 {
-    internal class RandomRecipeViewModel
+    internal partial class RandomRecipeViewModel : ObservableObject
     {
-        public RecipeSearch RandomRecipes{ get; set; }
+        [ObservableProperty]
+        RecipeSearch randomRecipes;
+
 
         public RandomRecipeViewModel()
         {
@@ -18,8 +22,7 @@ namespace ReceptAppen2.ViewModels
             var task = Task.Run(() => RecipeSearchService.GetRandomRecipesAsync());
             task.Wait();
             RandomRecipes = task.Result;
+
         }
     }
-
-    //TODO: Skaffa en detailsida
 }

@@ -24,6 +24,13 @@ namespace ReceptAppen2.Models
         public bool IsGoodClimateChoice { get; set; }
         public bool IsKeyHole { get; set; }
         public string NumberOfUserRatings { get; set; }
-        public Ingredientgroup[] IngredientGroups { get; set; }
+        public List<Ingredientgroup> IngredientGroups { get; set; }
+
+        public Recipe()
+        {
+            IngredientGroups = new List<Ingredientgroup>();
+        }
     }
+
+   
 }

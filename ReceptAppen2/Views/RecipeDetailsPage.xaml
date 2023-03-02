@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceptAppen2.Views.RecipeDetailsPage"
+             xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
+             x:DataType="viewmodel:RecipeDetailsViewModel"
+             Title="blabla">
+    <VerticalStackLayout>
+
+
+
+        <Grid RowDefinitions="400, *, *" RowSpacing="20">
+        <!--BILD-->
+        <Image Grid.Row="0"
+               Source="{Binding ImageUrl}"
+               HeightRequest="400"
+               HorizontalOptions="Center">
+        </Image>
+
+        <!--TITEL-->
+        <Label Grid.Row="1"
+            Text="{Binding Title}"
+            HorizontalOptions="Center"/>
+
+            <!--<Label Grid.Row="2"
+            Text="{Binding Text}"
+            HorizontalOptions="Center"/>-->
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
