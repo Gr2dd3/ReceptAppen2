@@ -9,7 +9,7 @@
 
 
 
-        <Grid RowDefinitions="400, *, *" RowSpacing="20">
+        <Grid RowDefinitions="400, Auto , Auto, Auto" RowSpacing="20">
         <!--BILD-->
         <Image Grid.Row="0"
                Source="{Binding ImageUrl}"
@@ -19,12 +19,17 @@
 
         <!--TITEL-->
         <Label Grid.Row="1"
-            Text="{Binding Title}"
+            Text="{Binding CookingTime}"
             HorizontalOptions="Center"/>
 
-            <!--<Label Grid.Row="2"
+            <Label Grid.Row="2"
             Text="{Binding Text}"
-            HorizontalOptions="Center"/>-->
+            HorizontalOptions="Center"/>
+
+            <Label Grid.Row="3"
+            Text="{Binding IngredientName}"
+            HorizontalOptions="Center"/>
+            
         </Grid>
     </VerticalStackLayout>
 </ContentPage>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ReceptAppen2.Models
 {
-    internal class User
+    public class User
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

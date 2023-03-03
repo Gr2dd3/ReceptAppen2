@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ReceptAppen2.Models
 {
-    internal class RecipeSearch
+    public class RecipeSearch
     {
         public int NumberOfPages { get; set; }
         public List<Recipe> Recipes { get; set; }

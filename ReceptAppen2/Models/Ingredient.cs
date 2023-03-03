@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ReceptAppen2.Models
 {
-    internal class Ingredient
+    public class Ingredient
     {
         public string Text { get; set; }
         public int IngredientId { get; set; }

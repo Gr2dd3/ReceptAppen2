@@ -10,12 +10,13 @@ using System.Threading.Tasks;
 
 namespace ReceptAppen2.ViewModels
 {
-    internal partial class RecipeDetailsViewModel : ObservableObject
+    public partial class RecipeDetailsViewModel : ObservableObject
     {
 
         //public ObservableCollection<Recipe> Recipes { get; } = new();
 
-        //Recipe Recipe = SessionsData.OneRecipe;
+        [ObservableProperty]
+        Recipe recipe1;
 
 
         // Class -> Recipe
@@ -55,38 +56,58 @@ namespace ReceptAppen2.ViewModels
         string ingredientName;
 
 
-        public RecipeDetailsViewModel()
+
+        [ObservableProperty]
+        RecipeSearch recipeSearch;
+
+        [ObservableProperty]
+        Recipe recipe;
+
+        [ObservableProperty]
+        Ingredientgroup ingredientgroup;
+
+        [ObservableProperty]
+        Ingredient ingredient;
+
+
+        public RecipeDetailsViewModel(Recipe recipe)
         {
 
-            Ingredientgroups = new ObservableCollection<Ingredientgroup>();
-            Ingredients = new ObservableCollection<Ingredient>();
+            //Ingredientgroups = new ObservableCollection<Ingredientgroup>();
+            //Ingredients = new ObservableCollection<Ingredient>();
 
             //GetRecipeDetails();
+            recipe1 = recipe;
+            GetRecipeDetails();
+        }
 
+        [RelayCommand]
+        internal void GetRecipeDetails()
+        {
+            if (Recipe1 != null)
+            {
+                ImageUrl = Recipe1.ImageUrl;
+                Title = Recipe1.Title;
+                CookingTime = Recipe1.CookingTime;
+
+                foreach (var item in Recipe1.IngredientGroups)
+                {
+                    Portions = item.Portions;
+
+                    foreach (var ingredient in item.Ingredients)
+                    {
+                        Text = ingredient.Text;
+                        Quantity = ingredient.Quantity;
+                        Unit = ingredient.Unit;
+                        IngredientName = ingredient.IngredientName;
+                    }
+                }
+            }
         }
 
 
-        //internal void GetRecipeDetails()
-        //{
 
-        //        ImageUrl = Recipe.ImageUrl;
-        //        Title = Recipe.Title;
-        //        CookingTime = Recipe.CookingTime;
 
-        //        foreach (var item in Recipe.IngredientGroups)
-        //        {
-        //            Portions = item.Portions;
-
-        //            foreach (var ingredient in item.Ingredients)
-        //            {
-        //                Text = ingredient.Text;
-        //                Quantity = ingredient.Quantity;
-        //                Unit = ingredient.Unit;
-        //                IngredientName = ingredient.IngredientName;
-        //            }
-        //        }
-            
-        //}
     }
 }
 

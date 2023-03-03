@@ -8,26 +8,38 @@ namespace ReceptAppen2;
 
 public partial class RandomRecipePageStart : ContentPage
 {
-	public RandomRecipePageStart()
-	{
-		InitializeComponent();
-		BindingContext = new RandomRecipeViewModel().RandomRecipes;
-	}
-
-
-    private async void OnListViewitemSelected(object sender, SelectedItemChangedEventArgs e)
+    public RandomRecipePageStart()
     {
-		var recipe = ((ListView)sender).SelectedItem as Recipe;
-		if (recipe != null)
-		{
-			SessionsData.OneRecipe = recipe;
-			var page = new RecipeDetailsPage();
-			page.BindingContext = recipe;
-			await Navigation.PushAsync(page);
+
+        InitializeComponent();
+        BindingContext = new RandomRecipeViewModel().RandomRecipes;
+    }
+
+    public async void OnItemSelectedChanged(object sender, SelectedItemChangedEventArgs e)
+    {
+        var recipe = ((ListView)sender).SelectedItem as Recipe;
+        if (recipe != null)
+        {
+            await Navigation.PushAsync(new RecipeDetailsPage(recipe));
+        }
+    }
 
 
-		}
-	}
+    //   private async void OnListViewitemSelected(object sender, SelectedItemChangedEventArgs e)
+    //   {
+    //	var recipe = ((ListView)sender).SelectedItem as Recipe;
+    //	if (recipe != null)
+    //	{
+    //		//SessionsData.OneRecipe = recipe;
+    //		var page = new RecipeDetailsPage();
+    //		page.BindingContext = recipe;
+    //		await Navigation.PushAsync(page);
+
+
+    //	}
+    //}
+
+
 
 }
 

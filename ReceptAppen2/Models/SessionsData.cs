@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ReceptAppen2.Models
 {
-    internal static class SessionsData
+    public static class SessionsData
     {
         public static long SocialSecurityNumber { get; set; }
         public static int Password { get; set; }

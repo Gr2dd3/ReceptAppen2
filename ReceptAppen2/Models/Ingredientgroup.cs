@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ReceptAppen2.Models
 {
-    internal class Ingredientgroup
+    public class Ingredientgroup
     {
         public int Portions { get; set; }
         public List<Ingredient> Ingredients { get; set; }

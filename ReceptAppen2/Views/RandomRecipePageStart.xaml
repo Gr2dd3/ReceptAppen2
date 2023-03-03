@@ -36,7 +36,7 @@
         <ScrollView Padding="100">
             <ListView
             ItemsSource="{Binding Recipes}"
-            ItemSelected="OnListViewitemSelected">
+            ItemSelected="OnItemSelectedChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="model:Recipe">
                         <ViewCell>
