@@ -1,10 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Input;
-using ReceptAppen2.Models;
-using ReceptAppen2.ViewModels;
-using ReceptAppen2.Views;
-using System.Runtime.InteropServices.ObjectiveC;
-
-namespace ReceptAppen2;
+﻿namespace ReceptAppen2;
 
 public partial class RandomRecipePageStart : ContentPage
 {

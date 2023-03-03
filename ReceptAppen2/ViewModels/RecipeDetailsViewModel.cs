@@ -1,20 +1,9 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using ReceptAppen2.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace ReceptAppen2.ViewModels
 {
     public partial class RecipeDetailsViewModel : ObservableObject
     {
-
         //public ObservableCollection<Recipe> Recipes { get; } = new();
-
         [ObservableProperty]
         Recipe recipe1;
 
@@ -30,7 +19,7 @@ namespace ReceptAppen2.ViewModels
         string cookingTime;
 
         [ObservableProperty]
-        ObservableCollection<Ingredientgroup> ingredientgroups;
+        ObservableCollection<string> ingredientgroups;
 
 
         // Class -> Ingredientgroup
@@ -38,9 +27,7 @@ namespace ReceptAppen2.ViewModels
         int portions;
 
         [ObservableProperty]
-        ObservableCollection<Ingredient> ingredients;
-
-
+        ObservableCollection<string> ingredients;
 
         // Class -> Ingredient
         [ObservableProperty]
@@ -55,27 +42,12 @@ namespace ReceptAppen2.ViewModels
         [ObservableProperty]
         string ingredientName;
 
-
-
-        [ObservableProperty]
-        RecipeSearch recipeSearch;
-
-        [ObservableProperty]
-        Recipe recipe;
-
-        [ObservableProperty]
-        Ingredientgroup ingredientgroup;
-
-        [ObservableProperty]
-        Ingredient ingredient;
-
-
         public RecipeDetailsViewModel(Recipe recipe)
         {
 
-            //Ingredientgroups = new ObservableCollection<Ingredientgroup>();
+            Ingredientgroups = new ObservableCollection<string>();
             //Ingredients = new ObservableCollection<Ingredient>();
-
+            Ingredients = new ObservableCollection<string>();
             //GetRecipeDetails();
             recipe1 = recipe;
             GetRecipeDetails();
@@ -84,22 +56,28 @@ namespace ReceptAppen2.ViewModels
         [RelayCommand]
         internal void GetRecipeDetails()
         {
-            if (Recipe1 != null)
+            if (Recipe1 is not null)
             {
+                if (Recipe1.ImageUrl is not null)
                 ImageUrl = Recipe1.ImageUrl;
+
+                if (Recipe1.Title is not null)
                 Title = Recipe1.Title;
+
+                if(Recipe1.CookingTime is not null)
                 CookingTime = Recipe1.CookingTime;
 
                 foreach (var item in Recipe1.IngredientGroups)
                 {
+                    if(item is not null)
                     Portions = item.Portions;
-
+                    if(item.GroupName is not null)
+                    Ingredientgroups.Add(item.GroupName);
+                    
                     foreach (var ingredient in item.Ingredients)
-                    {
-                        Text = ingredient.Text;
-                        Quantity = ingredient.Quantity;
-                        Unit = ingredient.Unit;
-                        IngredientName = ingredient.IngredientName;
+                    {                        
+                        if(ingredient is not null)
+                        Ingredients.Add(ingredient.Text);
                     }
                 }
             }

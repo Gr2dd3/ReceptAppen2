@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ReceptAppen2.Views.RecipeSearchPage"
-             xmlns:model="clr-namespace:ReceptAppen2.Models"
-             xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
-             x:DataType="model:RecipeSearch"
-             Title="RecipeSearchPage">
+<ContentPage
+    x:Class="ReceptAppen2.Views.RecipeSearchPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:ReceptAppen2.Models"
+    xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
+    Title="RecipeSearchPage"
+    x:DataType="model:RecipeSearch">
     <Grid Padding="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!-- Överskrift och LoginKnapp-->
+        <!--  Överskrift och LoginKnapp  -->
         <HorizontalStackLayout>
-            <Label Text="Se" Style="{StaticResource LargeLabel}" TextColor="{StaticResource Primary}"/>
-            <Label Text=" Recept" Style="{StaticResource LargeLabel}" TextColor="{StaticResource Accent}"/>
+            <Label
+                Style="{StaticResource LargeLabel}"
+                Text="Se"
+                TextColor="{StaticResource Primary}" />
+            <Label
+                Style="{StaticResource LargeLabel}"
+                Text=" Recept"
+                TextColor="{StaticResource Accent}" />
         </HorizontalStackLayout>
 
-        <!-- LOGGA IN KNAPP FRÅN HÖGRA HÖRNET -->
-        <!-- Vi ska binda den och en till knapp med en och samma metod och använda IsVisible -->
+        <!--  LOGGA IN KNAPP FRÅN HÖGRA HÖRNET  -->
+        <!--  Vi ska binda den och en till knapp med en och samma metod och använda IsVisible  -->
         <!--<Button
                 Command="{Binding }"
             x:Name=""
@@ -29,59 +36,80 @@
                 HorizontalOptions="End"
                 VerticalOptions="End" Style="{StaticResource ButtonOutline}"/>-->
 
-        <!-- Rullningslist-->
-        <CollectionView ItemsSource="{Binding Recipes}"
-                        Grid.Row="2"
-                        Margin="0,8">
+        <!--  Rullningslist  -->
+        <CollectionView
+            Grid.Row="2"
+            Margin="0,8"
+            ItemsSource="{Binding Recipes}">
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Vertical"
-                                   ItemSpacing="2"
-                                   />
+                <LinearItemsLayout ItemSpacing="2" Orientation="Vertical" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Recipe">
-                    <Border MinimumHeightRequest="150"
-                            MaximumHeightRequest="150"
-                            Stroke="#efefef">
+                    <Border
+                        MaximumHeightRequest="150"
+                        MinimumHeightRequest="150"
+                        Stroke="#efefef">
                         <Grid MinimumWidthRequest="200">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="200"/>
-                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
 
-                            <!-- BILD PÅ MAT -->
-                            <Image Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" HorizontalOptions="Start"/>
+                            <!--  BILD PÅ MAT  -->
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                HorizontalOptions="Start"
+                                Source="{Binding ImageUrl}"
+                                WidthRequest="150" />
 
-                            <Grid Grid.Column="1" Padding="5" MinimumWidthRequest="200">
+                            <Grid
+                                Grid.Column="1"
+                                Padding="5"
+                                MinimumWidthRequest="200">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
 
-                                <!-- Title-->
-                                <Label Grid.Row="0"
-                                       Text="{Binding Title, StringFormat='{0}'}" Style="{StaticResource MediumLabel}"/>
+                                <!--  Title  -->
+                                <Label
+                                    Grid.Row="0"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="{Binding Title, StringFormat='{0}'}" />
 
-                                <!-- Beskrivning-->
-                                <Label Grid.Row="1"
-                                       Text="{Binding AverageRating, StringFormat='Rating {0}'}" Style="{StaticResource SmallLabel}"
-                                       Padding="0,8,0,0"/>
+                                <!--  Beskrivning  -->
+                                <Label
+                                    Grid.Row="1"
+                                    Padding="0,8,0,0"
+                                    Style="{StaticResource SmallLabel}"
+                                    Text="{Binding AverageRating, StringFormat='Rating {0}'}" />
 
-                                <!-- Lista -->
-                                <FlexLayout BindableLayout.ItemsSource="{Binding IngredientGroups}"
-                                            Grid.Row="3"
-                                            AlignItems="Start" Wrap="Wrap" FlexLayout.Grow="1" AlignContent="SpaceEvenly" Padding="3">
+                                <!--  Lista  -->
+                                <FlexLayout
+                                    Grid.Row="3"
+                                    Padding="3"
+                                    AlignContent="SpaceEvenly"
+                                    AlignItems="Start"
+                                    BindableLayout.ItemsSource="{Binding IngredientGroups}"
+                                    FlexLayout.Grow="1"
+                                    Wrap="Wrap">
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate x:DataType="model:Ingredientgroup">
-                                            <Label Text="{Binding GroupName}" Style="{StaticResource SmallLabel}" Grid.Row="2" Padding="2"/>
+                                            <Label
+                                                Grid.Row="2"
+                                                Padding="2"
+                                                Style="{StaticResource SmallLabel}"
+                                                Text="{Binding GroupName}" />
                                         </DataTemplate>
                                     </BindableLayout.ItemTemplate>
                                 </FlexLayout>
 
-                                <!-- En till lista -->
+                                <!--  En till lista  -->
                             </Grid>
                         </Grid>
 

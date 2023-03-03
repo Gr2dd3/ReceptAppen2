@@ -1,35 +1,56 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ReceptAppen2.Views.RecipeDetailsPage"
-             xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
-             x:DataType="viewmodel:RecipeDetailsViewModel"
-             Title="blabla">
+<ContentPage
+    x:Class="ReceptAppen2.Views.RecipeDetailsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
+    Title="{Binding Title}"
+    x:DataType="viewmodel:RecipeDetailsViewModel">
+        <ScrollView>
     <VerticalStackLayout>
 
 
-
-        <Grid RowDefinitions="400, Auto , Auto, Auto" RowSpacing="20">
-        <!--BILD-->
-        <Image Grid.Row="0"
-               Source="{Binding ImageUrl}"
-               HeightRequest="400"
-               HorizontalOptions="Center">
-        </Image>
-
-        <!--TITEL-->
-        <Label Grid.Row="1"
-            Text="{Binding CookingTime}"
-            HorizontalOptions="Center"/>
-
-            <Label Grid.Row="2"
-            Text="{Binding Text}"
-            HorizontalOptions="Center"/>
-
-            <Label Grid.Row="3"
-            Text="{Binding IngredientName}"
-            HorizontalOptions="Center"/>
             
+        <Grid RowDefinitions="400, Auto , Auto, Auto, Auto" RowSpacing="20"
+              ColumnDefinitions="Auto, Auto">
+            <!--  BILD  -->
+            <Image
+                Grid.Row="1"
+                Grid.Column="1"
+                HeightRequest="400"
+                HorizontalOptions="Center"
+                Source="{Binding ImageUrl}" />
+
+            <ListView ItemsSource="{Binding Ingredientgroups}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="FormattedString">
+                        <ViewCell>
+
+                            <Label
+                Grid.Row="2"
+                                Grid.Column="1"
+                VerticalOptions="End"
+                Text="{Binding .}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--  INGREDIENTS  -->
+            <ListView ItemsSource="{Binding Ingredients}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="FormattedString">
+                        <ViewCell>
+
+                            <Label
+                Grid.Row="3"
+                HorizontalOptions="Center"
+                Text="{Binding .}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </Grid>
     </VerticalStackLayout>
+        </ScrollView>
 </ContentPage>

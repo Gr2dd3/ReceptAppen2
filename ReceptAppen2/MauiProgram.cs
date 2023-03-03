@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-
-namespace ReceptAppen2;
+﻿namespace ReceptAppen2;
 
 public static class MauiProgram
 {
