@@ -43,12 +43,9 @@ namespace ReceptAppen2.ViewModels
         string ingredientName;
 
         public RecipeDetailsViewModel(Recipe recipe)
-        {
-
+        { 
             Ingredientgroups = new ObservableCollection<string>();
-            //Ingredients = new ObservableCollection<Ingredient>();
             Ingredients = new ObservableCollection<string>();
-            //GetRecipeDetails();
             recipe1 = recipe;
             GetRecipeDetails();
         }

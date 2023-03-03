@@ -8,29 +8,18 @@
     Title="*BURP* Oh, sorry"
     x:DataType="model:RecipeSearch">
     <ScrollView>
-
-
-
-        <Grid Padding="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
+        <Grid Padding="10" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, *, Auto">
             <!--  Överskrift och LoginKnapp  -->
-            <HorizontalStackLayout>
-                <Label
+            <HorizontalStackLayout Grid.ColumnSpan="2" Grid.Row="0">
+                <Label Grid.Column="0" Grid.Row="0"
                     Style="{StaticResource LargeLabel}"
                     Text="Se"
                     TextColor="{StaticResource Primary}" />
-                <Label
+                <Label Grid.Column="0" Grid.Row="0"
                     Style="{StaticResource LargeLabel}"
                     Text=" Recept"
-                    TextColor="{StaticResource Accent}" />
+                    TextColor="{StaticResource Accent}"/>
             </HorizontalStackLayout>
-
             <!--  LOGGA IN KNAPP FRÅN HÖGRA HÖRNET  -->
             <!--  Vi ska binda den och en till knapp med en och samma metod och använda IsVisible  -->
             <!--<Button
@@ -38,9 +27,16 @@
                 Text="{Binding LogInButtonText}"
                 HorizontalOptions="End"
                 VerticalOptions="End" Style="{StaticResource ButtonOutline}"/>-->
+                <Button Grid.Column="1" Grid.Row="0"
+                        Text="Logga in"
+                        Style="{StaticResource ButtonOutline}"
+                        HorizontalOptions="End"
+                        VerticalOptions="Start"
+                        WidthRequest="100"/>
+
 
             <!--  TEST  -->
-            <ScrollView Padding="100">
+            <ScrollView Padding="100" Grid.ColumnSpan="2">
                 <ListView ItemSelected="OnItemSelectedChanged" ItemsSource="{Binding Recipes}">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:Recipe">

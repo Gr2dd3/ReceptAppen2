@@ -3,8 +3,6 @@
     internal class RecipeSearchViewModel : ObservableObject
     {
         public RecipeSearch RecipeSearch { get; set; }
-
-
         public RecipeSearchViewModel()
         {
             if (SessionsData.User is not null)
