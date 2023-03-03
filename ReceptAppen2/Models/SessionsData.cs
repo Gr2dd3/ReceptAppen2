@@ -12,6 +12,5 @@ namespace ReceptAppen2.Models
         public static int Password { get; set; }
         public static User User { get; set; }
 
-        public static Recipe OneRecipe { get; set; }
     }
 }
