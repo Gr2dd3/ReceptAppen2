@@ -6,51 +6,43 @@
     xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
     Title="{Binding Title}"
     x:DataType="viewmodel:RecipeDetailsViewModel">
-        <ScrollView>
-    <VerticalStackLayout>
+    <ScrollView>
 
-
-            
-        <Grid RowDefinitions="400, Auto , Auto, Auto, Auto" RowSpacing="20"
+        <Grid RowDefinitions="Auto, Auto , Auto, Auto, Auto" RowSpacing="20"
               ColumnDefinitions="Auto, Auto">
             <!--  BILD  -->
             <Image
-                Grid.Row="1"
-                Grid.Column="1"
+                Grid.Row="0"
+                Grid.Column="0"
                 HeightRequest="400"
-                HorizontalOptions="Center"
+                WidthRequest="400"
+                HorizontalOptions="Start"
                 Source="{Binding ImageUrl}" />
 
-            <ListView ItemsSource="{Binding Ingredientgroups}">
+            <ListView ItemsSource="{Binding Ingredientgroups}" Grid.Row="0" Grid.Column="1">
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="FormattedString">
+                    <DataTemplate x:DataType="viewmodel:RecipeDetailsViewModel">
                         <ViewCell>
-
                             <Label
-                Grid.Row="2"
-                                Grid.Column="1"
-                VerticalOptions="End"
-                Text="{Binding .}" />
+                                    HorizontalOptions="End"
+                                    Text="{Binding .}" />
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
             <!--  INGREDIENTS  -->
-            <ListView ItemsSource="{Binding Ingredients}">
+            <ListView ItemsSource="{Binding Ingredients}" Grid.Row="1" Grid.Column="2">
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="FormattedString">
+                    <DataTemplate x:DataType="viewmodel:RecipeDetailsViewModel">
                         <ViewCell>
-
                             <Label
-                Grid.Row="3"
-                HorizontalOptions="Center"
-                Text="{Binding .}" />
+                                    HorizontalOptions="End"
+                                    Text="{Binding .}" />
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
         </Grid>
-    </VerticalStackLayout>
-        </ScrollView>
+    </ScrollView>
 </ContentPage>

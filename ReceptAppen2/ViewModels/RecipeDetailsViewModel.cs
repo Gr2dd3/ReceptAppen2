@@ -43,7 +43,7 @@ namespace ReceptAppen2.ViewModels
         string ingredientName;
 
         public RecipeDetailsViewModel(Recipe recipe)
-        { 
+        {
             Ingredientgroups = new ObservableCollection<string>();
             Ingredients = new ObservableCollection<string>();
             recipe1 = recipe;
@@ -56,27 +56,26 @@ namespace ReceptAppen2.ViewModels
             if (Recipe1 is not null)
             {
                 if (Recipe1.ImageUrl is not null)
-                ImageUrl = Recipe1.ImageUrl;
+                    ImageUrl = Recipe1.ImageUrl;
 
                 if (Recipe1.Title is not null)
-                Title = Recipe1.Title;
+                    Title = Recipe1.Title;
 
-                if(Recipe1.CookingTime is not null)
-                CookingTime = Recipe1.CookingTime;
+                if (Recipe1.CookingTime is not null)
+                    CookingTime = Recipe1.CookingTime;
 
                 foreach (var item in Recipe1.IngredientGroups)
                 {
-                    if(item is not null)
-                    Portions = item.Portions;
-                    if(item.GroupName is not null)
-                    Ingredientgroups.Add(item.GroupName);
-                    
+                    if (item is not null)
+                        Portions = item.Portions;
+                    if (item.GroupName is not null)
+                        Ingredientgroups.Add(item.GroupName);
+
                     foreach (var ingredient in item.Ingredients)
                     {
-                        Text = ingredient.Text;
-                        Quantity = ingredient.Quantity;
-                        Unit = ingredient.Unit;
-                        IngredientName = ingredient.IngredientName;
+                        if (ingredient is not null)
+                            Ingredients.Add(ingredient.Text);
+
                     }
                 }
             }
