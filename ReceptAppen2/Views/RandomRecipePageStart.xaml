@@ -1,80 +1,93 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ReceptAppen2.RandomRecipePageStart"
-             xmlns:model="clr-namespace:ReceptAppen2.Models"
-             xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
-             x:DataType="model:RecipeSearch"
-             Title="*BURP* Oh, sorry">
+<ContentPage
+    x:Class="ReceptAppen2.RandomRecipePageStart"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:ReceptAppen2.Models"
+    xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
+    Title="*BURP* Oh, sorry"
+    x:DataType="model:RecipeSearch">
     <ScrollView>
-
-
-
-        <Grid Padding="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-
-        <!-- Överskrift och LoginKnapp-->
-        <HorizontalStackLayout>
-            <Label Text="Se" Style="{StaticResource LargeLabel}" TextColor="{StaticResource Primary}"/>
-            <Label Text=" Recept" Style="{StaticResource LargeLabel}" TextColor="{StaticResource Accent}"/>
-        </HorizontalStackLayout>
-
-        <!-- LOGGA IN KNAPP FRÅN HÖGRA HÖRNET -->
-            <!-- Vi ska binda den och en till knapp med en och samma metod och använda IsVisible -->
-        <!--<Button
+        <Grid Padding="10" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, *, Auto">
+            <!--  Överskrift och LoginKnapp  -->
+            <HorizontalStackLayout Grid.ColumnSpan="2" Grid.Row="0">
+                <Label Grid.Column="0" Grid.Row="0"
+                    Style="{StaticResource LargeLabel}"
+                    Text="Se"
+                    TextColor="{StaticResource Primary}" />
+                <Label Grid.Column="0" Grid.Row="0"
+                    Style="{StaticResource LargeLabel}"
+                    Text=" Recept"
+                    TextColor="{StaticResource Accent}"/>
+            </HorizontalStackLayout>
+            <!--  LOGGA IN KNAPP FRÅN HÖGRA HÖRNET  -->
+            <!--  Vi ska binda den och en till knapp med en och samma metod och använda IsVisible  -->
+            <!--<Button
                 Command="{Binding }"
                 Text="{Binding LogInButtonText}"
                 HorizontalOptions="End"
                 VerticalOptions="End" Style="{StaticResource ButtonOutline}"/>-->
+                <Button Grid.Column="1" Grid.Row="0"
+                        Text="Logga in"
+                        Style="{StaticResource ButtonOutline}"
+                        HorizontalOptions="End"
+                        VerticalOptions="Start"
+                        WidthRequest="100"/>
 
-        <!-- TEST -->
-        <ScrollView Padding="100">
-            <ListView
-            ItemsSource="{Binding Recipes}"
-            ItemSelected="OnItemSelectedChanged">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="model:Recipe">
-                        <ViewCell>
-                            <Grid 
-                            Padding="10"
-                            ColumnDefinitions="Auto, Auto"
-                            ColumnSpacing="20"
-                                HorizontalOptions="Center">
 
-                                <!-- BILD PÅ MAT -->
-                                <Image Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" HorizontalOptions="Start"/>
+            <!--  TEST  -->
+            <ScrollView Padding="100" Grid.ColumnSpan="2">
+                <ListView ItemSelected="OnItemSelectedChanged" ItemsSource="{Binding Recipes}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Recipe">
+                            <ViewCell>
+                                <Grid
+                                    Padding="10"
+                                    ColumnDefinitions="Auto, Auto"
+                                    ColumnSpacing="20"
+                                    HorizontalOptions="Center">
 
-                                <Grid Grid.Column="1" Padding="5" MinimumWidthRequest="200">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
+                                    <!--  BILD PÅ MAT  -->
+                                    <Image
+                                        Aspect="AspectFill"
+                                        HeightRequest="150"
+                                        HorizontalOptions="Start"
+                                        Source="{Binding ImageUrl}"
+                                        WidthRequest="150" />
 
-                                    <!-- Title-->
-                                    <Label Grid.Row="0"
-                                       Text="{Binding Title, StringFormat='{0}'}" Style="{StaticResource MediumLabel}"/>
+                                    <Grid
+                                        Grid.Column="1"
+                                        Padding="5"
+                                        MinimumWidthRequest="200">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
 
-                                    <!-- Beskrivning-->
-                                        <Label Grid.Row="1"
-                                       Text="{Binding AverageRating, StringFormat='Rating {0}'}" Style="{StaticResource SmallLabel}"
-                                       Padding="0,8,0,0"/>
+                                        <!--  Title  -->
+                                        <Label
+                                            Grid.Row="0"
+                                            Style="{StaticResource MediumLabel}"
+                                            Text="{Binding Title, StringFormat='{0}'}" />
 
+                                        <!--  Beskrivning  -->
+                                        <Label
+                                            Grid.Row="1"
+                                            Padding="0,8,0,0"
+                                            Style="{StaticResource SmallLabel}"
+                                            Text="{Binding AverageRating, StringFormat='Rating {0}'}" />
+
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollView>
-    </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </Grid>
     </ScrollView>
 </ContentPage>
 
