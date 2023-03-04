@@ -96,7 +96,7 @@ namespace ReceptAppen2.ViewModels
 
                     foreach (var ingredient in item.Ingredients)
                     {
-                        Text = ingredient.Text;
+                        Ingridient.Text = ingredient.Text;
                         Quantity = ingredient.Quantity;
                         Unit = ingredient.Unit;
                         IngredientName = ingredient.IngredientName;
