@@ -71,7 +71,7 @@ namespace ReceptAppen2.ViewModels
                     if (item.GroupName is not null)
                         Ingredientgroups.Add(item.GroupName);
 
-                    foreach (var ingredient in item.Ingredients)
+                    foreach (var ingredient in (item.Ingredients))
                     {
                         if (ingredient is not null)
                             Ingredients.Add(ingredient.Text);

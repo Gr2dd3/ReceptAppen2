@@ -8,41 +8,50 @@
     x:DataType="viewmodel:RecipeDetailsViewModel">
     <ScrollView>
 
-        <Grid RowDefinitions="Auto, Auto , Auto, Auto, Auto" RowSpacing="20"
+        <VerticalStackLayout>
+
+            <Grid RowDefinitions="Auto, Auto , Auto, Auto, Auto" RowSpacing="20" ColumnSpacing="20"
               ColumnDefinitions="Auto, Auto">
-            <!--  BILD  -->
-            <Image
+
+                <Label Text="{Binding CookingTime}"/>
+                <HorizontalStackLayout Spacing="10">
+                    <!--  BILD  -->
+                    <Image
                 Grid.Row="0"
                 Grid.Column="0"
                 HeightRequest="400"
                 WidthRequest="400"
                 HorizontalOptions="Start"
-                Source="{Binding ImageUrl}" />
+                Source="{Binding ImageUrl}"/>
 
-            <ListView ItemsSource="{Binding Ingredientgroups}" Grid.Row="0" Grid.Column="1">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="viewmodel:RecipeDetailsViewModel">
-                        <ViewCell>
-                            <Label
-                                    HorizontalOptions="End"
-                                    Text="{Binding .}" />
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <!--  INGREDIENTS  -->
-            <ListView ItemsSource="{Binding Ingredients}" Grid.Row="1" Grid.Column="2">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="viewmodel:RecipeDetailsViewModel">
-                        <ViewCell>
-                            <Label
-                                    HorizontalOptions="End"
-                                    Text="{Binding .}" />
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                    <ListView ItemsSource="{Binding Ingredientgroups}" Grid.Row="0" Grid.Column="1">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="viewmodel:RecipeDetailsViewModel">
+                                <ViewCell>
+                                    <Label
+                                HorizontalOptions="Start"
+                                VerticalOptions="Start"
+                                Text="{Binding .}" />
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
 
-        </Grid>
+                    <!--  INGREDIENTS  -->
+                    <ListView ItemsSource="{Binding Ingredients}" Grid.Row="0" Grid.Column="2" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="viewmodel:RecipeDetailsViewModel">
+                                <ViewCell>
+                                    <Label
+                                    VerticalOptions="Center"
+                                    Text="{Binding .}" />
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </HorizontalStackLayout>
+
+            </Grid>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

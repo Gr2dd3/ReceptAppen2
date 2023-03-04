@@ -55,17 +55,10 @@
                                         Source="{Binding ImageUrl}"
                                         WidthRequest="150" />
 
-                                    <Grid
+                                    <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto"
                                         Grid.Column="1"
                                         Padding="5"
                                         MinimumWidthRequest="200">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                        </Grid.RowDefinitions>
 
                                         <!--  Title  -->
                                         <Label
@@ -73,13 +66,19 @@
                                             Style="{StaticResource MediumLabel}"
                                             Text="{Binding Title, StringFormat='{0}'}" />
 
-                                        <!--  Beskrivning  -->
+                                        <!--  Tillagningstid  -->
                                         <Label
                                             Grid.Row="1"
                                             Padding="0,8,0,0"
                                             Style="{StaticResource SmallLabel}"
-                                            Text="{Binding AverageRating, StringFormat='Rating {0}'}" />
-
+                                            Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
+                                        
+                                        <!--  Svårighetsgrad  -->
+                                        <Label
+                                            Grid.Row="2"
+                                            Padding="0,8,0,0"
+                                            Style="{StaticResource SmallLabel}"
+                                            Text="{Binding Difficulty, StringFormat='Svårighetsgrad: {0}'}" />
                                     </Grid>
                                 </Grid>
                             </ViewCell>

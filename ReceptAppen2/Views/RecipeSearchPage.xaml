@@ -79,7 +79,7 @@
                                     Grid.Row="1"
                                     Padding="0,8,0,0"
                                     Style="{StaticResource SmallLabel}"
-                                    Text="{Binding AverageRating, StringFormat='Rating {0}'}" />
+                                    Text="{Binding IngredientCount, StringFormat='Antal ingredienser {0}'}" />
 
                                 <!--  Lista  -->
                                 <FlexLayout
