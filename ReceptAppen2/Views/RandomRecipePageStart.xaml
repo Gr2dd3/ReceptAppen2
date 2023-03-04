@@ -8,17 +8,24 @@
     Title="*BURP* Oh, sorry"
     x:DataType="model:RecipeSearch">
     <ScrollView>
-        <Grid Padding="10" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, *, Auto">
+        <Grid
+            Padding="10"
+            ColumnDefinitions="*, *"
+            RowDefinitions="Auto, Auto, *, Auto">
             <!--  Överskrift och LoginKnapp  -->
-            <HorizontalStackLayout Grid.ColumnSpan="2" Grid.Row="0">
-                <Label Grid.Column="0" Grid.Row="0"
+            <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
                     Style="{StaticResource LargeLabel}"
                     Text="Se"
                     TextColor="{StaticResource Primary}" />
-                <Label Grid.Column="0" Grid.Row="0"
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
                     Style="{StaticResource LargeLabel}"
                     Text=" Recept"
-                    TextColor="{StaticResource Accent}"/>
+                    TextColor="{StaticResource Accent}" />
             </HorizontalStackLayout>
             <!--  LOGGA IN KNAPP FRÅN HÖGRA HÖRNET  -->
             <!--  Vi ska binda den och en till knapp med en och samma metod och använda IsVisible  -->
@@ -27,16 +34,18 @@
                 Text="{Binding LogInButtonText}"
                 HorizontalOptions="End"
                 VerticalOptions="End" Style="{StaticResource ButtonOutline}"/>-->
-                <Button Grid.Column="1" Grid.Row="0"
-                        Text="Logga in"
-                        Style="{StaticResource ButtonOutline}"
-                        HorizontalOptions="End"
-                        VerticalOptions="Start"
-                        WidthRequest="100"/>
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalOptions="End"
+                Style="{StaticResource ButtonOutline}"
+                Text="Logga in"
+                VerticalOptions="Start"
+                WidthRequest="100" />
 
 
             <!--  TEST  -->
-            <ScrollView Padding="100" Grid.ColumnSpan="2">
+            <ScrollView Grid.ColumnSpan="2" Padding="100">
                 <ListView ItemSelected="OnItemSelectedChanged" ItemsSource="{Binding Recipes}">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:Recipe">
@@ -55,10 +64,11 @@
                                         Source="{Binding ImageUrl}"
                                         WidthRequest="150" />
 
-                                    <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto"
+                                    <Grid
                                         Grid.Column="1"
                                         Padding="5"
-                                        MinimumWidthRequest="200">
+                                        MinimumWidthRequest="200"
+                                        RowDefinitions="Auto, Auto, Auto, Auto, Auto">
 
                                         <!--  Title  -->
                                         <Label
@@ -72,7 +82,7 @@
                                             Padding="0,8,0,0"
                                             Style="{StaticResource SmallLabel}"
                                             Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
-                                        
+
                                         <!--  Svårighetsgrad  -->
                                         <Label
                                             Grid.Row="2"

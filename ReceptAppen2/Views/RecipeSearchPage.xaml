@@ -7,16 +7,19 @@
     xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
     Title="RecipeSearchPage"
     x:DataType="model:RecipeSearch">
-    <Grid Padding="10" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, *, Auto">
+    <Grid
+        Padding="10"
+        ColumnDefinitions="*, *"
+        RowDefinitions="Auto, Auto, *, Auto">
         <HorizontalStackLayout>
             <Label
                 Style="{StaticResource LargeLabel}"
                 Text="Se"
-                TextColor="{StaticResource Primary}"/>
+                TextColor="{StaticResource Primary}" />
             <Label
                 Style="{StaticResource LargeLabel}"
                 Text=" Recept"
-                TextColor="{StaticResource Accent}"/>
+                TextColor="{StaticResource Accent}" />
         </HorizontalStackLayout>
         <!--  Överskrift och LoginKnapp  -->
         <!--  LOGGA IN KNAPP FRÅN HÖGRA HÖRNET  -->
