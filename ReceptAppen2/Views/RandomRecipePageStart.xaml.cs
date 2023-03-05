@@ -15,6 +15,7 @@ public partial class RandomRecipePageStart : ContentPage
         {
             await Navigation.PushAsync(new RecipeDetailsPage(recipe));
         }
+        ((ListView)sender).SelectedItem = null;
     }
 }
 
