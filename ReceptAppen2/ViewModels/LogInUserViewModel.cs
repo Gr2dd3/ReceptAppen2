@@ -19,6 +19,7 @@ namespace ReceptAppen2.ViewModels
 
         public LogInUserViewModel()
         {
+
         }
 
         public async void LogIn()

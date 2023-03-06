@@ -26,15 +26,7 @@
                     Style="{StaticResource LargeLabel}"
                     Text=" Recept"
                     TextColor="{StaticResource Accent}" />
-            <Button
-                Grid.Row="0" Grid.Column="1"
-                Clicked="OnClickedGoToLogInPage"
-                HorizontalOptions="End"
-                Style="{StaticResource ButtonOutline}"
-                Text="Logga in"
-                VerticalOptions="End" />
             </HorizontalStackLayout>
-
 
             <!--  TEST  -->
             <ScrollView Grid.ColumnSpan="2" Padding="100">
@@ -88,6 +80,14 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </ScrollView>
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Clicked="GoToLogInPage"
+                HorizontalOptions="End"
+                Style="{StaticResource ButtonOutline}"
+                Text="Logga in"
+                VerticalOptions="Start" />
         </Grid>
     </ScrollView>
 </ContentPage>

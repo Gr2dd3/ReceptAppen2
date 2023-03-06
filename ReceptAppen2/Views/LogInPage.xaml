@@ -5,9 +5,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:ReceptAppen2.Models"
              xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
-             Title="Logga in"
-             x:DataType="viewmodel:LogInUserViewModel">
-    
+             Title="Logga in">
+
     <FlexLayout  Direction="Column" AlignItems="Center" JustifyContent="SpaceEvenly">
 
         <Grid
@@ -30,6 +29,7 @@
             <Entry Grid.Row="2"
                Grid.Column="1"
                Grid.ColumnSpan="2" 
+               x:Name="socsecnr"
                Text="{Binding Socsecnr}"
                Placeholder="Personnummer (ååmmddnnnn)"/>
 
@@ -45,8 +45,6 @@
                 Grid.Row="4"
                 Grid.Column="1"
                 Text="Logga in"/>
-
-
 
         </Grid>
     </FlexLayout>

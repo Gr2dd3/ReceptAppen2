@@ -8,7 +8,7 @@ public partial class RandomRecipePageStart : ContentPage
         BindingContext = new RandomRecipeViewModel().RandomRecipes;
     }
 
-    public async void OnItemSelectedChanged(object sender, SelectedItemChangedEventArgs e)
+    private async void OnItemSelectedChanged(object sender, SelectedItemChangedEventArgs e)
     {
         var recipe = ((ListView)sender).SelectedItem as Recipe;
         if (recipe != null)
@@ -18,7 +18,7 @@ public partial class RandomRecipePageStart : ContentPage
         ((ListView)sender).SelectedItem = null;
     }
 
-    private async void OnClickedGoToLogInPage(object sender, EventArgs e)
+    private async void GoToLogInPage(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new LogInPage());
     }
