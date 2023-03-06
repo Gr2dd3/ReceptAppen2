@@ -17,5 +17,10 @@ public partial class RandomRecipePageStart : ContentPage
         }
         ((ListView)sender).SelectedItem = null;
     }
+
+    private async void OnClickedGoToLogInPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new LogInPage());
+    }
 }
 

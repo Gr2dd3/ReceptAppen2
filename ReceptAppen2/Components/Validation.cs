@@ -33,7 +33,7 @@ namespace ReceptAppen2.Components
 
 
             // Summary
-            if(isASocialSecurityNr is true && correctTypeOfPassWord is true) 
+            if (isASocialSecurityNr is true && correctTypeOfPassWord is true)
             {
                 isValid = true;
             }
@@ -45,12 +45,18 @@ namespace ReceptAppen2.Components
         }
 
 
+        private static MatchCollection GetRegex(int nrOfDigits, string pattern)
+        {
+            Regex reg = new Regex("^\\d" + "{" + nrOfDigits + "}$");
+            MatchCollection matches = reg.Matches(pattern);
+
+            return matches;
+        }
         private static bool GetRightTypeOfPassword(string passWord)
         {
             bool isRightTypeOfPassWord = false;
 
-            Regex reg = new Regex("^\\d{6}$");
-            MatchCollection matches = reg.Matches(passWord);
+            MatchCollection matches = GetRegex(6, passWord);
 
             if (matches.Count == 1)
             {
@@ -68,8 +74,7 @@ namespace ReceptAppen2.Components
             // Luhn Algorithm
             bool isASocialSecurityNr = false;
 
-            Regex reg = new Regex("\\d{12}");
-            MatchCollection matches = reg.Matches(socialSecurityNr);
+            MatchCollection matches = GetRegex(10, socialSecurityNr);
 
             if (matches.Count == 1)
             {

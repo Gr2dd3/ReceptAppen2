@@ -1,14 +1,8 @@
-﻿using ReceptAppen2.Components;
-using ReceptAppen2.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using static ReceptAppen2.Models.SessionsData;
 
 namespace ReceptAppen2.ApplicationFacade
 {
-    internal class LogInFacade : ILogInFacade
+    public class LogInFacade : ILogInFacade
     {
 
         private readonly IValidation _validationService;
@@ -26,21 +20,16 @@ namespace ReceptAppen2.ApplicationFacade
 
         public async Task<bool> CanLogIn(string socialSecurityNr, string passWord)
         {
-            bool canLogIn = false;
-
-            if (_validationService.IsValidated(socialSecurityNr, passWord) is true)
+            if (_validationService.IsValidated(socialSecurityNr, passWord) &&
+                _authorizationService.GetAuthorizationKey(socialSecurityNr, passWord) &&
+                await _authenticationService.IsAuthenticated())
             {
-                AuthorizationKey = _authorizationService.GetAuthorizationKey(socialSecurityNr, passWord);
-                if (AuthorizationKey is not null) 
-                {
-                    if (await _authenticationService.IsAuthenticated(AuthorizationKey) is true)
-                    {
-                        canLogIn = true;
-                    }
-                }
+                return true;
             }
-
-            return canLogIn;
+            else
+            {
+                return false;
+            }
         }
     }
 }

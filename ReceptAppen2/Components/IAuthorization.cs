@@ -8,6 +8,6 @@ namespace ReceptAppen2.Components
 {
     internal interface IAuthorization
     {
-        public string GetAuthorizationKey(string socialSecurityNr, string passWord);
+        public bool GetAuthorizationKey(string socialSecurityNr, string passWord);
     }
 }

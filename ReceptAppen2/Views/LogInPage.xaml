@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+             x:Class="ReceptAppen2.Views.LogInPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:ReceptAppen2.Models"
+             xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
+             Title="Logga in"
+             x:DataType="viewmodel:LogInUserViewModel">
+    
+    <FlexLayout  Direction="Column" AlignItems="Center" JustifyContent="SpaceEvenly">
+
+        <Grid
+            ColumnDefinitions="0, 120, 120, 50*"
+            RowDefinitions="0, Auto, 50, 50, Auto, 50*"
+            Padding="10"
+            RowSpacing="10"
+            ColumnSpacing="10">
+
+            <!-- TITLE -->
+            <Label Grid.Row="1"
+               Grid.Column="1"
+               Grid.ColumnSpan="2"
+               Text="Logga in"
+               HorizontalOptions="Center"
+               FontSize="25"/>
+
+            <!-- SOCIAL SECURITY NR -->
+
+            <Entry Grid.Row="2"
+               Grid.Column="1"
+               Grid.ColumnSpan="2" 
+               Text="{Binding Socsecnr}"
+               Placeholder="Personnummer (ååmmddnnnn)"/>
+
+
+            <!-- PASSWORD -->
+            <Entry Grid.Row="3"
+               Grid.Column="1"
+               Grid.ColumnSpan="2" 
+               Text="{Binding Pass1}"
+               Placeholder="Lösenord" 
+               IsPassword="true"/>
+            <Button
+                Grid.Row="4"
+                Grid.Column="1"
+                Text="Logga in"/>
+
+
+
+        </Grid>
+    </FlexLayout>
+</ContentPage>

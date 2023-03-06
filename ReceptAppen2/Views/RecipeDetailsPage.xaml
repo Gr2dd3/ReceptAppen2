@@ -10,41 +10,48 @@
 
         <VerticalStackLayout>
 
-            <Grid RowDefinitions="Auto, Auto , Auto, Auto, Auto" RowSpacing="20" ColumnSpacing="20"
-              ColumnDefinitions="Auto, Auto">
+            <Grid
+                ColumnDefinitions="Auto, Auto"
+                ColumnSpacing="20"
+                RowDefinitions="Auto, Auto , Auto, Auto, Auto"
+                RowSpacing="20">
 
-                <Label Text="{Binding CookingTime}"/>
+                <Label Text="{Binding CookingTime}" />
                 <HorizontalStackLayout Spacing="10">
                     <!--  BILD  -->
                     <Image
-                Grid.Row="0"
-                Grid.Column="0"
-                HeightRequest="400"
-                WidthRequest="400"
-                HorizontalOptions="Start"
-                Source="{Binding ImageUrl}"/>
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HeightRequest="400"
+                        HorizontalOptions="Start"
+                        Source="{Binding ImageUrl}"
+                        WidthRequest="400" />
 
-                    <ListView ItemsSource="{Binding Ingredientgroups}" Grid.Row="0" Grid.Column="1">
+                    <ListView
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        ItemsSource="{Binding Ingredientgroups}">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="viewmodel:RecipeDetailsViewModel">
                                 <ViewCell>
                                     <Label
-                                HorizontalOptions="Start"
-                                VerticalOptions="Start"
-                                Text="{Binding .}" />
+                                        HorizontalOptions="Start"
+                                        Text="{Binding .}"
+                                        VerticalOptions="Start" />
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
 
                     <!--  INGREDIENTS  -->
-                    <ListView ItemsSource="{Binding Ingredients}" Grid.Row="0" Grid.Column="2" >
+                    <ListView
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        ItemsSource="{Binding Ingredients}">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="viewmodel:RecipeDetailsViewModel">
                                 <ViewCell>
-                                    <Label
-                                    VerticalOptions="Center"
-                                    Text="{Binding .}" />
+                                    <Label Text="{Binding .}" VerticalOptions="Center" />
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>

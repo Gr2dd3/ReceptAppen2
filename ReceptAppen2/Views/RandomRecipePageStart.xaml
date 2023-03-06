@@ -26,22 +26,14 @@
                     Style="{StaticResource LargeLabel}"
                     Text=" Recept"
                     TextColor="{StaticResource Accent}" />
-            </HorizontalStackLayout>
-            <!--  LOGGA IN KNAPP FRÅN HÖGRA HÖRNET  -->
-            <!--  Vi ska binda den och en till knapp med en och samma metod och använda IsVisible  -->
-            <!--<Button
-                Command="{Binding }"
-                Text="{Binding LogInButtonText}"
-                HorizontalOptions="End"
-                VerticalOptions="End" Style="{StaticResource ButtonOutline}"/>-->
             <Button
-                Grid.Row="0"
-                Grid.Column="1"
+                Grid.Row="0" Grid.Column="1"
+                Clicked="OnClickedGoToLogInPage"
                 HorizontalOptions="End"
                 Style="{StaticResource ButtonOutline}"
                 Text="Logga in"
-                VerticalOptions="Start"
-                WidthRequest="100" />
+                VerticalOptions="End" />
+            </HorizontalStackLayout>
 
 
             <!--  TEST  -->

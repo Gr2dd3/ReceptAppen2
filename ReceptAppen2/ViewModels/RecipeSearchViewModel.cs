@@ -5,7 +5,7 @@
         public RecipeSearch RecipeSearch { get; set; }
         public RecipeSearchViewModel()
         {
-            if (SessionsData.User is not null)
+            if (SessionsData.LoggedInUser is not null)
             {
                 //TODO: Skicka med login
                 RecipeSearch = new RecipeSearch();
