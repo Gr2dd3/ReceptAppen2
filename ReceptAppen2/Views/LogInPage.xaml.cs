@@ -7,9 +7,9 @@ public partial class LogInPage : ContentPage
        BindingContext = new LogInUserViewModel();
     }
 
-    //private async void OnClickedGoToUserPage(object sender, EventArgs e)
-    //{
-    //    await Navigation.PushAsync(new UserMainPage());
-    //}
+    private async void OnClickedGoToUserPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new UserMainPage());
+    }
 
 }
