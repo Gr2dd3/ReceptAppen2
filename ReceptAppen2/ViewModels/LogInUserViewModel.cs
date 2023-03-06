@@ -4,11 +4,7 @@ namespace ReceptAppen2.ViewModels
 {
     public partial class LogInUserViewModel : ObservableObject
     {
-        //[ObservableProperty]
-        //string password;
 
-        //[ObservableProperty]
-        //string socialSecurityNumber;
         [ObservableProperty]
         string pass1;
 
@@ -33,7 +29,8 @@ namespace ReceptAppen2.ViewModels
                     await UserService.GetUserAsync();
                 }
             }
-            string name = SessionsData.LoggedInUser.FirstName;
+
+            //TODO: Try-catch with popUp message
         }
     }
 }
