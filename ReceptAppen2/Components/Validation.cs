@@ -74,7 +74,7 @@ namespace ReceptAppen2.Components
             // Luhn Algorithm
             bool isASocialSecurityNr = false;
 
-            MatchCollection matches = GetRegex(10, socialSecurityNr);
+            MatchCollection matches = GetRegex(12, socialSecurityNr);
 
             if (matches.Count == 1)
             {

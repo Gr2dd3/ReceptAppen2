@@ -5,7 +5,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:ReceptAppen2.Models"
              xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
-             Title="Logga in">
+             Title="Logga in"
+             x:DataType="viewmodel:LogInUserViewModel">
 
     <FlexLayout  Direction="Column" AlignItems="Center" JustifyContent="SpaceEvenly">
 
@@ -44,6 +45,7 @@
             <Button
                 Grid.Row="4"
                 Grid.Column="1"
+                Command="{Binding LogInCommand}"
                 Text="Logga in"/>
 
         </Grid>

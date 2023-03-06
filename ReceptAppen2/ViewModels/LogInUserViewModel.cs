@@ -22,6 +22,7 @@ namespace ReceptAppen2.ViewModels
 
         }
 
+        [RelayCommand]
         public async void LogIn()
         {
             TryLogIn = new LogInFacade();
