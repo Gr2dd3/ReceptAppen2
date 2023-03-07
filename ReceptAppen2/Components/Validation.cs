@@ -49,6 +49,8 @@ namespace ReceptAppen2.Components
         private static MatchCollection GetRegex(int nrOfDigits, string pattern)
         {
             Regex reg = new Regex("^\\d" + "{" + nrOfDigits + "}$");
+
+
             if (pattern is not null)
             {
                 MatchCollection matches = reg.Matches(pattern);
@@ -56,7 +58,7 @@ namespace ReceptAppen2.Components
             }
             else
             {
-                MatchCollection matches = reg.Matches("");
+                MatchCollection matches = reg.Matches("0");
                 return matches;
             }
 

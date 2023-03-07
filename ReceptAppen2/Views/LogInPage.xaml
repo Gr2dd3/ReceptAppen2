@@ -12,7 +12,7 @@
 
         <Grid
             ColumnDefinitions="0, 120, 120, 50*"
-            RowDefinitions="0, Auto, 50, 50, Auto, 50*"
+            RowDefinitions="0, Auto, 50, 50, Auto, Auto, 50*"
             Padding="10"
             RowSpacing="10"
             ColumnSpacing="10">
@@ -32,11 +32,7 @@
                Grid.ColumnSpan="2"
                Text="{Binding Socsecnr}"
                Placeholder="Personnummer (ååmmddnnnn)"/>
-            <!--<Entry Grid.Row="2"
-               Grid.Column="1"
-               Grid.ColumnSpan="2" 
-               x:Name="socsecnrEntry"
-               Placeholder="Personnummer (ååmmddnnnn)"/>-->
+
 
 
              <!--PASSWORD--> 
@@ -46,23 +42,20 @@
                Text="{Binding Pass1}"
                Placeholder="Lösenord" 
                IsPassword="true"/>
-            <!--<Entry Grid.Row="3"
-               Grid.Column="1"
-               Grid.ColumnSpan="2"
-              x:Name="passwordEntry"
-               Placeholder="Lösenord" 
-               IsPassword="true"/>-->
+
             <Button
                 Grid.Row="4"
                 Grid.Column="1"
                 Command="{Binding LogInCommand}"
+                Style="{StaticResource ButtonOutline}"
                 Clicked="OnClickedGoToUserPage"
                 Text="Logga in"/>
-            <!--<Button
+            <Button
                 Grid.Row="4"
-                Grid.Column="1"
-                Clicked="OnClickedGoToUserPage"
-                Text="Logga in"/>-->
+                Grid.Column="2"
+                Clicked="OnClickedGoBack"
+                Style="{StaticResource ButtonOutline}"
+                Text="Gå tillbaka"/>
 
         </Grid>
     </FlexLayout>
