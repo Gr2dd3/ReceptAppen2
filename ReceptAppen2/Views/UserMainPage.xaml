@@ -26,5 +26,22 @@
                     Text="{Binding User.LastName, StringFormat=' {0}'}"
                     TextColor="{StaticResource Accent}" />
         </HorizontalStackLayout>
-    </Grid>
+
+        <FlexLayout  Direction="Column" AlignItems="Center" JustifyContent="SpaceEvenly">
+
+            <Grid
+            ColumnDefinitions="0, 80, 80, 50*"
+            RowDefinitions="0, Auto, Auto, Auto, 50*"
+            Padding="10"
+            RowSpacing="10"
+            ColumnSpacing="10">
+
+                <Button 
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="Receptsök">
+                </Button>
+                
+            </Grid>
+        </FlexLayout>
 </ContentPage>
