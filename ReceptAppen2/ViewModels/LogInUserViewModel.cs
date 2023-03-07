@@ -20,19 +20,21 @@ namespace ReceptAppen2.ViewModels
         public async void LogIn()
         {
             TryLogIn = new LogInFacade();
-            SessionsData.LoggedInUser = null;
 
-            if (await TryLogIn.CanLogIn(Socsecnr, Pass1))
+            if (SessionsData.LoggedInUser == null)
             {
-                SessionsData.LoggedInUser = await UserService.GetUserAsync();
-                if (SessionsData.LoggedInUser is not null)
+                if (await TryLogIn.CanLogIn(Socsecnr, Pass1))
                 {
-                    SessionsData.IsloggedIn = true;
+                    SessionsData.LoggedInUser = await UserService.GetUserAsync();
+                    if (SessionsData.LoggedInUser is not null)
+                    {
+                        SessionsData.IsloggedIn = true;
+                    }
                 }
-            }
-            else
-            {
-                await Shell.Current.DisplayAlert("Fel", $"Kan ej hämta användare", "OK");
+                else
+                {
+                    await Shell.Current.DisplayAlert("Fel", $"Kan ej hämta användare", "OK");
+                }
             }
         }
     }

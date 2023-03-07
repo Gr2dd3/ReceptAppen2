@@ -3,11 +3,28 @@
     x:Class="ReceptAppen2.Views.UserMainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="UserMainPage">
-    <VerticalStackLayout>
-        <Label
-            HorizontalOptions="End"
-            Text="blabla"
-            VerticalOptions="Center" />
-    </VerticalStackLayout>
+    xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
+    Title="Mina Sidor"
+    x:DataType="viewmodel:UserMainPageViewModel">
+
+    <Grid
+            Padding="10"
+            ColumnDefinitions="*, *"
+            RowDefinitions="Auto, Auto, *, Auto">
+        <!--  Överskrift och LoginKnapp  -->
+        <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
+            <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource LargeLabel}"
+                    Text="{Binding User.FirstName}"
+                    TextColor="{StaticResource Primary}" />
+            <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource LargeLabel}"
+                    Text="{Binding User.LastName, StringFormat=' {0}'}"
+                    TextColor="{StaticResource Accent}" />
+        </HorizontalStackLayout>
+    </Grid>
 </ContentPage>

@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace ReceptAppen2.ViewModels
 {
-    internal class UserMainPageViewModel
+    internal partial class UserMainPageViewModel : ObservableObject
     {
+        [ObservableProperty]
+        User user;
+
+
+        public UserMainPageViewModel()
+        {
+            User = SessionsData.LoggedInUser;
+        }
     }
 }
