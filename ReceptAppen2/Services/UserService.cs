@@ -21,9 +21,9 @@ namespace ReceptAppen2.Services
 
         private static void SetAuthenticationTicket()
         {
-            //SessionsData.AuthenticationTicket = SessionsData.Response.Content.Headers.Select(x => x.Key).Where(x => x.Key == "AuthenticationTicket").FirstOrDefault();
-
-            var auth = SessionsData.Response.Content.Headers.Where(x => x.Key.Contains("AuthenticationTicket")).Select(x => x.Value).FirstOrDefault();
+            SessionsData.AuthenticationTicket = SessionsData.Response.Headers
+             .Where(x => x.Key.Contains("AuthenticationTicket"))
+             .Select(x => x.Value.FirstOrDefault()).FirstOrDefault().ToString();    
 
         }
     }
