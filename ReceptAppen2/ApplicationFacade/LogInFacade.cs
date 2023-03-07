@@ -9,7 +9,6 @@ namespace ReceptAppen2.ApplicationFacade
         private readonly IAuthentication _authenticationService;
         private readonly IAuthorization _authorizationService;
 
-        public string AuthorizationKey { get; set; }
 
         public LogInFacade()
         {

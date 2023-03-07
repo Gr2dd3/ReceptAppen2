@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,9 +49,18 @@ namespace ReceptAppen2.Components
         private static MatchCollection GetRegex(int nrOfDigits, string pattern)
         {
             Regex reg = new Regex("^\\d" + "{" + nrOfDigits + "}$");
-            MatchCollection matches = reg.Matches(pattern);
+            if (pattern is not null)
+            {
+                MatchCollection matches = reg.Matches(pattern);
+                return matches;
+            }
+            else
+            {
+                MatchCollection matches = reg.Matches("");
+                return matches;
+            }
 
-            return matches;
+
         }
         private static bool GetRightTypeOfPassword(string passWord)
         {

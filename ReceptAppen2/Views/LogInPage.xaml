@@ -29,25 +29,40 @@
 
             <Entry Grid.Row="2"
                Grid.Column="1"
-               Grid.ColumnSpan="2" 
-               x:Name="socsecnr"
+               Grid.ColumnSpan="2"
                Text="{Binding Socsecnr}"
                Placeholder="Personnummer (ååmmddnnnn)"/>
+            <!--<Entry Grid.Row="2"
+               Grid.Column="1"
+               Grid.ColumnSpan="2" 
+               x:Name="socsecnrEntry"
+               Placeholder="Personnummer (ååmmddnnnn)"/>-->
 
 
-            <!-- PASSWORD -->
+             <!--PASSWORD--> 
             <Entry Grid.Row="3"
                Grid.Column="1"
                Grid.ColumnSpan="2" 
                Text="{Binding Pass1}"
                Placeholder="Lösenord" 
                IsPassword="true"/>
+            <!--<Entry Grid.Row="3"
+               Grid.Column="1"
+               Grid.ColumnSpan="2"
+              x:Name="passwordEntry"
+               Placeholder="Lösenord" 
+               IsPassword="true"/>-->
             <Button
                 Grid.Row="4"
                 Grid.Column="1"
                 Command="{Binding LogInCommand}"
                 Clicked="OnClickedGoToUserPage"
                 Text="Logga in"/>
+            <!--<Button
+                Grid.Row="4"
+                Grid.Column="1"
+                Clicked="OnClickedGoToUserPage"
+                Text="Logga in"/>-->
 
         </Grid>
     </FlexLayout>

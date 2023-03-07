@@ -7,13 +7,15 @@ namespace ReceptAppen2.Services
         /// GetUserAsync
         /// </summary>
         /// <returns></returns>
-        internal static async Task GetUserAsync()
+        internal static async Task<User> GetUserAsync()
         {
+            User user = null;
             if (Response.IsSuccessStatusCode)
             {
                 string responseString = await Response.Content.ReadAsStringAsync();
-                LoggedInUser = JsonSerializer.Deserialize<User>(responseString);
+                user = JsonSerializer.Deserialize<User>(responseString);
             }
+            return user;
         }
     }
 }

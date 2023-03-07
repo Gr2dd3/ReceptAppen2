@@ -13,5 +13,7 @@ namespace ReceptAppen2.Models
 
         public static HttpResponseMessage Response { get; set; }
 
+        public static bool IsloggedIn { get; set; }
+
     }
 }

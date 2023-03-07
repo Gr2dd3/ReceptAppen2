@@ -6,8 +6,8 @@
     Title="UserMainPage">
     <VerticalStackLayout>
         <Label
-            HorizontalOptions="Center"
-            Text="Welcome to .NET MAUI!"
+            HorizontalOptions="End"
+            Text="blabla"
             VerticalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>

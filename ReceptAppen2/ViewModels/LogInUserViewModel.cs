@@ -14,20 +14,30 @@ namespace ReceptAppen2.ViewModels
 
         public LogInFacade TryLogIn { get; set; }
 
-        public LogInUserViewModel()
-        {
 
-        }
 
         [RelayCommand]
         public async void LogIn()
         {
             TryLogIn = new LogInFacade();
+            SessionsData.LoggedInUser = null;
             if (SessionsData.LoggedInUser == null)
             {
                 if (await TryLogIn.CanLogIn(Socsecnr, Pass1))
                 {
-                    await UserService.GetUserAsync();
+                    try
+                    {
+                        SessionsData.LoggedInUser = await UserService.GetUserAsync();
+                        if (SessionsData.LoggedInUser is not null)
+                        {
+                            SessionsData.IsloggedIn = true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex);
+                        await Shell.Current.DisplayAlert("Fel", $"Kan ej hämta användare: {ex.Message}", "OK");
+                    }
                 }
             }
         }
