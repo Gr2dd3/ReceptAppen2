@@ -41,25 +41,29 @@
                     Grid.Column="0"
                     FontSize="Large"
                     Text="Receptsök"
-                    Clicked="OnClickedGoToRecipeSearchPage">
+                    Clicked="OnClickedGoToRecipeSearchPage"
+                    Style="{StaticResource ButtonOutline}">
                 </Button>
                 <Button 
                     Grid.Row="0"
                     Grid.Column="1"
                     FontSize="Large"
-                    Text="Mitt Skafferi">
+                    Text="Mitt Skafferi"
+                    Style="{StaticResource ButtonOutline}">
                 </Button>
                 <Button 
                     Grid.Row="1"
                     Grid.Column="0"
                     FontSize="Large"
-                    Text="Mina recept">
+                    Text="Mina recept"
+                    Style="{StaticResource ButtonOutline}">
                 </Button>
                 <Button 
                     Grid.Row="1"
                     Grid.Column="1"
                     FontSize="Large"
-                    Text="Ekonomi">
+                    Text="Ekonomi"
+                    Style="{StaticResource ButtonOutline}">
                 </Button>
 
             </Grid>

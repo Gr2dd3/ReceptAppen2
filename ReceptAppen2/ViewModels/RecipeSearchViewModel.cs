@@ -2,7 +2,8 @@
 {
     internal partial class RecipeSearchViewModel : ObservableObject
     {
-
+        [ObservableProperty]
+        string searchPhrase;
         public RecipeSearch RecipeSearch { get; set; }
         public RecipeSearchViewModel()
         {
@@ -12,7 +13,7 @@
                 if (SessionsData.IsloggedIn)
                 {
                     RecipeSearch = new RecipeSearch();
-                    var task = Task.Run(() => RecipeSearchService.GetRecipeSearchAsync());
+                    var task = Task.Run(() => RecipeSearchService.GetRecipeSearchAsync(SearchPhrase));
                     task.Wait();
                     RecipeSearch = task.Result;
                 }
