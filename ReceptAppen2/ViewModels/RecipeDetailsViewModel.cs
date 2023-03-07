@@ -7,7 +7,8 @@ namespace ReceptAppen2.ViewModels
         [ObservableProperty]
         Recipe recipe1;
 
-
+        [ObservableProperty]
+        List<string> cookingsteps;
         // Class -> Recipe
         [ObservableProperty]
         string imageUrl;
@@ -48,6 +49,7 @@ namespace ReceptAppen2.ViewModels
             Ingredients = new ObservableCollection<string>();
             recipe1 = recipe;
             GetRecipeDetails();
+            GetCookingsteps();
         }
 
         [RelayCommand]
@@ -81,9 +83,14 @@ namespace ReceptAppen2.ViewModels
             }
         }
 
+        private void GetCookingsteps()
+        {
+            Cookingsteps = new List<string>();
+            if(Recipe1.CookingSteps is not null)
+            Recipe1.CookingSteps.ForEach(x => Cookingsteps.Add(x.ToString()));
+        }
 
-
-
+ 
     }
 }
 

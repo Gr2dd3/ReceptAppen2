@@ -4,20 +4,18 @@
     {
         [ObservableProperty]
         string searchPhrase;
+
+        [ObservableProperty]
+        List<Recipe> recipes;
+
         public RecipeSearch RecipeSearch { get; set; }
-        public RecipeSearchViewModel()
+
+        [RelayCommand]
+        private async void Search()
         {
-            if (SessionsData.LoggedInUser is not null)
-            {
-                //TODO:
-                if (SessionsData.IsloggedIn)
-                {
-                    RecipeSearch = new RecipeSearch();
-                    var task = Task.Run(() => RecipeSearchService.GetRecipeSearchAsync(SearchPhrase));
-                    task.Wait();
-                    RecipeSearch = task.Result;
-                }
-            }
+            RecipeSearch = new RecipeSearch();
+            RecipeSearch = await RecipeSearchService.GetRecipeSearchAsync(SearchPhrase);
         }
+
     }
 }

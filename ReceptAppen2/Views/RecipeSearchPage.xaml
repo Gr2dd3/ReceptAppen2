@@ -5,8 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:model="clr-namespace:ReceptAppen2.Models"
     xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
-    Title="RecipeSearchPage"
-    x:DataType="model:RecipeSearch">
+    Title="RecipeSearchPage">
     <Grid
         Padding="10"
         ColumnDefinitions="*, *"
@@ -24,6 +23,19 @@
         
         
         <!-- SKAPA SEARCHBAR -->
+        <Entry Grid.Row="3"
+               Grid.Column="1"
+               Grid.ColumnSpan="2" 
+               Text="{Binding SearchPhrase}"
+               Placeholder="Sök recept" />
+
+        <Button
+                Grid.Row="4"
+                Grid.Column="1"
+                Command="{Binding SearchCommand}"
+                Style="{StaticResource ButtonOutline}"
+                Text="Sök"/>
+
 
 
         <!--  Rullningslist  -->

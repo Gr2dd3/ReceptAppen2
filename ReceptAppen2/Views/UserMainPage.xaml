@@ -8,63 +8,69 @@
     x:DataType="viewmodel:UserMainPageViewModel">
 
     <Grid
-            Padding="10"
-            ColumnDefinitions="*, *"
-            RowDefinitions="Auto, Auto, *, Auto">
+        Padding="10"
+        ColumnDefinitions="*, *"
+        RowDefinitions="Auto, Auto, *, Auto">
         <!--  Överskrift och LoginKnapp  -->
         <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
             <Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Style="{StaticResource LargeLabel}"
-                    Text="{Binding User.FirstName}"
-                    TextColor="{StaticResource Primary}" />
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{StaticResource LargeLabel}"
+                Text="{Binding User.FirstName}"
+                TextColor="{StaticResource Primary}" />
             <Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Style="{StaticResource LargeLabel}"
-                    Text="{Binding User.LastName, StringFormat=' {0}'}"
-                    TextColor="{StaticResource Accent}" />
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{StaticResource LargeLabel}"
+                Text="{Binding User.LastName, StringFormat=' {0}'}"
+                TextColor="{StaticResource Accent}" />
         </HorizontalStackLayout>
 
-    <FlexLayout Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Direction="Column" AlignItems="Center" JustifyContent="SpaceEvenly">
+        <FlexLayout
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            AlignItems="Center"
+            Direction="Column"
+            JustifyContent="SpaceEvenly">
 
             <Grid
-            ColumnDefinitions="Auto, Auto"
-            RowDefinitions="Auto, Auto, Auto"
-            Padding="10"
-            RowSpacing="10"
-            ColumnSpacing="10">
+                Padding="10"
+                ColumnDefinitions="Auto, Auto"
+                ColumnSpacing="10"
+                RowDefinitions="Auto, Auto, Auto"
+                RowSpacing="10">
 
-                <Button 
+                <Button
                     Grid.Row="0"
                     Grid.Column="0"
-                    FontSize="Large"
-                    Text="Receptsök"
+                    Padding="1"
                     Clicked="OnClickedGoToRecipeSearchPage"
-                    Style="{StaticResource ButtonOutline}">
-                </Button>
-                <Button 
+                    FontSize="Medium"
+                    Style="{StaticResource ButtonOutline}"
+                    Text="Receptsök" />
+                <Button
                     Grid.Row="0"
                     Grid.Column="1"
-                    FontSize="Large"
-                    Text="Mitt Skafferi"
-                    Style="{StaticResource ButtonOutline}">
-                </Button>
-                <Button 
+                    Padding="1"
+                    FontSize="Medium"
+                    Style="{StaticResource ButtonOutline}"
+                    Text="Mitt Skafferi" />
+                <Button
                     Grid.Row="1"
                     Grid.Column="0"
-                    FontSize="Large"
-                    Text="Mina recept"
-                    Style="{StaticResource ButtonOutline}">
-                </Button>
-                <Button 
+                    Padding="1"
+                    FontSize="Medium"
+                    Style="{StaticResource ButtonOutline}"
+                    Text="Mina recept" />
+                <Button
                     Grid.Row="1"
                     Grid.Column="1"
-                    FontSize="Large"
-                    Text="Ekonomi"
-                    Style="{StaticResource ButtonOutline}">
-                </Button>
+                    Padding="1"
+                    FontSize="Medium"
+                    Style="{StaticResource ButtonOutline}"
+                    Text="Ekonomi" />
 
             </Grid>
         </FlexLayout>

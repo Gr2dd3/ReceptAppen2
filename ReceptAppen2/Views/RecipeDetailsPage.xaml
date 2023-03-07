@@ -11,7 +11,7 @@
         <VerticalStackLayout>
 
             <Grid
-                ColumnDefinitions="Auto, Auto"
+                ColumnDefinitions="Auto, 300, 300"
                 ColumnSpacing="20"
                 RowDefinitions="Auto, Auto , Auto, Auto, Auto"
                 RowSpacing="20">
@@ -27,10 +27,26 @@
                         Source="{Binding ImageUrl}"
                         WidthRequest="400" />
 
+
+                    <!--  INGREDIENTS  -->
                     <ListView
-                        Grid.Row="0"
+                        Grid.Row="1"
                         Grid.Column="1"
-                        ItemsSource="{Binding Ingredientgroups}">
+                        ItemsSource="{Binding Ingredients}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="viewmodel:RecipeDetailsViewModel">
+                                <ViewCell>
+                                    <Label Text="{Binding .}" VerticalOptions="Center" />
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </HorizontalStackLayout>
+                
+                    <ListView
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        ItemsSource="{Binding Cookingsteps}">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="viewmodel:RecipeDetailsViewModel">
                                 <ViewCell>
@@ -42,21 +58,6 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-
-                    <!--  INGREDIENTS  -->
-                    <ListView
-                        Grid.Row="0"
-                        Grid.Column="2"
-                        ItemsSource="{Binding Ingredients}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:DataType="viewmodel:RecipeDetailsViewModel">
-                                <ViewCell>
-                                    <Label Text="{Binding .}" VerticalOptions="Center" />
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </HorizontalStackLayout>
 
             </Grid>
         </VerticalStackLayout>
