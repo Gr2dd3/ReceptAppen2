@@ -2,15 +2,13 @@
 {
     internal class RecipeSearchService
     {
-        public static async Task<RecipeSearch> GetRecipeSearchAsync(/*string apiKey*/)
+        public static async Task<RecipeSearch> GetRecipeSearchAsync()
         {
-            // Mattias
-            string hardCodedUser = "ODYxMjMwMDI3MDo0ODQzMTE=";
 
             // Request
             var client = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Get, "https://handla.api.ica.se/api/recipes/searchwithfilters?phrase=pizza&recordsPerPage=3&pageNumber=1&sorting=0");
-            request.Headers.Add("Authorization", "Basic " + hardCodedUser);
+            request.Headers.Add("Authorization", "Basic " + SessionsData.AuthorizationKey);
 
             // Response
             var response = await client.SendAsync(request);

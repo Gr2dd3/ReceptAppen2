@@ -7,4 +7,9 @@ public partial class UserMainPage : ContentPage
 		InitializeComponent();
 		BindingContext = new UserMainPageViewModel();
 	}
+
+    private async void OnClickedGoToRecipeSearchPage(object sender, EventArgs e)
+    {
+		await Navigation.PushAsync(new RecipeSearchPage());
+    }
 }

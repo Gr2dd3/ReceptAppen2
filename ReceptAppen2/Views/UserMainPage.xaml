@@ -40,7 +40,8 @@
                     Grid.Row="0"
                     Grid.Column="0"
                     FontSize="Large"
-                    Text="Receptsök">
+                    Text="Receptsök"
+                    Clicked="OnClickedGoToRecipeSearchPage">
                 </Button>
                 <Button 
                     Grid.Row="0"
@@ -56,7 +57,7 @@
                 </Button>
                 <Button 
                     Grid.Row="1"
-                    Grid.Column="0"
+                    Grid.Column="1"
                     FontSize="Large"
                     Text="Ekonomi">
                 </Button>

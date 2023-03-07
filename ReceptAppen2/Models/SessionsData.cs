@@ -12,6 +12,8 @@ namespace ReceptAppen2.Models
         public static string AuthorizationKey { get; set; }
 
         public static HttpResponseMessage Response { get; set; }
+        public static string AuthenticationTicket { get; set; }
+        public static string SessionTicket { get; set; }
 
         public static bool IsloggedIn { get; set; }
 

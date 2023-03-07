@@ -14,22 +14,17 @@
         <HorizontalStackLayout>
             <Label
                 Style="{StaticResource LargeLabel}"
-                Text="Se"
+                Text="Sök"
                 TextColor="{StaticResource Primary}" />
             <Label
                 Style="{StaticResource LargeLabel}"
                 Text=" Recept"
                 TextColor="{StaticResource Accent}" />
         </HorizontalStackLayout>
-        <!--  Överskrift och LoginKnapp  -->
-        <!--  LOGGA IN KNAPP FRÅN HÖGRA HÖRNET  -->
-        <!--  Vi ska binda den och en till knapp med en och samma metod och använda IsVisible  -->
-        <!--<Button
-                Command="{Binding }"
-            x:Name=""
-                Text="{Binding LogInButtonText}"
-                HorizontalOptions="End"
-                VerticalOptions="End" Style="{StaticResource ButtonOutline}"/>-->
+        
+        
+        <!-- SKAPA SEARCHBAR -->
+
 
         <!--  Rullningslist  -->
         <CollectionView

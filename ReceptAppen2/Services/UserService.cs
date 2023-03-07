@@ -14,8 +14,17 @@ namespace ReceptAppen2.Services
             {
                 string responseString = await Response.Content.ReadAsStringAsync();
                 user = JsonSerializer.Deserialize<User>(responseString);
+                SetAuthenticationTicket();
             }
             return user;
+        }
+
+        private static void SetAuthenticationTicket()
+        {
+            //SessionsData.AuthenticationTicket = SessionsData.Response.Content.Headers.Select(x => x.Key).Where(x => x.Key == "AuthenticationTicket").FirstOrDefault();
+
+            var auth = SessionsData.Response.Content.Headers.Where(x => x.Key.Contains("AuthenticationTicket")).Select(x => x.Value).FirstOrDefault();
+
         }
     }
 }
