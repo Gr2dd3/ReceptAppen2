@@ -15,9 +15,7 @@ namespace ReceptAppen2.ViewModels
         public LogInFacade TryLogIn { get; set; }
 
 
-
-        [RelayCommand]
-        public async void LogIn()
+        public async Task LogIn()
         {
             TryLogIn = new LogInFacade();
 

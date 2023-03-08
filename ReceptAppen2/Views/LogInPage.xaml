@@ -54,7 +54,6 @@
                 Grid.Row="4"
                 Grid.Column="1"
                 Clicked="OnClickedGoToUserPage"
-                Command="{Binding LogInCommand}"
                 Style="{StaticResource ButtonOutline}"
                 Text="Logga in" />
 
