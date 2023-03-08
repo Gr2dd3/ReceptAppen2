@@ -11,7 +11,7 @@
         Padding="2"
         RowSpacing="10"
         ColumnDefinitions="*, *"
-        RowDefinitions="Auto, Auto, *, Auto">
+        RowDefinitions="Auto, Auto, Auto, *">
         <HorizontalStackLayout>
             <Label
                 Style="{StaticResource LargeLabel}"
@@ -40,86 +40,57 @@
             Text="Sök" />
 
         <!--  Rullningslist  -->
-        <CollectionView
-            Grid.Row="2"
-            Margin="0,8"
-            ItemsSource="{Binding RecipeSearch}">
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout ItemSpacing="2" Orientation="Vertical" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Recipe">
-                    <Border
-                        MaximumHeightRequest="150"
-                        MinimumHeightRequest="150"
-                        Stroke="#efefef">
-                        <Grid MinimumWidthRequest="200">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="200" />
-                                <ColumnDefinition Width="2*" />
-                            </Grid.ColumnDefinitions>
-
-                            <!--  BILD PÅ MAT  -->
-                            <Image
-                                Aspect="AspectFill"
-                                HeightRequest="150"
-                                HorizontalOptions="Start"
-                                Source="{Binding ImageUrl}"
-                                WidthRequest="150" />
-
+        <!--  TEST  -->
+        <ScrollView Grid.ColumnSpan="2" Grid.Row="3" Padding="100">
+            <ListView ItemSelected="OnItemSelectedChanged" ItemsSource="{Binding Recipes}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Recipe">
+                        <ViewCell>
                             <Grid
-                                Grid.Column="1"
-                                Padding="5"
-                                MinimumWidthRequest="200">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
+                                    Padding="10"
+                                    ColumnDefinitions="Auto, Auto"
+                                    ColumnSpacing="20"
+                                    HorizontalOptions="Center">
 
-                                <!--  Title  -->
-                                <Label
-                                    Grid.Row="0"
-                                    Style="{StaticResource MediumLabel}"
-                                    Text="{Binding Title, StringFormat='{0}'}" />
+                                <!--  BILD PÅ MAT  -->
+                                <Image
+                                        Aspect="AspectFill"
+                                        HeightRequest="150"
+                                        HorizontalOptions="Start"
+                                        Source="{Binding ImageUrl}"
+                                        WidthRequest="150" />
 
-                                <!--  Beskrivning  -->
-                                <Label
-                                    Grid.Row="1"
-                                    Padding="0,8,0,0"
-                                    Style="{StaticResource SmallLabel}"
-                                    Text="{Binding IngredientCount, StringFormat='Antal ingredienser {0}'}" />
+                                <Grid
+                                        Grid.Column="1"
+                                        Padding="5"
+                                        MinimumWidthRequest="200"
+                                        RowDefinitions="Auto, Auto, Auto, Auto, Auto">
 
-                                <!--  Lista  -->
-                                <FlexLayout
-                                    Grid.Row="3"
-                                    Padding="3"
-                                    AlignContent="SpaceEvenly"
-                                    AlignItems="Start"
-                                    BindableLayout.ItemsSource="{Binding IngredientGroups}"
-                                    FlexLayout.Grow="1"
-                                    Wrap="Wrap">
-                                    <BindableLayout.ItemTemplate>
-                                        <DataTemplate x:DataType="model:Ingredientgroup">
-                                            <Label
-                                                Grid.Row="2"
-                                                Padding="2"
-                                                Style="{StaticResource SmallLabel}"
-                                                Text="{Binding GroupName}" />
-                                        </DataTemplate>
-                                    </BindableLayout.ItemTemplate>
-                                </FlexLayout>
+                                    <!--  Title  -->
+                                    <Label
+                                            Grid.Row="0"
+                                            Style="{StaticResource MediumLabel}"
+                                            Text="{Binding Title, StringFormat='{0}'}" />
 
-                                <!--  En till lista  -->
+                                    <!--  Tillagningstid  -->
+                                    <Label
+                                            Grid.Row="1"
+                                            Padding="0,8,0,0"
+                                            Style="{StaticResource SmallLabel}"
+                                            Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
+
+                                    <!--  Svårighetsgrad  -->
+                                    <Label
+                                            Grid.Row="2"
+                                            Padding="0,8,0,0"
+                                            Style="{StaticResource SmallLabel}"
+                                            Text="{Binding Difficulty, StringFormat='Svårighetsgrad: {0}'}" />
+                                </Grid>
                             </Grid>
-                        </Grid>
-
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-
-        </CollectionView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
     </Grid>
 </ContentPage>
