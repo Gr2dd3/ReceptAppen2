@@ -1,7 +1,7 @@
 ﻿
 namespace ReceptAppen2.ViewModels
 {
-    public partial class RecipeDetailsViewModel : ObservableObject
+    public partial class DetailsRecipeViewModel : ObservableObject
     {
         //public ObservableCollection<Recipe> Recipes { get; } = new();
         [ObservableProperty]
@@ -43,7 +43,7 @@ namespace ReceptAppen2.ViewModels
         [ObservableProperty]
         string ingredientName;
 
-        public RecipeDetailsViewModel(Recipe recipe)
+        public DetailsRecipeViewModel(Recipe recipe)
         {
             Ingredientgroups = new ObservableCollection<string>();
             Ingredients = new ObservableCollection<string>();

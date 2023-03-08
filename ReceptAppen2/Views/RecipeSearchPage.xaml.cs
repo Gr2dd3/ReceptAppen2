@@ -5,7 +5,7 @@ public partial class RecipeSearchPage : ContentPage
 	public RecipeSearchPage()
 	{
 		InitializeComponent();
-		BindingContext = new RecipeSearchViewModel().RecipeSearch;
+		BindingContext = new SearchRecipeViewModel().RecipeSearch;
 	}
 
 

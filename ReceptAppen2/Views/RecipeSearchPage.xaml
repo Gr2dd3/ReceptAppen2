@@ -20,21 +20,22 @@
                 Text=" Recept"
                 TextColor="{StaticResource Accent}" />
         </HorizontalStackLayout>
-        
-        
-        <!-- SKAPA SEARCHBAR -->
-        <Entry Grid.Row="3"
-               Grid.Column="1"
-               Grid.ColumnSpan="2" 
-               Text="{Binding SearchPhrase}"
-               Placeholder="Sök recept" />
+
+
+        <!--  SKAPA SEARCHBAR  -->
+        <Entry
+            Grid.Row="3"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Placeholder="Sök recept"
+            Text="{Binding SearchPhrase}" />
 
         <Button
-                Grid.Row="4"
-                Grid.Column="1"
-                Command="{Binding SearchCommand}"
-                Style="{StaticResource ButtonOutline}"
-                Text="Sök"/>
+            Grid.Row="4"
+            Grid.Column="1"
+            Command="{Binding SearchCommand}"
+            Style="{StaticResource ButtonOutline}"
+            Text="Sök" />
 
 
 
