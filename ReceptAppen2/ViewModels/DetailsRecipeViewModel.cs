@@ -86,10 +86,24 @@ namespace ReceptAppen2.ViewModels
         private void GetCookingsteps()
         {
             Cookingsteps = new List<string>();
+            int count = 1;
             if(Recipe1.CookingSteps is not null)
-            Recipe1.CookingSteps.ForEach(x => Cookingsteps.Add(x.ToString()));
+            Recipe1.CookingSteps.ForEach(x => Cookingsteps.Add($"{count++}. " + EncodeHtml(x.ToString())));
         }
 
+        private string EncodeHtml(string text)
+        {
+            string encodedText = text.Replace("&auml;", "ä")
+            .Replace("&aring;", "å")
+            .Replace("&egrave;", "è")
+            .Replace("&deg;", " °")
+            .Replace("&eacute;", "é")
+            .Replace("&nbsp;", " ")
+            .Replace("&ouml;", "ö")
+            .Replace("<strong>", "")
+            .Replace("</strong>", "");   
+            return encodedText;
+        }
  
     }
 }
