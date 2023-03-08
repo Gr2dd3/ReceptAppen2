@@ -1,6 +1,4 @@
-﻿using ReceptAppen2.ApplicationFacade;
-using System.Diagnostics;
-
+﻿
 namespace ReceptAppen2.ViewModels
 {
     public partial class LogInUserViewModel : ObservableObject

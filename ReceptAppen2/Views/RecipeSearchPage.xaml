@@ -8,7 +8,8 @@
     x:DataType="viewmodel:SearchRecipeViewModel"
     Title="RecipeSearchPage">
     <Grid
-        Padding="10"
+        Padding="2"
+        RowSpacing="10"
         ColumnDefinitions="*, *"
         RowDefinitions="Auto, Auto, *, Auto">
         <HorizontalStackLayout>
@@ -22,29 +23,27 @@
                 TextColor="{StaticResource Accent}" />
         </HorizontalStackLayout>
 
-
         <!--  SKAPA SEARCHBAR  -->
         <Entry
             Grid.Row="1"
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="1"
             Placeholder="Sök recept"
             Text="{Binding SearchPhrase}" />
 
         <Button
             Grid.Row="2"
-            Grid.Column="1"
+            Grid.Column="0"
             Command="{Binding SearchCommand}"
             Style="{StaticResource ButtonOutline}"
+            VerticalOptions="Start"
             Text="Sök" />
-
-
 
         <!--  Rullningslist  -->
         <CollectionView
             Grid.Row="2"
             Margin="0,8"
-            ItemsSource="{Binding Recipes}">
+            ItemsSource="{Binding RecipeSearch}">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout ItemSpacing="2" Orientation="Vertical" />
             </CollectionView.ItemsLayout>

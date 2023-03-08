@@ -7,6 +7,7 @@ global using ReceptAppen2.Services;
 global using ReceptAppen2.Contracts;
 global using ReceptAppen2.Components;
 global using ReceptAppen2.ViewModels;
+global using ReceptAppen2.ApplicationFacade;
 global using CommunityToolkit.Mvvm.Input;
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using Microsoft.Extensions.Logging;

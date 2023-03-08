@@ -8,7 +8,8 @@
         [ObservableProperty]
         List<Recipe> recipes;
 
-        public RecipeSearch RecipeSearch { get; set; }
+        [ObservableProperty]
+        RecipeSearch recipeSearch;
 
         [RelayCommand]
         private async void Search()
