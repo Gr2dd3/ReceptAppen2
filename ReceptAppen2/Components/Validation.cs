@@ -18,15 +18,11 @@ namespace ReceptAppen2.Components
             bool correctTypeOfPassWord = false;
             bool isASocialSecurityNr = false;
 
-            // Validation logic here
-
-            // TRY Social Security Number
             if (GetRightSocialNr(socialSecurityNr) is true)
             {
                 isASocialSecurityNr = true;
             }
 
-            // TRY Password
             if (GetRightTypeOfPassword(passWord) is true)
             {
                 correctTypeOfPassWord = true;
@@ -34,18 +30,7 @@ namespace ReceptAppen2.Components
 
             MyDelegate validate = GetBool;
 
-            // Summary
-
-            isValid = validate(isASocialSecurityNr, correctTypeOfPassWord);
-            //if (isASocialSecurityNr is true && correctTypeOfPassWord is true)
-            //{
-            //    isValid = true;
-            //}
-            //else
-            //{
-            //    isValid = false;
-            //}
-            return isValid;
+            return isValid = validate(isASocialSecurityNr, correctTypeOfPassWord);
         }
 
 
@@ -147,7 +132,7 @@ namespace ReceptAppen2.Components
 
         private static bool GetBool(bool one, bool two)
         {
-            bool isValid = false;
+            bool isValid;
 
             if (one is true && two is true)
             {
