@@ -14,9 +14,9 @@ namespace ReceptAppen2.Components
         private delegate bool MyDelegate(bool one, bool two);
         public bool IsValidated(string socialSecurityNr, string passWord)
         {
-            bool isValid = false;
             bool correctTypeOfPassWord = false;
             bool isASocialSecurityNr = false;
+            MyDelegate validate = GetBool;
 
             if (GetRightSocialNr(socialSecurityNr) is true)
             {
@@ -28,9 +28,7 @@ namespace ReceptAppen2.Components
                 correctTypeOfPassWord = true;
             }
 
-            MyDelegate validate = GetBool;
-
-            return isValid = validate(isASocialSecurityNr, correctTypeOfPassWord);
+            return validate(isASocialSecurityNr, correctTypeOfPassWord);
         }
 
 
