@@ -11,6 +11,7 @@ namespace ReceptAppen2.Components
     internal class Validation : IValidation
     {
         // STEG 1
+        private delegate bool MyDelegate(bool one, bool two);
         public bool IsValidated(string socialSecurityNr, string passWord)
         {
             bool isValid = false;
@@ -31,17 +32,19 @@ namespace ReceptAppen2.Components
                 correctTypeOfPassWord = true;
             }
 
-
+            MyDelegate validate = GetBool;
 
             // Summary
-            if (isASocialSecurityNr is true && correctTypeOfPassWord is true)
-            {
-                isValid = true;
-            }
-            else
-            {
-                isValid = false;
-            }
+
+            isValid = validate(isASocialSecurityNr, correctTypeOfPassWord);
+            //if (isASocialSecurityNr is true && correctTypeOfPassWord is true)
+            //{
+            //    isValid = true;
+            //}
+            //else
+            //{
+            //    isValid = false;
+            //}
             return isValid;
         }
 
@@ -140,6 +143,21 @@ namespace ReceptAppen2.Components
             }
 
             return isASocialSecurityNr;
+        }
+
+        private static bool GetBool(bool one, bool two)
+        {
+            bool isValid = false;
+
+            if (one is true && two is true)
+            {
+                isValid = true;
+            }
+            else
+            {
+                isValid = false;
+            }
+            return isValid;
         }
     }
 }
