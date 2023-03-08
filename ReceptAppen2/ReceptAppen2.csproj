@@ -54,8 +54,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\RandomRecipePageStart.xaml.cs">
-	    <DependentUpon>RandomRecipePageStart.xaml</DependentUpon>
+	  <Compile Update="Views\StartPage.xaml.cs">
+	    <DependentUpon>StartPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 

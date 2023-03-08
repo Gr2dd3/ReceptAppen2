@@ -1,11 +1,11 @@
 ﻿namespace ReceptAppen2;
 
-public partial class RandomRecipePageStart : ContentPage
+public partial class StartPage: ContentPage
 {
-    public RandomRecipePageStart()
+    public StartPage()
     {
         InitializeComponent();
-        BindingContext = new RandomRecipeViewModel().RandomRecipes;
+        BindingContext = new StartPageViewModel().RandomRecipes;
     }
 
     private async void OnItemSelectedChanged(object sender, SelectedItemChangedEventArgs e)

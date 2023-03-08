@@ -1,10 +1,10 @@
 ﻿namespace ReceptAppen2.ViewModels
 {
-    internal partial class RandomRecipeViewModel : ObservableObject
+    internal partial class StartPageViewModel : ObservableObject
     {
         [ObservableProperty]
         RecipeSearch randomRecipes;
-        public RandomRecipeViewModel()
+        public StartPageViewModel()
         {
             RandomRecipes = new RecipeSearch(); 
             var task = Task.Run(() => RecipeSearchService.GetRandomRecipesAsync());
