@@ -19,10 +19,6 @@ namespace ReceptAppen2.ViewModels
         [ObservableProperty]
         string cookingTime;
 
-        [ObservableProperty]
-        ObservableCollection<string> ingredientgroups;
-
-
         // Class -> Ingredientgroup
         [ObservableProperty]
         int portions;
@@ -30,22 +26,8 @@ namespace ReceptAppen2.ViewModels
         [ObservableProperty]
         ObservableCollection<string> ingredients;
 
-        // Class -> Ingredient
-        [ObservableProperty]
-        string text;
-
-        [ObservableProperty]
-        float quantity;
-
-        [ObservableProperty]
-        string unit;
-
-        [ObservableProperty]
-        string ingredientName;
-
         public DetailsRecipeViewModel(Recipe recipe)
         {
-            Ingredientgroups = new ObservableCollection<string>();
             Ingredients = new ObservableCollection<string>();
             recipe1 = recipe;
             GetRecipeDetails();
@@ -70,14 +52,11 @@ namespace ReceptAppen2.ViewModels
                 {
                     if (item is not null)
                         Portions = item.Portions;
-                    if (item.GroupName is not null)
-                        Ingredientgroups.Add(item.GroupName);
 
                     foreach (var ingredient in (item.Ingredients))
                     {
                         if (ingredient is not null)
                             Ingredients.Add(ingredient.Text);
-
                     }
                 }
             }
