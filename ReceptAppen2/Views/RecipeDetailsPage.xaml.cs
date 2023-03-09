@@ -8,4 +8,8 @@ public partial class RecipeDetailsPage : ContentPage
         BindingContext = new DetailsRecipeViewModel(recipe);
 	}
 
+    private async void OnClickedGoBack(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
 }

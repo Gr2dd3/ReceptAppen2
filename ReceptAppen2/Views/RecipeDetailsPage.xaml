@@ -7,59 +7,61 @@
     Title="{Binding Title}"
     x:DataType="viewmodel:DetailsRecipeViewModel">
     <ScrollView>
+        <Grid
+            ColumnDefinitions="250, *"
+            RowDefinitions="Auto, Auto, Auto, Auto, Auto"
+            Padding="20"
+            RowSpacing="10">
 
-        <VerticalStackLayout>
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                HeightRequest="200"
+                WidthRequest="200"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Source="{Binding ImageUrl}" />
 
-            <Grid
-                ColumnDefinitions="Auto, 300, 300"
-                ColumnSpacing="20"
-                RowDefinitions="Auto, Auto , Auto, Auto, Auto"
-                RowSpacing="20">
+            <ListView
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalOptions="Start"
+                ItemsSource="{Binding Ingredients}"
+                Header="{Binding CookingTime, StringFormat='Tillagningstid - {0}'}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodel:DetailsRecipeViewModel">
+                        <ViewCell>
+                            <Label Text="{Binding .}" VerticalOptions="Start" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-                <Label Text="{Binding CookingTime}" />
-                <HorizontalStackLayout Spacing="10">
-                    <!--  BILD  -->
-                    <Image
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        HeightRequest="400"
-                        HorizontalOptions="Start"
-                        Source="{Binding ImageUrl}"
-                        WidthRequest="400" />
+        <ListView
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                ItemsSource="{Binding Cookingsteps}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="viewmodel:DetailsRecipeViewModel">
+                    <ViewCell>
+                        <Label
+                            HorizontalOptions="Start"
+                            Text="{Binding .}"
+                            VerticalOptions="Start" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-
-                    <!--  INGREDIENTS  -->
-                    <ListView
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        ItemsSource="{Binding Ingredients}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:DataType="viewmodel:DetailsRecipeViewModel">
-                                <ViewCell>
-                                    <Label Text="{Binding .}" VerticalOptions="Center" />
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </HorizontalStackLayout>
-
-                <ListView
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    ItemsSource="{Binding Cookingsteps}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="viewmodel:DetailsRecipeViewModel">
-                            <ViewCell>
-                                <Label
-                                    HorizontalOptions="Start"
-                                    Text="{Binding .}"
-                                    VerticalOptions="Start" />
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-
-            </Grid>
-        </VerticalStackLayout>
+            <Button
+                Grid.Row="2"
+                Grid.Column="0"
+                Clicked="OnClickedGoBack"
+                Style="{StaticResource ButtonOutline}"
+                VerticalOptions="End"
+                HorizontalOptions="Start"
+                Text="Gå tillbaka" />
+        </Grid>
     </ScrollView>
 </ContentPage>
