@@ -3,13 +3,12 @@ namespace ReceptAppen2.ViewModels
 {
     public partial class DetailsRecipeViewModel : ObservableObject
     {
-        //public ObservableCollection<Recipe> Recipes { get; } = new();
         [ObservableProperty]
         Recipe recipe1;
 
         [ObservableProperty]
         List<string> cookingsteps;
-        // Class -> Recipe
+        
         [ObservableProperty]
         string imageUrl;
 
@@ -19,7 +18,6 @@ namespace ReceptAppen2.ViewModels
         [ObservableProperty]
         string cookingTime;
 
-        // Class -> Ingredientgroup
         [ObservableProperty]
         int portions;
 
