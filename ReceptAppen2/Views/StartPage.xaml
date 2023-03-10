@@ -30,7 +30,10 @@
 
             <!--  TEST  -->
             <ScrollView Grid.ColumnSpan="2" Padding="0,40">
-                <ListView ItemSelected="OnItemSelectedChanged" ItemsSource="{Binding Recipes}" RowHeight="300">
+                <ListView
+                    ItemSelected="OnItemSelectedChanged"
+                    ItemsSource="{Binding Recipes}"
+                    RowHeight="300">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:Recipe">
                             <ViewCell>
@@ -40,12 +43,13 @@
                                     RowDefinitions="*, *">
 
                                     <!--  BILD PÅ MAT  -->
-                                    <Image Grid.Column="0"
-                                        HorizontalOptions="Start"
-                                        HeightRequest="150"
-                                        WidthRequest="150"
+                                    <Image
+                                        Grid.Column="0"
                                         Aspect="AspectFit"
-                                        Source="{Binding ImageUrl}" />
+                                        HeightRequest="150"
+                                        HorizontalOptions="Start"
+                                        Source="{Binding ImageUrl}"
+                                        WidthRequest="150" />
 
                                     <Grid
                                         Grid.Column="1"
@@ -54,12 +58,12 @@
 
                                         <!--  Title  -->
                                         <Label
+                                            Grid.Row="0"
+                                            Grid.Column="1"
                                             LineHeight="0.8"
                                             MaxLines="2"
-                                            Grid.Row="0" Grid.Column="1"
                                             Style="{StaticResource MediumLabel}"
-                                            Text="{Binding Title, StringFormat='{0}'}" 
-                                            />
+                                            Text="{Binding Title, StringFormat='{0}'}" />
 
                                         <!--  Tillagningstid  -->
                                         <Label
@@ -74,14 +78,13 @@
                                             Padding="0,8,0,0"
                                             Style="{StaticResource SmallLabel}"
                                             Text="{Binding Difficulty, StringFormat='Svårighetsgrad: {0}'}" />
-                                        <!-- Preamble HTML -->
+                                        <!--  Preamble HTML  -->
                                         <Label
                                             Grid.Row="3"
                                             Padding="0,8,0,0"
                                             FontAttributes="Italic"
                                             Style="{StaticResource SmallLabel}"
-                                            Text="{Binding PreambleHTML, StringFormat='{0}'}"
-                                            />
+                                            Text="{Binding PreambleHTML, StringFormat='{0}'}" />
                                     </Grid>
                                 </Grid>
                             </ViewCell>

@@ -30,15 +30,13 @@
                 Text="Logga in" />
 
             <!--  SOCIAL SECURITY NR  -->
-
             <Entry
                 Grid.Row="2"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
                 Placeholder="Personnummer (ååååmmddnnnn)"
+                Keyboard="Numeric"
                 Text="{Binding Socsecnr}" />
-
-
 
             <!--  PASSWORD  -->
             <Entry
@@ -47,6 +45,7 @@
                 Grid.ColumnSpan="2"
                 IsPassword="true"
                 Placeholder="Lösenord"
+                Keyboard="Numeric"
                 Text="{Binding Pass1}" />
 
             <!--  Logga in Knapp  -->
