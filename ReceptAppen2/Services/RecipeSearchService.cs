@@ -39,6 +39,25 @@
                 recipeSearch = JsonSerializer.Deserialize<RecipeSearch>(responseString);
             }
             return recipeSearch;
+
+        }
+
+        public static async Task<Recipe> GetOneRecipeAsync(int recipeId)
+        {
+            // Request
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://handla.api.ica.se/api/recipes/recipe/" + recipeId);
+
+            // Response
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            Recipe recipe = new();
+            if (response is not null)
+            {
+                string responseString = await response.Content.ReadAsStringAsync();
+                recipe = JsonSerializer.Deserialize<Recipe>(responseString);
+            }
+            return recipe;
         }
     }
 }

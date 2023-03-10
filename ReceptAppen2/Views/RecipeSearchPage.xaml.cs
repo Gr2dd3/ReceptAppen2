@@ -14,7 +14,8 @@ public partial class RecipeSearchPage : ContentPage
         var recipe = ((ListView)sender).SelectedItem as Recipe;
         if (recipe != null)
         {
-            await Navigation.PushAsync(new RecipeDetailsPage(recipe));
+            var recipe1 = await RecipeSearchService.GetOneRecipeAsync(recipe.Id);
+            await Navigation.PushAsync(new RecipeDetailsPage(recipe1));
         }
     ((ListView)sender).SelectedItem = null;
     }
