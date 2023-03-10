@@ -6,41 +6,49 @@
     xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
     Title="{Binding Title}"
     x:DataType="viewmodel:DetailsRecipeViewModel">
-    <ScrollView>
-        <Grid
-            ColumnDefinitions="250, *"
-            RowDefinitions="Auto, Auto, Auto, Auto, Auto"
-            Padding="20"
+
+    <Grid
+            ColumnDefinitions="*, *"
+            RowDefinitions="150, 1.2*, Auto, 50"
+            Padding="10, 20, 10, 10"
             RowSpacing="10">
 
-            <Image
+        <Image
                 Grid.Row="0"
-                Grid.Column="0"
-                HeightRequest="200"
-                WidthRequest="200"
-                HorizontalOptions="Start"
+                Grid.ColumnSpan="2"
+                HeightRequest="150"
+                WidthRequest="150"
+                HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Source="{Binding ImageUrl}" />
-
-            <ListView
-                Grid.Row="0"
-                Grid.Column="1"
+        <ListView
+                VerticalOptions="Start"
                 HorizontalOptions="Start"
+                SeparatorVisibility="None"
+                SelectionMode="None"
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                HasUnevenRows="True"
                 ItemsSource="{Binding Ingredients}"
                 Header="{Binding CookingTime, StringFormat='Tillagningstid - {0}'}">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="viewmodel:DetailsRecipeViewModel">
-                        <ViewCell>
-                            <Label Text="{Binding .}" VerticalOptions="Start" />
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="viewmodel:DetailsRecipeViewModel">
+                    <ViewCell>
+                        <Label Text="{Binding .}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <ListView
-                Grid.Row="1"
+                VerticalOptions="Start"
+                HorizontalOptions="Start"
+                SelectionMode="None"
+                SeparatorVisibility="None"
+                Grid.Row="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
+                HasUnevenRows="True"
                 ItemsSource="{Binding Cookingsteps}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodel:DetailsRecipeViewModel">
@@ -54,14 +62,15 @@
             </ListView.ItemTemplate>
         </ListView>
 
-            <Button
-                Grid.Row="2"
+        <Button
+
+                Grid.Row="3"
                 Grid.Column="0"
                 Clicked="OnClickedGoBack"
                 Style="{StaticResource ButtonOutline}"
                 VerticalOptions="End"
                 HorizontalOptions="Start"
                 Text="Gå tillbaka" />
-        </Grid>
-    </ScrollView>
+    </Grid>
+
 </ContentPage>

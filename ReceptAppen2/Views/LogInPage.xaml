@@ -35,7 +35,7 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
-                Placeholder="Personnummer (ååmmddnnnn)"
+                Placeholder="Personnummer (ååååmmddnnnn)"
                 Text="{Binding Socsecnr}" />
 
 

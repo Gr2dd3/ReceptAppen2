@@ -78,6 +78,7 @@ namespace ReceptAppen2.ViewModels
             .Replace("&eacute;", "é")
             .Replace("&nbsp;", " ")
             .Replace("&ouml;", "ö")
+            .Replace("&ecir;", "ê")
             .Replace("<strong>", "")
             .Replace("</strong>", "");
             return encodedText;
