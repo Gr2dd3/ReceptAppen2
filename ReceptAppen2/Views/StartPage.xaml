@@ -28,7 +28,6 @@
                     TextColor="{StaticResource Accent}" />
             </HorizontalStackLayout>
 
-            <!--  TEST  -->
             <ScrollView Grid.ColumnSpan="2" Padding="0,40">
                 <ListView
                     ItemSelected="OnItemSelectedChanged"
@@ -55,7 +54,6 @@
                                         Grid.Column="1"
                                         Padding="5"
                                         RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
-
                                         <!--  Title  -->
                                         <Label
                                             Grid.Row="0"
@@ -64,14 +62,12 @@
                                             MaxLines="2"
                                             Style="{StaticResource MediumLabel}"
                                             Text="{Binding Title, StringFormat='{0}'}" />
-
                                         <!--  Tillagningstid  -->
                                         <Label
                                             Grid.Row="1"
                                             Padding="0,8,0,0"
                                             Style="{StaticResource SmallLabel}"
                                             Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
-
                                         <!--  Svårighetsgrad  -->
                                         <Label
                                             Grid.Row="2"
