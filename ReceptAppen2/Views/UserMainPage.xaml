@@ -6,73 +6,77 @@
     xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
     Title="Mina Sidor"
     x:DataType="viewmodel:UserMainPageViewModel">
-
-    <Grid
+    <Grid>
+        <Image Aspect="AspectFill"
+               Opacity="0.3"
+               Source="imguserpage.jpg"/>
+        <Grid
         Padding="10"
         ColumnDefinitions="*, *"
         RowDefinitions="Auto, Auto, *, Auto">
-        <!--  Överskrift och LoginKnapp  -->
-        <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
-            <Label
+            <!--  Överskrift och LoginKnapp  -->
+            <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
+                <Label
                 Grid.Row="0"
                 Grid.Column="0"
                 Style="{StaticResource LargeLabel}"
                 Text="{Binding User.FirstName}"
                 TextColor="{StaticResource Primary}" />
-            <Label
+                <Label
                 Grid.Row="0"
                 Grid.Column="0"
                 Style="{StaticResource LargeLabel}"
                 Text="{Binding User.LastName, StringFormat=' {0}'}"
                 TextColor="{StaticResource Accent}" />
-        </HorizontalStackLayout>
+            </HorizontalStackLayout>
 
-        <FlexLayout
-            Grid.Row="2"
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
-            AlignItems="Center"
-            Direction="Column"
-            JustifyContent="SpaceEvenly">
+            <FlexLayout
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                AlignItems="Center"
+                Direction="Column"
+                JustifyContent="SpaceEvenly">
 
-            <Grid
-                Padding="10"
-                ColumnDefinitions="Auto, Auto"
-                ColumnSpacing="10"
-                RowDefinitions="Auto, Auto, Auto"
-                RowSpacing="10">
+                <Grid
+                    Padding="10"
+                    ColumnDefinitions="Auto, Auto"
+                    ColumnSpacing="10"
+                    RowDefinitions="Auto, Auto, Auto"
+                    RowSpacing="10">
 
-                <Button
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Padding="4"
-                    Clicked="OnClickedGoToRecipeSearchPage"
-                    FontSize="22"
-                    Style="{StaticResource ButtonOutline}"
-                    Text="Receptsök" />
-                <Button
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Padding="4"
-                    FontSize="22"
-                    Style="{StaticResource ButtonOutline}"
-                    Text="Mitt Skafferi" />
-                <Button
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Padding="4"
-                    FontSize="22"
-                    Style="{StaticResource ButtonOutline}"
-                    Text="Mina recept" />
-                <Button
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Padding="4"
-                    FontSize="22"
-                    Style="{StaticResource ButtonOutline}"
-                    Text="Ekonomi" />
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Padding="4"
+                        Clicked="OnClickedGoToRecipeSearchPage"
+                        FontSize="22"
+                        Style="{StaticResource ButtonOutline}"
+                        Text="Receptsök" />
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Padding="4"
+                        FontSize="22"
+                        Style="{StaticResource ButtonOutline}"
+                        Text="Mitt Skafferi" />
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Padding="4"
+                        FontSize="22"
+                        Style="{StaticResource ButtonOutline}"
+                        Text="Mina recept" />
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Padding="4"
+                        FontSize="22"
+                        Style="{StaticResource ButtonOutline}"
+                        Text="Ekonomi" />
 
-            </Grid>
-        </FlexLayout>
+                </Grid>
+            </FlexLayout>
+        </Grid>
     </Grid>
 </ContentPage>

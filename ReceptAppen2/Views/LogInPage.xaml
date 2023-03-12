@@ -7,63 +7,67 @@
     xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
     Title="Logga in"
     x:DataType="viewmodel:LogInUserViewModel">
+    <Grid>
+        <Image Aspect="AspectFill"
+               Opacity="0.3"
+               Source="loginpage.jpg"/>
+        <FlexLayout
+            AlignItems="Center"
+            Direction="Column"
+            JustifyContent="SpaceEvenly">
 
-    <FlexLayout
-        AlignItems="Center"
-        Direction="Column"
-        JustifyContent="SpaceEvenly">
+            <Grid
+                Padding="10"
+                ColumnDefinitions="0, 120, 120, 50*"
+                ColumnSpacing="10"
+                RowDefinitions="0, Auto, 50, 50, Auto, Auto, 50*"
+                RowSpacing="10">
 
-        <Grid
-            Padding="10"
-            ColumnDefinitions="0, 120, 120, 50*"
-            ColumnSpacing="10"
-            RowDefinitions="0, Auto, 50, 50, Auto, Auto, 50*"
-            RowSpacing="10">
+                <!--  TITLE  -->
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    FontSize="25"
+                    HorizontalOptions="Center"
+                    Text="Logga in" />
 
-            <!--  TITLE  -->
-            <Label
-                Grid.Row="1"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
-                FontSize="25"
-                HorizontalOptions="Center"
-                Text="Logga in" />
+                <!--  SOCIAL SECURITY NR  -->
+                <Entry
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Placeholder="Personnummer (ååååmmddnnnn)"
+                    Keyboard="Numeric"
+                    Text="{Binding Socsecnr}" />
 
-            <!--  SOCIAL SECURITY NR  -->
-            <Entry
-                Grid.Row="2"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
-                Placeholder="Personnummer (ååååmmddnnnn)"
-                Keyboard="Numeric"
-                Text="{Binding Socsecnr}" />
+                <!--  PASSWORD  -->
+                <Entry
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    IsPassword="true"
+                    Placeholder="Lösenord"
+                    Keyboard="Numeric"
+                    Text="{Binding Pass1}" />
 
-            <!--  PASSWORD  -->
-            <Entry
-                Grid.Row="3"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
-                IsPassword="true"
-                Placeholder="Lösenord"
-                Keyboard="Numeric"
-                Text="{Binding Pass1}" />
+                <!--  Logga in Knapp  -->
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Clicked="OnClickedGoToUserPage"
+                    Style="{StaticResource ButtonOutline}"
+                    Text="Logga in" />
 
-            <!--  Logga in Knapp  -->
-            <Button
-                Grid.Row="4"
-                Grid.Column="1"
-                Clicked="OnClickedGoToUserPage"
-                Style="{StaticResource ButtonOutline}"
-                Text="Logga in" />
+                <!--  Gå tillbaka knapp  -->
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    Clicked="OnClickedGoBack"
+                    Style="{StaticResource ButtonOutline}"
+                    Text="Gå tillbaka" />
 
-            <!--  Gå tillbaka knapp  -->
-            <Button
-                Grid.Row="4"
-                Grid.Column="2"
-                Clicked="OnClickedGoBack"
-                Style="{StaticResource ButtonOutline}"
-                Text="Gå tillbaka" />
-
-        </Grid>
-    </FlexLayout>
+            </Grid>
+        </FlexLayout>
+    </Grid>
 </ContentPage>
