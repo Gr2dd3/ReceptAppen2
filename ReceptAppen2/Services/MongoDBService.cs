@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ReceptAppen2.Services
+﻿namespace ReceptAppen2.Services
 {
-    internal class MongoDBService
+    public class MongoDBService
     {
+        public static IMongoCollection<Models.RecipeDb> GetDbCollection()
+        {
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://Admin:7Porqnv3ZIU5xFjF@receptspara.4cg3c5m.mongodb.net/test");
+            settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+            var client = new MongoClient(settings);
+            var database = client.GetDatabase("ReceptSpara");
+            var myCollection = database.GetCollection<Models.RecipeDb>("MyRecipesCollection");
+            return myCollection;
+        }
     }
 }
