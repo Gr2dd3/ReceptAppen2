@@ -6,10 +6,17 @@
         RecipeSearch randomRecipes;
         public StartPageViewModel()
         {
-            RandomRecipes = new RecipeSearch(); 
-            var task = Task.Run(() => RecipeSearchService.GetRandomRecipesAsync());
-            task.Wait();
-            RandomRecipes = task.Result;
+            try
+            {
+                RandomRecipes = new RecipeSearch();
+                var task = Task.Run(() => RecipeSearchService.GetRandomRecipesAsync());
+                task.Wait();
+                RandomRecipes = task.Result;
+            }
+            catch (Exception ex)
+            {
+                Shell.Current.DisplayAlert("Fel", $"Något stämmer inte: {ex.Message}", "OK");
+            }
 
         }
     }
