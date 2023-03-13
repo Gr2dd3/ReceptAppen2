@@ -86,13 +86,22 @@
         [RelayCommand]
         private async void SaveRecipe()
         {
-            var saveRecipe = new RecipeDb()
+            try
             {
-                UserId = SessionsData.LoggedInUser.Id,
-                RecipeId = Recipe1.Id
-            };
+                var saveRecipe = new RecipeDb()
+                {
+                    UserId = SessionsData.LoggedInUser.Id,
+                    RecipeId = Recipe1.Id
+                };
 
-            await MongoDBService.GetDbCollection().InsertOneAsync(saveRecipe);
+                await MongoDBService.GetDbCollection().InsertOneAsync(saveRecipe);
+
+                await Shell.Current.DisplayAlert("Klart!", "Recept tillagt", "OK");
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert("Oops", $" Något blev fel: {ex.Message}", "OK");
+            }
         }
     }
 }
