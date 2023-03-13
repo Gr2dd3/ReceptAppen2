@@ -1,12 +1,14 @@
 ﻿namespace ReceptAppen2.ViewModels
 {
-    internal partial class SearchRecipeViewModel : ObservableObject
+    internal partial class RecipeSearchViewModel : ObservableObject
     {
         [ObservableProperty]
         string searchPhrase;
 
         [ObservableProperty]
-        RecipeSearch recipeSearch;
+        List<Recipe> recipes;
+
+        public RecipeSearch RecipeSearch { get; set; }
 
         [RelayCommand]
         private async void Search()

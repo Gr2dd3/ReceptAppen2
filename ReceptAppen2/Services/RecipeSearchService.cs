@@ -2,6 +2,7 @@
 {
     internal class RecipeSearchService
     {
+
         public static async Task<RecipeSearch> GetRecipeSearchAsync(string searchPhrase)
         {
 

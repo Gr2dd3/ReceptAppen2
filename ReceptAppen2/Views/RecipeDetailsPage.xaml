@@ -63,7 +63,6 @@
         </ListView>
 
         <Button
-
                 Grid.Row="3"
                 Grid.Column="0"
                 Clicked="OnClickedGoBack"
@@ -71,6 +70,15 @@
                 VerticalOptions="End"
                 HorizontalOptions="Start"
                 Text="Gå tillbaka" />
+        <Button
+                x:Name="SaveBtn"
+                Grid.Row="3"
+                Grid.Column="0"
+                Style="{StaticResource ButtonOutline}"
+                VerticalOptions="End"
+                HorizontalOptions="Center"
+                Command="{Binding SaveRecipeCommand}"
+                Text="Spara recept" />
     </Grid>
 
 </ContentPage>

@@ -54,7 +54,7 @@
                 Padding="0,20">
                 <ListView
                     ItemSelected="OnItemSelectedChanged"
-                    ItemsSource="{Binding Recipes}" RowHeight="200">
+                    ItemsSource="{Binding RecipeSearch.Recipes}" RowHeight="200">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:Recipe">
                             <ViewCell>

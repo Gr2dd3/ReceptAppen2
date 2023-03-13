@@ -1,14 +1,15 @@
 ﻿
 namespace ReceptAppen2.ViewModels
 {
-    public partial class DetailsRecipeViewModel : ObservableObject
+    public partial class RecipeDetailsViewModel : ObservableObject
     {
+        //public ObservableCollection<Recipe> Recipes { get; } = new();
         [ObservableProperty]
         Recipe recipe1;
 
         [ObservableProperty]
         List<string> cookingsteps;
-        
+        // Class -> Recipe
         [ObservableProperty]
         string imageUrl;
 
@@ -19,13 +20,32 @@ namespace ReceptAppen2.ViewModels
         string cookingTime;
 
         [ObservableProperty]
+        ObservableCollection<string> ingredientgroups;
+
+
+        // Class -> Ingredientgroup
+        [ObservableProperty]
         int portions;
 
         [ObservableProperty]
         ObservableCollection<string> ingredients;
 
-        public DetailsRecipeViewModel(Recipe recipe)
+        // Class -> Ingredient
+        [ObservableProperty]
+        string text;
+
+        [ObservableProperty]
+        float quantity;
+
+        [ObservableProperty]
+        string unit;
+
+        [ObservableProperty]
+        string ingredientName;
+
+        public RecipeDetailsViewModel(Recipe recipe)
         {
+            Ingredientgroups = new ObservableCollection<string>();
             Ingredients = new ObservableCollection<string>();
             recipe1 = recipe;
             GetRecipeDetails();
@@ -50,11 +70,14 @@ namespace ReceptAppen2.ViewModels
                 {
                     if (item is not null)
                         Portions = item.Portions;
+                    if (item.GroupName is not null)
+                        Ingredientgroups.Add(item.GroupName);
 
                     foreach (var ingredient in (item.Ingredients))
                     {
                         if (ingredient is not null)
                             Ingredients.Add(ingredient.Text);
+
                     }
                 }
             }
@@ -63,33 +86,11 @@ namespace ReceptAppen2.ViewModels
         private void GetCookingsteps()
         {
             Cookingsteps = new List<string>();
-
-            int count = 1;
-            Recipe1.CookingSteps?.ForEach(x => Cookingsteps.Add($"{count++}. " + EncodeHtml(x.ToString())));
+            if(Recipe1.CookingSteps is not null)
+            Recipe1.CookingSteps.ForEach(x => Cookingsteps.Add(x.ToString()));
         }
 
-        private string EncodeHtml(string text)
-        {
-            string encodedText = text.Replace("&auml;", "ä")
-                .Replace("&aring;", "å")
-                .Replace("&egrave;", "è")
-                .Replace("&deg;", " °")
-                .Replace("&eacute;", "é")
-                .Replace("&nbsp;", " ")
-                .Replace("&ouml;", "ö")
-                .Replace("&ecir;", "ê")
-                .Replace("&ndash;", "-")
-                .Replace("<strong>", "")
-                .Replace("</strong>", "");
-            return encodedText;
-        }
-
-
-        [RelayCommand]
-        private void SaveRecipe()
-        {
-
-        }
+ 
     }
 }
 

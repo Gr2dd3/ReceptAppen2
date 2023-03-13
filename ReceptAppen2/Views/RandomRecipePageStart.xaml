@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ReceptAppen2.RandomRecipePageStart"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:ReceptAppen2.Models"
+    xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
+    Title="*BURP* Oh, sorry"
+    x:DataType="model:RecipeSearch">
+    <ScrollView>
+        <Grid
+            Padding="10"
+            ColumnDefinitions="*, *"
+            RowDefinitions="Auto, Auto, *, Auto">
+            <!--  Överskrift och LoginKnapp  -->
+            <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource LargeLabel}"
+                    Text="Se"
+                    TextColor="{StaticResource Primary}" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource LargeLabel}"
+                    Text=" Recept"
+                    TextColor="{StaticResource Accent}" />
+            </HorizontalStackLayout>
+
+            <!--  TEST  -->
+            <ScrollView Grid.ColumnSpan="2" Padding="100">
+                <ListView ItemSelected="OnItemSelectedChanged" ItemsSource="{Binding Recipes}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Recipe">
+                            <ViewCell>
+                                <Grid
+                                    Padding="10"
+                                    ColumnDefinitions="Auto, Auto"
+                                    ColumnSpacing="20"
+                                    HorizontalOptions="Center">
+
+                                    <!--  BILD PÅ MAT  -->
+                                    <Image
+                                        Aspect="AspectFill"
+                                        HeightRequest="150"
+                                        HorizontalOptions="Start"
+                                        Source="{Binding ImageUrl}"
+                                        WidthRequest="150" />
+
+                                    <Grid
+                                        Grid.Column="1"
+                                        Padding="5"
+                                        MinimumWidthRequest="200"
+                                        RowDefinitions="Auto, Auto, Auto, Auto, Auto">
+
+                                        <!--  Title  -->
+                                        <Label
+                                            Grid.Row="0"
+                                            Style="{StaticResource MediumLabel}"
+                                            Text="{Binding Title, StringFormat='{0}'}" />
+
+                                        <!--  Tillagningstid  -->
+                                        <Label
+                                            Grid.Row="1"
+                                            Padding="0,8,0,0"
+                                            Style="{StaticResource SmallLabel}"
+                                            Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
+
+                                        <!--  Svårighetsgrad  -->
+                                        <Label
+                                            Grid.Row="2"
+                                            Padding="0,8,0,0"
+                                            Style="{StaticResource SmallLabel}"
+                                            Text="{Binding Difficulty, StringFormat='Svårighetsgrad: {0}'}" />
+                                    </Grid>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Clicked="GoToLogInPage"
+                HorizontalOptions="End"
+                Style="{StaticResource ButtonOutline}"
+                Text="Logga in"
+                VerticalOptions="Start" />
+        </Grid>
+    </ScrollView>
+</ContentPage>
+
+
