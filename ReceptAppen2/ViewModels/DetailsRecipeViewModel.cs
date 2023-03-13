@@ -1,4 +1,7 @@
 ﻿
+using Amazon.SecurityToken.Model;
+using MongoDB.Driver;
+
 namespace ReceptAppen2.ViewModels
 {
     public partial class DetailsRecipeViewModel : ObservableObject
@@ -8,7 +11,7 @@ namespace ReceptAppen2.ViewModels
 
         [ObservableProperty]
         List<string> cookingsteps;
-        
+
         [ObservableProperty]
         string imageUrl;
 
@@ -88,8 +91,23 @@ namespace ReceptAppen2.ViewModels
         [RelayCommand]
         private void SaveRecipe()
         {
+            //mongodb+srv://Admin:7Porqnv3ZIU5xFjF@receptspara.4cg3c5m.mongodb.net/test
+
 
         }
+
+
+        private static IMongoCollection<Models.Recipe> GetDbCollection()
+        {
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://Mattias:Batman@mydatabase.68mvjxk.mongodb.net/test");
+            settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+            var client = new MongoClient(settings);
+            var database = client.GetDatabase("TheProductDb");
+            var myCollection = database.GetCollection<Models.Product>("MyProductCollection");
+            return myCollection;
+        }
+
+
     }
 }
 
