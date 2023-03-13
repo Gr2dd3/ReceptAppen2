@@ -14,14 +14,16 @@ namespace ReceptAppen2.ViewModels
 
         [ObservableProperty]
         User user;
-        public List<RecipeDb> RecipeUserID { get; set; }
 
+        private List<RecipeDb> RecipeUserID { get; set; }
 
+        //private List<int> RecipesId { get; set; }
         public UserRecipeViewModel()
         {
             Recipes = new ObservableCollection<Recipe>();
             if (SessionsData.IsloggedIn)
-            User = SessionsData.LoggedInUser;
+                User = SessionsData.LoggedInUser;
+            GetUserRecipes();
         }
 
         [RelayCommand]
@@ -33,16 +35,17 @@ namespace ReceptAppen2.ViewModels
         }
 
 
-        private async Task GetRecipes()
+        private async Task<List<int>> GetRecipesIdFromDb()
         {
+            RecipeUserID = new List<RecipeDb>();
             RecipeUserID = await MongoDBService.GetDbCollection().AsQueryable().ToListAsync();
-            List<int> RecipesId = new();
+            List<int> recipesId = new();
 
             foreach (var item in RecipeUserID)
             {
                 if (item.UserId == SessionsData.LoggedInUser.Id)
                 {
-                    RecipesId.Add(item.RecipeId);
+                    recipesId.Add(item.RecipeId);
                 }
                 else
                 {
@@ -50,12 +53,27 @@ namespace ReceptAppen2.ViewModels
                     await Shell.Current.DisplayAlert("Oj då", "Något blev fel", "OK");
                 }
             }
-            for (int i = 0; i < RecipesId.Count; i++)
-            {
-                Recipes.Add(await RecipeSearchService.GetOneRecipeAsync(RecipesId[i]));
-            }
+            return recipesId;
         }
 
+        private async void GetUserRecipes()
+        {
+
+            var task = Task.Run(() => GetRecipesIdFromDb());
+            task.Wait();
+            var result = task.Result;
+            if (result.Count > 0)
+            {
+                for (int i = 0; i < result.Count; i++)
+                {
+                    Recipes.Add(await RecipeSearchService.GetOneRecipeAsync(result[i]));
+                }
+            }
+            else
+            {
+                await Shell.Current.DisplayAlert("Här var det tomt!", "Du har inga sparade recept ännu", "OK");
+            }
+        }
 
     }
 }

@@ -48,14 +48,7 @@
                 </Label>
             </HorizontalStackLayout>
 
-            <Button
-                Grid.Row="1"
-                Grid.Column="0"
-                HorizontalOptions="End"
-                Style="{StaticResource ButtonOutline}"
-                Text="Ta bort recept"
-                Command="{Binding DeleteRecipeCommand}"
-                VerticalOptions="Start" />
+
 
 
             <ScrollView
@@ -64,7 +57,7 @@
                 Padding="0,20">
                 <ListView
                     ItemSelected="OnItemSelectedChanged"
-                    ItemsSource="{Binding Recipes}" RowHeight="200">
+                    ItemsSource="{Binding Recipes}" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:Recipe">
                             <ViewCell>
@@ -111,6 +104,14 @@
                                             FontAttributes="Italic"
                                             Style="{StaticResource SmallLabel}"
                                             Text="{Binding PreambleHTML, StringFormat='{0}'}" />
+                                        <!--<Button
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            HorizontalOptions="End"
+                                            Style="{StaticResource ButtonOutline}"
+                                            Text="Ta bort recept"
+                                            Command="{Binding DeleteRecipeCommand}"
+                                            VerticalOptions="Start" />-->
                                     </Grid>
                                 </Grid>
                             </ViewCell>

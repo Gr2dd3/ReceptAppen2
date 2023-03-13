@@ -5,11 +5,12 @@ public partial class RecipeDetailsPage : ContentPage
     public RecipeDetailsPage(Recipe recipe)
     {
         InitializeComponent();
-        BindingContext = new DetailsRecipeViewModel(recipe);
 
-        if (SessionsData.LoggedInUser is null)
+        if (SessionsData.LoggedInUser is null || SessionsData.FromUserRecipePage)
+        {
             SaveBtn.IsVisible = false;
-
+        }
+        BindingContext = new DetailsRecipeViewModel(recipe);
     }
 
     private async void OnClickedGoBack(object sender, EventArgs e)

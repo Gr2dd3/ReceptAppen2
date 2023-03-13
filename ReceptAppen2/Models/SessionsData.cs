@@ -12,5 +12,7 @@ namespace ReceptAppen2.Models
 
         public static bool IsloggedIn { get; set; }
 
+        public static bool FromUserRecipePage { get; set; }
+
     }
 }

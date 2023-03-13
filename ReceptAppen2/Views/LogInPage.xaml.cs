@@ -6,8 +6,8 @@ public partial class LogInPage : ContentPage
     LogInUserViewModel vm = new();
     public LogInPage()
     {
-        BindingContext = vm;
         InitializeComponent();
+        BindingContext = vm;
     }
 
     private async void OnClickedGoToUserPage(object sender, EventArgs e)
