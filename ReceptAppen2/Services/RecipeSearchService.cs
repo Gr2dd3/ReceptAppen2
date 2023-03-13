@@ -1,6 +1,6 @@
 ﻿namespace ReceptAppen2.Services
 {
-    internal class RecipeSearchService
+    public class RecipeSearchService
     {
 
         public static async Task<RecipeSearch> GetRecipeSearchAsync(string searchPhrase)
