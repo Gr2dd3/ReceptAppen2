@@ -20,6 +20,7 @@ namespace ReceptAppen2.ViewModels
         public UserRecipeViewModel()
         {
             Recipes = new ObservableCollection<Recipe>();
+            if (SessionsData.IsloggedIn)
             User = SessionsData.LoggedInUser;
         }
 

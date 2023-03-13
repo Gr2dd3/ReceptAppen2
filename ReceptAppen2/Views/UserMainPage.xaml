@@ -73,6 +73,7 @@
                         Grid.Row="0"
                         Grid.Column="1"
                         Padding="4"
+                        Clicked="OnClickedGoToUserRecipePage"
                         FontSize="22"
                         Style="{StaticResource ButtonOutline}"
                         Text="Mina recept" />

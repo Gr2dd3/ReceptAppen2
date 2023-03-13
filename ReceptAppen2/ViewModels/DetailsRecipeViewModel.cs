@@ -31,8 +31,7 @@
             GetCookingsteps();
         }
 
-        [RelayCommand]
-        internal void GetRecipeDetails()
+        private void GetRecipeDetails()
         {
             if (Recipe1 is not null)
             {
