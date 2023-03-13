@@ -65,23 +65,22 @@ namespace ReceptAppen2.ViewModels
             Cookingsteps = new List<string>();
 
             int count = 1;
-            if (Recipe1.CookingSteps is not null)
-                Recipe1.CookingSteps.ForEach(x => Cookingsteps.Add($"{count++}. " + EncodeHtml(x.ToString())));
+            Recipe1.CookingSteps?.ForEach(x => Cookingsteps.Add($"{count++}. " + EncodeHtml(x.ToString())));
         }
 
         private string EncodeHtml(string text)
         {
             string encodedText = text.Replace("&auml;", "ä")
-            .Replace("&aring;", "å")
-            .Replace("&egrave;", "è")
-            .Replace("&deg;", " °")
-            .Replace("&eacute;", "é")
-            .Replace("&nbsp;", " ")
-            .Replace("&ouml;", "ö")
-            .Replace("&ecir;", "ê")
-            .Replace("&ndash;", "-")
-            .Replace("<strong>", "")
-            .Replace("</strong>", "");
+                .Replace("&aring;", "å")
+                .Replace("&egrave;", "è")
+                .Replace("&deg;", " °")
+                .Replace("&eacute;", "é")
+                .Replace("&nbsp;", " ")
+                .Replace("&ouml;", "ö")
+                .Replace("&ecir;", "ê")
+                .Replace("&ndash;", "-")
+                .Replace("<strong>", "")
+                .Replace("</strong>", "");
             return encodedText;
         }
     }

@@ -32,7 +32,7 @@
                 <ListView
                     ItemSelected="OnItemSelectedChanged"
                     ItemsSource="{Binding Recipes}"
-                    RowHeight="300">
+                    HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:Recipe">
                             <ViewCell>

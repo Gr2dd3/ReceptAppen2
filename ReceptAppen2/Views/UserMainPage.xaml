@@ -8,26 +8,42 @@
     x:DataType="viewmodel:UserMainPageViewModel">
     <Grid>
         <Image Aspect="AspectFill"
-               Opacity="0.3"
+               Opacity="0.2"
                Source="imguserpage.jpg"/>
         <Grid
-        Padding="10"
-        ColumnDefinitions="*, *"
-        RowDefinitions="Auto, Auto, *, Auto">
+            Padding="10"
+            ColumnDefinitions="*, *"
+            RowDefinitions="Auto, Auto, *, Auto">
             <!--  Överskrift och LoginKnapp  -->
             <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
+
                 <Label
-                Grid.Row="0"
-                Grid.Column="0"
-                Style="{StaticResource LargeLabel}"
-                Text="{Binding User.FirstName}"
-                TextColor="{StaticResource Primary}" />
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource LargeLabel}"
+                    Text="{Binding User.FirstName}"
+                    TextColor="Cornsilk">
+                    <Label.Shadow>
+                        <Shadow Brush="Black"
+                                Offset="20,20"
+                                Radius="40"
+                                Opacity="0.8"/>
+                    </Label.Shadow>
+                </Label>
                 <Label
-                Grid.Row="0"
-                Grid.Column="0"
-                Style="{StaticResource LargeLabel}"
-                Text="{Binding User.LastName, StringFormat=' {0}'}"
-                TextColor="{StaticResource Accent}" />
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource LargeLabel}"
+                    Text="{Binding User.LastName, StringFormat=' {0}'}"
+                    TextColor="DarkGoldenrod"
+                    >
+                    <Label.Shadow>
+                        <Shadow Brush="Black"
+                                Offset="20,20"
+                                Radius="40"
+                                Opacity="0.8"/>
+                    </Label.Shadow>
+                </Label>
             </HorizontalStackLayout>
 
             <FlexLayout
@@ -59,21 +75,21 @@
                         Padding="4"
                         FontSize="22"
                         Style="{StaticResource ButtonOutline}"
-                        Text="Mitt Skafferi" />
-                    <Button
+                        Text="Mina recept" />
+                    <!--<Button
                         Grid.Row="1"
                         Grid.Column="0"
                         Padding="4"
                         FontSize="22"
                         Style="{StaticResource ButtonOutline}"
-                        Text="Mina recept" />
+                        Text="Mitt Skafferi" />
                     <Button
                         Grid.Row="1"
                         Grid.Column="1"
                         Padding="4"
                         FontSize="22"
                         Style="{StaticResource ButtonOutline}"
-                        Text="Ekonomi" />
+                        Text="Ekonomi" />-->
 
                 </Grid>
             </FlexLayout>
