@@ -44,6 +44,7 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 HorizontalOptions="End"
+                Clicked="OnClickedGoToUserPage"
                 Style="{StaticResource ButtonOutline}"
                 Text="Tillbaka till mina sidor"
                 VerticalOptions="Start" />
@@ -54,7 +55,7 @@
                 Padding="0,20">
                 <ListView
                     ItemSelected="OnItemSelectedChanged"
-                    ItemsSource="{Binding RecipeSearch.Recipes}" RowHeight="200">
+                    ItemsSource="{Binding RecipeSearch.Recipes}" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:Recipe">
                             <ViewCell>
