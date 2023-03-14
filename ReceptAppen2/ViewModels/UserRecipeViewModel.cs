@@ -30,9 +30,9 @@ namespace ReceptAppen2.ViewModels
         [RelayCommand]
         private async void DeleteRecipe(object r)
         {
-            var recipe = (RecipeDb)r;
+            var recipe = (Recipe)r;
             await MongoDBService.GetDbCollection()
-                .DeleteOneAsync(x => x.RecipeId == recipe.RecipeId && x.UserId == SessionsData.LoggedInUser.Id);
+                .DeleteOneAsync(x => x.RecipeId == recipe.Id && x.UserId == SessionsData.LoggedInUser.Id);
         }
 
 
