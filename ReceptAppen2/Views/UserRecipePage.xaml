@@ -50,23 +50,18 @@
 
 
 
-
-            <ScrollView
-                Grid.ColumnSpan="2"
-                Grid.Row="3"
-                Padding="0,20">
-                <ListView
+            <ListView
                     ItemSelected="OnItemSelectedChanged"
                     ItemsSource="{Binding Recipes}" HasUnevenRows="True">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="model:Recipe">
-                            <ViewCell>
-                                <Grid
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Recipe">
+                        <ViewCell>
+                            <Grid
                                     ColumnDefinitions="Auto, *"
                                     RowDefinitions="*, *"
                                     ColumnSpacing="20"
                                     HorizontalOptions="Center">
-                                    <Image
+                                <Image
                                         Grid.Column="0"
                                         Aspect="AspectFit"
                                         HeightRequest="150"
@@ -74,37 +69,37 @@
                                         HorizontalOptions="Start"
                                         Source="{Binding ImageUrl}" />
 
-                                    <Grid
+                                <Grid
                                         Grid.Column="1"
                                         Padding="5"
                                         RowDefinitions="Auto, Auto, Auto, Auto">
-                                        <Label
+                                    <Label
                                             Grid.Row="0"
                                             Grid.Column="1"
                                             LineHeight="0.8"
                                             MaxLines="2"
                                             Style="{StaticResource MediumLabel}"
                                             Text="{Binding Title, StringFormat='{0}'}" />
-                                        <!--  Tillagningstid  -->
-                                        <Label
+                                    <!--  Tillagningstid  -->
+                                    <Label
                                             Grid.Row="1"
                                             Padding="0,8,0,0"
                                             Style="{StaticResource SmallLabel}"
                                             Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
-                                        <!--  Svårighetsgrad  -->
-                                        <Label
+                                    <!--  Svårighetsgrad  -->
+                                    <Label
                                             Grid.Row="2"
                                             Padding="0,8,0,0"
                                             Style="{StaticResource SmallLabel}"
                                             Text="{Binding Difficulty, StringFormat='Svårighetsgrad: {0}'}" />
-                                        <!--  Preamble HTML  -->
-                                        <Label
+                                    <!--  Preamble HTML  -->
+                                    <Label
                                             Grid.Row="3"
                                             Padding="0,8,0,0"
                                             FontAttributes="Italic"
                                             Style="{StaticResource SmallLabel}"
                                             Text="{Binding PreambleHTML, StringFormat='{0}'}" />
-                                        <!--<Button
+                                    <!--<Button
                                             Grid.Row="1"
                                             Grid.Column="0"
                                             HorizontalOptions="End"
@@ -112,20 +107,12 @@
                                             Text="Ta bort recept"
                                             Command="{Binding DeleteRecipeCommand}"
                                             VerticalOptions="Start" />-->
-                                    </Grid>
                                 </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ScrollView>
-
-
-
-
-
-
-
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </Grid>
     </Grid>
