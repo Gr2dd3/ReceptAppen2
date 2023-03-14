@@ -23,5 +23,6 @@ public partial class RecipeSearchPage : ContentPage
     private async void OnClickedGoToUserPage(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new UserMainPage());
+        
     }
 }

@@ -19,4 +19,10 @@ public partial class UserMainPage : ContentPage
         SessionsData.FromUserRecipePage = true;
         await Navigation.PushAsync(new UserRecipePage());
     }
+
+    private async void OnClickLogOut(object sender, EventArgs e)
+    {
+        UserMainPageViewModel.LogOut();
+        await Navigation.PushAsync(new StartPage());
+    }
 }

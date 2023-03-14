@@ -33,6 +33,7 @@ namespace ReceptAppen2.ViewModels
             var recipe = (Recipe)r;
             await MongoDBService.GetDbCollection()
                 .DeleteOneAsync(x => x.RecipeId == recipe.Id && x.UserId == SessionsData.LoggedInUser.Id);
+            Recipes.Remove(recipe);
         }
 
 

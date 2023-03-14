@@ -18,8 +18,9 @@ public partial class UserRecipePage : ContentPage
         ((ListView)sender).SelectedItem = null;
     }
 
-    private void ListView_Scrolled(object sender, ScrolledEventArgs e)
-    {
 
+    private async void OnClickedGoToUserPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new UserMainPage());
     }
 }

@@ -16,5 +16,16 @@ namespace ReceptAppen2.ViewModels
         {
             User = SessionsData.LoggedInUser;
         }
+
+        public static void LogOut()
+        { 
+            SessionsData.LoggedInUser = null;
+            SessionsData.AuthenticationTicket = null;
+            SessionsData.AuthorizationKey = null;
+            SessionsData.Response = null;
+            SessionsData.IsloggedIn = false;
+            SessionsData.SessionTicket = null;
+            SessionsData.FromUserRecipePage = false;
+        }
     }
 }

@@ -75,7 +75,7 @@
                 .Replace("&eacute;", "é")
                 .Replace("&nbsp;", " ")
                 .Replace("&ouml;", "ö")
-                .Replace("&ecir;", "ê")
+                .Replace("&ecirc;", "ê")
                 .Replace("&ndash;", "-")
                 .Replace("<strong>", "")
                 .Replace("</strong>", "");

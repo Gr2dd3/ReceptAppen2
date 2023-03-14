@@ -45,6 +45,15 @@
                     </Label.Shadow>
                 </Label>
             </HorizontalStackLayout>
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalOptions="End"
+                Clicked="OnClickLogOut"
+                Style="{StaticResource ButtonOutline}"
+                Text="Logga ut"
+                VerticalOptions="Start" />
+
 
             <FlexLayout
                 Grid.Row="2"

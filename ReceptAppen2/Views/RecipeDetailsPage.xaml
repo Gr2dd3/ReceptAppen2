@@ -8,29 +8,29 @@
     x:DataType="viewmodel:DetailsRecipeViewModel">
 
     <Grid
-            ColumnDefinitions="*, *"
-            RowDefinitions="150, 1.2*, Auto, 50"
-            Padding="10, 20, 10, 10"
-            RowSpacing="10">
+        Padding="10,20,10,10"
+        ColumnDefinitions="*, *"
+        RowDefinitions="150, 1.2*, Auto, 50"
+        RowSpacing="10">
 
         <Image
-                Grid.Row="0"
-                Grid.ColumnSpan="2"
-                HeightRequest="150"
-                WidthRequest="150"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Source="{Binding ImageUrl}" />
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            HeightRequest="150"
+            HorizontalOptions="Center"
+            Source="{Binding ImageUrl}"
+            VerticalOptions="Center"
+            WidthRequest="150" />
         <ListView
-                VerticalOptions="Start"
-                HorizontalOptions="Start"
-                SeparatorVisibility="None"
-                SelectionMode="None"
-                Grid.Row="1"
-                Grid.ColumnSpan="2"
-                HasUnevenRows="True"
-                ItemsSource="{Binding Ingredients}"
-                Header="{Binding CookingTime, StringFormat='Tillagningstid - {0}'}">
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            HasUnevenRows="True"
+            Header="{Binding CookingTime, StringFormat='Tillagningstid - {0}'}"
+            HorizontalOptions="Start"
+            ItemsSource="{Binding Ingredients}"
+            SelectionMode="None"
+            SeparatorVisibility="None"
+            VerticalOptions="Start">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodel:DetailsRecipeViewModel">
                     <ViewCell>
@@ -41,15 +41,15 @@
         </ListView>
 
         <ListView
-                VerticalOptions="Start"
-                HorizontalOptions="Start"
-                SelectionMode="None"
-                SeparatorVisibility="None"
-                Grid.Row="2"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                HasUnevenRows="True"
-                ItemsSource="{Binding Cookingsteps}">
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HasUnevenRows="True"
+            HorizontalOptions="Start"
+            ItemsSource="{Binding Cookingsteps}"
+            SelectionMode="None"
+            SeparatorVisibility="None"
+            VerticalOptions="Start">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodel:DetailsRecipeViewModel">
                     <ViewCell>
@@ -63,22 +63,21 @@
         </ListView>
 
         <Button
-                Grid.Row="3"
-                Grid.Column="0"
-                Clicked="OnClickedGoBack"
-                Style="{StaticResource ButtonOutline}"
-                VerticalOptions="End"
-                HorizontalOptions="Start"
-                Text="Gå tillbaka" />
+            Grid.Row="3"
+            Grid.Column="0"
+            Clicked="OnClickedGoBack"
+            HorizontalOptions="Start"
+            Style="{StaticResource ButtonOutline}"
+            Text="Gå tillbaka"
+            VerticalOptions="End" />
         <Button
-                x:Name="SaveBtn"
-                Grid.Row="3"
-                Grid.Column="1"
-                Style="{StaticResource ButtonOutline}"
-                VerticalOptions="End"
-                HorizontalOptions=""
-                Command="{Binding SaveRecipeCommand}"
-                Text="Spara recept" />
+            x:Name="SaveBtn"
+            Grid.Row="3"
+            Grid.Column="1"
+            Command="{Binding SaveRecipeCommand}"
+            Style="{StaticResource ButtonOutline}"
+            Text="Spara recept"
+            VerticalOptions="End" />
     </Grid>
 
 </ContentPage>
