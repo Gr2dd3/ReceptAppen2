@@ -4,7 +4,8 @@
     {
         public static IMongoCollection<Models.RecipeDb> GetDbCollection()
         {
-            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://Admin:7Porqnv3ZIU5xFjF@receptspara.4cg3c5m.mongodb.net/test");
+            
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://Admin:7Porqnv3ZIU5xFjF@receptspara.4cg3c5m.mongodb.net/?retryWrites=true&w=majority");
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
             var client = new MongoClient(settings);
             var database = client.GetDatabase("ReceptSpara");

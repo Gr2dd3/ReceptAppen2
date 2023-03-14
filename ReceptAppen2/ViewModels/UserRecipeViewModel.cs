@@ -15,11 +15,12 @@ namespace ReceptAppen2.ViewModels
         [ObservableProperty]
         User user;
 
-        private List<RecipeDb> RecipeUserID { get; set; }
+        private List<RecipeDb> UserIdRecipeIdFromDb { get; set; }
 
-        //private List<int> RecipesId { get; set; }
+        private List<int> RecipesId { get; set; }
         public UserRecipeViewModel()
         {
+            RecipesId = new List<int>();
             Recipes = new ObservableCollection<Recipe>();
             if (SessionsData.IsloggedIn)
                 User = SessionsData.LoggedInUser;
@@ -35,39 +36,30 @@ namespace ReceptAppen2.ViewModels
         }
 
 
-        private async Task<List<int>> GetRecipesIdFromDb()
+        private async Task GetRecipesIdFromDb()
         {
-            RecipeUserID = new List<RecipeDb>();
-            RecipeUserID = await MongoDBService.GetDbCollection().AsQueryable().ToListAsync();
-            List<int> recipesId = new();
+            UserIdRecipeIdFromDb = new List<RecipeDb>();
+            UserIdRecipeIdFromDb = await MongoDBService.GetDbCollection().AsQueryable().ToListAsync();
 
-            foreach (var item in RecipeUserID)
+            foreach (var item in UserIdRecipeIdFromDb)
             {
                 if (item.UserId == SessionsData.LoggedInUser.Id)
                 {
-                    recipesId.Add(item.RecipeId);
-                }
-                else
-                {
-                    //TODO: Meddelande?
-                    await Shell.Current.DisplayAlert("Oj då", "Något blev fel", "OK");
+                    RecipesId.Add(item.RecipeId);
                 }
             }
-            return recipesId;
         }
 
         private async void GetUserRecipes()
         {
-            //TODO: Kolla så att recept hämtas från rätt användare
-            var task = Task.Run(() => GetRecipesIdFromDb());
-            task.Wait();
-            var result = task.Result;
+            await GetRecipesIdFromDb();
             
-            if (result.Count > 0)
+            if (RecipesId.Count > 0)
             {
-                for (int i = 0; i < result.Count; i++)
+                for (int i = 0; i < RecipesId.Count; i++)
                 {
-                    Recipes.Add(await RecipeSearchService.GetOneRecipeAsync(result[i]));
+                    var result = await RecipeSearchService.GetOneRecipeAsync(RecipesId[i]);
+                    Recipes.Add(result);
                 }
             }
             else
