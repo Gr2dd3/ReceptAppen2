@@ -58,10 +58,11 @@ namespace ReceptAppen2.ViewModels
 
         private async void GetUserRecipes()
         {
-
+            //TODO: Kolla så att recept hämtas från rätt användare
             var task = Task.Run(() => GetRecipesIdFromDb());
             task.Wait();
             var result = task.Result;
+            
             if (result.Count > 0)
             {
                 for (int i = 0; i < result.Count; i++)
