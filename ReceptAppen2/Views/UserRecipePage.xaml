@@ -15,7 +15,7 @@
         <Grid
             Padding="5,5,5,5"
             ColumnDefinitions="*, *"
-            RowDefinitions="Auto, Auto"
+            RowDefinitions="*, *"
             RowSpacing="5">
             <!--  Överskrift och LoginKnapp  -->
             <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
