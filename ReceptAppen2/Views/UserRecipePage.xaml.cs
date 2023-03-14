@@ -17,4 +17,9 @@ public partial class UserRecipePage : ContentPage
         }
         ((ListView)sender).SelectedItem = null;
     }
+
+    private void ListView_Scrolled(object sender, ScrolledEventArgs e)
+    {
+
+    }
 }

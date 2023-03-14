@@ -73,10 +73,10 @@
         <Button
                 x:Name="SaveBtn"
                 Grid.Row="3"
-                Grid.Column="0"
+                Grid.Column="1"
                 Style="{StaticResource ButtonOutline}"
                 VerticalOptions="End"
-                HorizontalOptions="Center"
+                HorizontalOptions=""
                 Command="{Binding SaveRecipeCommand}"
                 Text="Spara recept" />
     </Grid>

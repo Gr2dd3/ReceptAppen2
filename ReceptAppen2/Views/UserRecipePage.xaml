@@ -13,7 +13,8 @@
             Opacity="0.2"
             Source="imguserpage.jpg" />
         <Grid
-            Padding="10"
+            Padding="5, 5, 5, 5"
+            RowSpacing="5"
             ColumnDefinitions="*, *"
             RowDefinitions="Auto, Auto">
             <!--  Överskrift och LoginKnapp  -->
@@ -48,79 +49,76 @@
                     </Label.Shadow>
                 </Label>
             </HorizontalStackLayout>
-
+            
             <ListView
                 Grid.Row="1"
                 Grid.ColumnSpan="2"
                 HasUnevenRows="True"
                 ItemSelected="OnItemSelectedChanged"
-                ItemsSource="{Binding Recipes}">
+                ItemsSource="{Binding Recipes}"
+                SeparatorColor="{StaticResource Accent}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="model:Recipe">
                         <ViewCell>
                             <Grid
-                                ColumnDefinitions="Auto, *, *"
-                                ColumnSpacing="10"
+                                ColumnDefinitions="Auto, *"
+                                ColumnSpacing="20"
                                 HorizontalOptions="Start"
                                 VerticalOptions="Start"
-                                RowDefinitions="*, *">
+                                RowDefinitions="*, *, *, *, *">
                                 <Image
                                     Grid.Column="0"
-                                    Grid.RowSpan="2"
+                                    Grid.RowSpan="4"
                                     Aspect="AspectFill"
                                     HeightRequest="150"
+                                    WidthRequest="150"
                                     HorizontalOptions="Start"
-                                    Source="{Binding ImageUrl}"
-                                    WidthRequest="150" />
-
-                                <Grid
-                                    Padding="5"
-                                    RowDefinitions="Auto, Auto, Auto, Auto">
-                                    <Label
-                                        Grid.Row="0"
-                                        Grid.Column="1"
-                                        LineHeight="0.8"
-                                        MaxLines="2"
-                                        Style="{StaticResource MediumLabel}"
-                                        Text="{Binding Title, StringFormat='{0}'}" />
-                                    <!--  Tillagningstid  -->
-                                    <Label
+                                    Source="{Binding ImageUrl}"/>
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    LineHeight="0.8"
+                                    MaxLines="2"
+                                    Style="{StaticResource MediumLabel}"
+                                    Text="{Binding Title, StringFormat='{0}'}" />
+                                <!--  Tillagningstid  -->
+                                <Label
                                         Grid.Row="1"
                                         Grid.Column="1"
                                         Padding="0,8,0,0"
                                         Style="{StaticResource SmallLabel}"
                                         Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
-                                    <!--  Svårighetsgrad  -->
-                                    <Label
+                                <!--  Svårighetsgrad  -->
+                                <Label
                                         Grid.Row="2"
                                         Grid.Column="1"
                                         Padding="0,8,0,0"
                                         Style="{StaticResource SmallLabel}"
                                         Text="{Binding Difficulty, StringFormat='Svårighetsgrad: {0}'}" />
-                                    <!--  Preamble HTML  -->
-                                    <Label
+                                <!--  Preamble HTML  -->
+                                <Label
                                         Grid.Row="3"
                                         Grid.Column="1"
                                         Padding="0,8,0,0"
                                         FontAttributes="Italic"
                                         Style="{StaticResource SmallLabel}"
                                         Text="{Binding PreambleHTML, StringFormat='{0}'}" />
-                                    <Button
-                                        Grid.Row="1"
+                                <Button
+                                        Grid.Row="4"
                                         Grid.RowSpan="2"
-                                        Grid.Column="2"
+                                        Margin="10"
+                                        Grid.Column="0"
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UserRecipeViewModel}}, Path=DeleteRecipeCommand}"
                                         CommandParameter="{Binding .}"
-                                        HorizontalOptions="End"
+                                        HorizontalOptions="Center"
                                         Style="{StaticResource ButtonOutline}"
-                                        Text="Ta bort recept"
-                                        VerticalOptions="End" />
-                                </Grid>
+                                        Text="Ta bort recept"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
 
         </Grid>
     </Grid>
