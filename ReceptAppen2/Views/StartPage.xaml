@@ -36,11 +36,12 @@
                 Text="Logga in"
                 VerticalOptions="Start" />
 
-            <ListView Grid.ColumnSpan="2"
+            <ListView
                 Grid.Row="1"
+                Grid.ColumnSpan="2"
+                HasUnevenRows="True"
                 ItemSelected="OnItemSelectedChanged"
-                ItemsSource="{Binding Recipes}"
-                HasUnevenRows="True">
+                ItemsSource="{Binding Recipes}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="model:Recipe">
                         <ViewCell>
@@ -49,47 +50,47 @@
                                 ColumnDefinitions="Auto, *"
                                 ColumnSpacing="10"
                                 HorizontalOptions="Start"
-                                VerticalOptions="Start"
-                                RowDefinitions="*, *">
+                                RowDefinitions="*, *"
+                                VerticalOptions="Start">
                                 <Image
-                                    Grid.Column="0"
                                     Grid.RowSpan="2"
+                                    Grid.Column="0"
                                     Aspect="AspectFill"
                                     HeightRequest="150"
-                                    WidthRequest="150"
-                                    Source="{Binding ImageUrl}"/>
+                                    Source="{Binding ImageUrl}"
+                                    WidthRequest="150" />
 
                                 <Grid
-                                        Grid.Column="1"
-                                        Padding="5"
-                                        RowDefinitions="20, Auto, Auto, Auto, Auto">
+                                    Grid.Column="1"
+                                    Padding="5"
+                                    RowDefinitions="20, Auto, Auto, Auto, Auto">
                                     <!--  Title  -->
                                     <Label
-                                            Grid.Row="1"
-                                            Grid.Column="1"
-                                            LineHeight="0.8"
-                                            MaxLines="2"
-                                            Style="{StaticResource MediumLabel}"
-                                            Text="{Binding Title, StringFormat='{0}'}" />
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        LineHeight="0.8"
+                                        MaxLines="2"
+                                        Style="{StaticResource MediumLabel}"
+                                        Text="{Binding Title, StringFormat='{0}'}" />
                                     <!--  Tillagningstid  -->
                                     <Label
-                                            Grid.Row="2"
-                                            Padding="0,8,0,0"
-                                            Style="{StaticResource SmallLabel}"
-                                            Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
+                                        Grid.Row="2"
+                                        Padding="0,8,0,0"
+                                        Style="{StaticResource SmallLabel}"
+                                        Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
                                     <!--  Svårighetsgrad  -->
                                     <Label
-                                            Grid.Row="3"
-                                            Padding="0,8,0,0"
-                                            Style="{StaticResource SmallLabel}"
-                                            Text="{Binding Difficulty, StringFormat='Svårighetsgrad: {0}'}" />
+                                        Grid.Row="3"
+                                        Padding="0,8,0,0"
+                                        Style="{StaticResource SmallLabel}"
+                                        Text="{Binding Difficulty, StringFormat='Svårighetsgrad: {0}'}" />
                                     <!--  Preamble HTML  -->
                                     <Label
-                                            Grid.Row="4"
-                                            Padding="0,8,0,0"
-                                            FontAttributes="Italic"
-                                            Style="{StaticResource SmallLabel}"
-                                            Text="{Binding PreambleHTML, StringFormat='{0}'}" />
+                                        Grid.Row="4"
+                                        Padding="0,8,0,0"
+                                        FontAttributes="Italic"
+                                        Style="{StaticResource SmallLabel}"
+                                        Text="{Binding PreambleHTML, StringFormat='{0}'}" />
                                 </Grid>
                             </Grid>
                         </ViewCell>

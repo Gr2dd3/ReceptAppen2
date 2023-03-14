@@ -59,7 +59,7 @@
                     <DataTemplate x:DataType="model:Recipe">
                         <ViewCell>
                             <Grid
-                                ColumnDefinitions="Auto, *"
+                                ColumnDefinitions="Auto, *, *"
                                 ColumnSpacing="10"
                                 HorizontalOptions="Start"
                                 VerticalOptions="Start"
@@ -74,7 +74,6 @@
                                     WidthRequest="150" />
 
                                 <Grid
-                                    Grid.Column="1"
                                     Padding="5"
                                     RowDefinitions="Auto, Auto, Auto, Auto">
                                     <Label
@@ -87,18 +86,21 @@
                                     <!--  Tillagningstid  -->
                                     <Label
                                         Grid.Row="1"
+                                        Grid.Column="1"
                                         Padding="0,8,0,0"
                                         Style="{StaticResource SmallLabel}"
                                         Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
                                     <!--  Svårighetsgrad  -->
                                     <Label
                                         Grid.Row="2"
+                                        Grid.Column="1"
                                         Padding="0,8,0,0"
                                         Style="{StaticResource SmallLabel}"
                                         Text="{Binding Difficulty, StringFormat='Svårighetsgrad: {0}'}" />
                                     <!--  Preamble HTML  -->
                                     <Label
                                         Grid.Row="3"
+                                        Grid.Column="1"
                                         Padding="0,8,0,0"
                                         FontAttributes="Italic"
                                         Style="{StaticResource SmallLabel}"
@@ -106,13 +108,13 @@
                                     <Button
                                         Grid.Row="1"
                                         Grid.RowSpan="2"
-                                        Grid.Column="1"
+                                        Grid.Column="2"
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UserRecipeViewModel}}, Path=DeleteRecipeCommand}"
                                         CommandParameter="{Binding .}"
                                         HorizontalOptions="End"
                                         Style="{StaticResource ButtonOutline}"
                                         Text="Ta bort recept"
-                                        VerticalOptions="Start" />
+                                        VerticalOptions="End" />
                                 </Grid>
                             </Grid>
                         </ViewCell>
