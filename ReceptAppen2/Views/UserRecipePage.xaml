@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ReceptAppen2.Views.UserRecipePage"
-             xmlns:model="clr-namespace:ReceptAppen2.Models"
-             xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
-             x:DataType="viewmodel:UserRecipeViewModel"
-             Title="Mina sparade recept">
-
-
+<ContentPage
+    x:Class="ReceptAppen2.Views.UserRecipePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:ReceptAppen2.Models"
+    xmlns:viewmodel="clr-namespace:ReceptAppen2.ViewModels"
+    Title="Mina sparade recept"
+    x:DataType="viewmodel:UserRecipeViewModel">
     <Grid>
-        <Image Aspect="AspectFill"
-               Opacity="0.2"
-               Source="imguserpage.jpg"/>
+        <Image
+            Aspect="AspectFill"
+            Opacity="0.2"
+            Source="imguserpage.jpg" />
         <Grid
             Padding="10"
             ColumnDefinitions="*, *"
-            RowDefinitions="Auto, Auto, *, Auto">
+            RowDefinitions="Auto, Auto">
             <!--  Överskrift och LoginKnapp  -->
             <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
 
@@ -26,10 +26,11 @@
                     Text="{Binding User.FirstName}"
                     TextColor="Cornsilk">
                     <Label.Shadow>
-                        <Shadow Brush="Black"
-                                Offset="20,20"
-                                Radius="40"
-                                Opacity="0.8"/>
+                        <Shadow
+                            Brush="Black"
+                            Opacity="0.8"
+                            Radius="40"
+                            Offset="20,20" />
                     </Label.Shadow>
                 </Label>
                 <Label
@@ -37,78 +38,81 @@
                     Grid.Column="0"
                     Style="{StaticResource LargeLabel}"
                     Text="{Binding User.LastName, StringFormat=' {0}'}"
-                    TextColor="DarkGoldenrod"
-                    >
+                    TextColor="DarkGoldenrod">
                     <Label.Shadow>
-                        <Shadow Brush="Black"
-                                Offset="20,20"
-                                Radius="40"
-                                Opacity="0.8"/>
+                        <Shadow
+                            Brush="Black"
+                            Opacity="0.8"
+                            Radius="40"
+                            Offset="20,20" />
                     </Label.Shadow>
                 </Label>
             </HorizontalStackLayout>
 
-
-
             <ListView
-                    ItemSelected="OnItemSelectedChanged"
-                    ItemsSource="{Binding Recipes}" HasUnevenRows="True">
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                HasUnevenRows="True"
+                ItemSelected="OnItemSelectedChanged"
+                ItemsSource="{Binding Recipes}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="model:Recipe">
                         <ViewCell>
                             <Grid
-                                    ColumnDefinitions="Auto, *"
-                                    RowDefinitions="*, *"
-                                    ColumnSpacing="20"
-                                    HorizontalOptions="Center">
+                                ColumnDefinitions="Auto, *"
+                                ColumnSpacing="10"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Start"
+                                RowDefinitions="*, *">
                                 <Image
-                                        Grid.Column="0"
-                                        Aspect="AspectFit"
-                                        HeightRequest="150"
-                                        WidthRequest="150"
-                                        HorizontalOptions="Start"
-                                        Source="{Binding ImageUrl}" />
+                                    Grid.Column="0"
+                                    Grid.RowSpan="2"
+                                    Aspect="AspectFill"
+                                    HeightRequest="150"
+                                    HorizontalOptions="Start"
+                                    Source="{Binding ImageUrl}"
+                                    WidthRequest="150" />
 
                                 <Grid
-                                        Grid.Column="1"
-                                        Padding="5"
-                                        RowDefinitions="Auto, Auto, Auto, Auto">
+                                    Grid.Column="1"
+                                    Padding="5"
+                                    RowDefinitions="Auto, Auto, Auto, Auto">
                                     <Label
-                                            Grid.Row="0"
-                                            Grid.Column="1"
-                                            LineHeight="0.8"
-                                            MaxLines="2"
-                                            Style="{StaticResource MediumLabel}"
-                                            Text="{Binding Title, StringFormat='{0}'}" />
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        LineHeight="0.8"
+                                        MaxLines="2"
+                                        Style="{StaticResource MediumLabel}"
+                                        Text="{Binding Title, StringFormat='{0}'}" />
                                     <!--  Tillagningstid  -->
                                     <Label
-                                            Grid.Row="1"
-                                            Padding="0,8,0,0"
-                                            Style="{StaticResource SmallLabel}"
-                                            Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
+                                        Grid.Row="1"
+                                        Padding="0,8,0,0"
+                                        Style="{StaticResource SmallLabel}"
+                                        Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
                                     <!--  Svårighetsgrad  -->
                                     <Label
-                                            Grid.Row="2"
-                                            Padding="0,8,0,0"
-                                            Style="{StaticResource SmallLabel}"
-                                            Text="{Binding Difficulty, StringFormat='Svårighetsgrad: {0}'}" />
+                                        Grid.Row="2"
+                                        Padding="0,8,0,0"
+                                        Style="{StaticResource SmallLabel}"
+                                        Text="{Binding Difficulty, StringFormat='Svårighetsgrad: {0}'}" />
                                     <!--  Preamble HTML  -->
                                     <Label
-                                            Grid.Row="3"
-                                            Padding="0,8,0,0"
-                                            FontAttributes="Italic"
-                                            Style="{StaticResource SmallLabel}"
-                                            Text="{Binding PreambleHTML, StringFormat='{0}'}" />
+                                        Grid.Row="3"
+                                        Padding="0,8,0,0"
+                                        FontAttributes="Italic"
+                                        Style="{StaticResource SmallLabel}"
+                                        Text="{Binding PreambleHTML, StringFormat='{0}'}" />
                                     <Button
-                                            Grid.Row="1"
-                                            Grid.RowSpan="2"
-                                            Grid.Column="1"
-                                            HorizontalOptions="End"
-                                            Style="{StaticResource ButtonOutline}"
-                                            Text="Ta bort recept"
-                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UserRecipeViewModel}}, Path=DeleteRecipeCommand}"
-                                            CommandParameter="{Binding .}"
-                                            VerticalOptions="Start" />
+                                        Grid.Row="1"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="1"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:UserRecipeViewModel}}, Path=DeleteRecipeCommand}"
+                                        CommandParameter="{Binding .}"
+                                        HorizontalOptions="End"
+                                        Style="{StaticResource ButtonOutline}"
+                                        Text="Ta bort recept"
+                                        VerticalOptions="Start" />
                                 </Grid>
                             </Grid>
                         </ViewCell>
