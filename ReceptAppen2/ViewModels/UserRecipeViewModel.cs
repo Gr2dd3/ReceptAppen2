@@ -45,9 +45,7 @@ namespace ReceptAppen2.ViewModels
             foreach (var item in UserIdRecipeIdFromDb)
             {
                 if (item.UserId == SessionsData.LoggedInUser.Id)
-                {
                     RecipesId.Add(item.RecipeId);
-                }
             }
         }
 
@@ -57,10 +55,10 @@ namespace ReceptAppen2.ViewModels
             
             if (RecipesId.Count > 0)
             {
-                for (int i = 0; i < RecipesId.Count; i++)
+                for (int savedRecipeId = 0; savedRecipeId < RecipesId.Count; savedRecipeId++)
                 {
-                    var result = await RecipeSearchService.GetOneRecipeAsync(RecipesId[i]);
-                    Recipes.Add(result);
+                    var usersRecipe = await RecipeSearchService.GetOneRecipeAsync(RecipesId[savedRecipeId]);
+                    Recipes.Add(usersRecipe);
                 }
             }
             else

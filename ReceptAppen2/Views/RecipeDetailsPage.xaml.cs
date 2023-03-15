@@ -7,9 +7,8 @@ public partial class RecipeDetailsPage : ContentPage
         InitializeComponent();
 
         if (SessionsData.LoggedInUser is null || SessionsData.FromUserRecipePage)
-        {
             SaveBtn.IsVisible = false;
-        }
+
         BindingContext = new DetailsRecipeViewModel(recipe);
     }
 

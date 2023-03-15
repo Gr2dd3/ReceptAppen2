@@ -23,9 +23,7 @@ namespace ReceptAppen2.ViewModels
                 {
                     SessionsData.LoggedInUser = await UserService.GetUserAsync();
                     if (SessionsData.LoggedInUser is not null)
-                    {
                         SessionsData.IsloggedIn = true;
-                    }
                 }
                 else
                 {

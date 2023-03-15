@@ -3,10 +3,6 @@ namespace ReceptAppen2.Services
 {
     internal class UserService
     {
-        /// <summary>
-        /// GetUserAsync
-        /// </summary>
-        /// <returns></returns>
         internal static async Task<User> GetUserAsync()
         {
             User user = null;

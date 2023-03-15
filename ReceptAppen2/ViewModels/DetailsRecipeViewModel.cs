@@ -1,4 +1,6 @@
-﻿namespace ReceptAppen2.ViewModels
+﻿using System.Web;
+
+namespace ReceptAppen2.ViewModels
 {
     public partial class DetailsRecipeViewModel : ObservableObject
     {
@@ -62,13 +64,13 @@
         {
             Cookingsteps = new List<string>();
 
-            int count = 1;
-            Recipe1.CookingSteps?.ForEach(x => Cookingsteps.Add($"{count++}. " + EncodeHtml(x.ToString())));
+            int numberOfSteps = 1;
+            Recipe1.CookingSteps?.ForEach(x => Cookingsteps.Add($"{numberOfSteps++}. " + DecodeHtml(x.ToString())));
         }
 
-        private string EncodeHtml(string text)
+        private string DecodeHtml(string textToDecode)
         {
-            string encodedText = text.Replace("&auml;", "ä")
+            string decodedHtmlText = textToDecode.Replace("&auml;", "ä")
                 .Replace("&aring;", "å")
                 .Replace("&egrave;", "è")
                 .Replace("&deg;", " °")
@@ -79,7 +81,7 @@
                 .Replace("&ndash;", "-")
                 .Replace("<strong>", "")
                 .Replace("</strong>", "");
-            return encodedText;
+            return decodedHtmlText;
         }
 
 
