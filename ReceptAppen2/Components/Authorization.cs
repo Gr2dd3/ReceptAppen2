@@ -17,13 +17,10 @@ namespace ReceptAppen2.Components
             SessionsData.AuthorizationKey = System.Convert.ToBase64String(plainTextBytes);
 
             if (SessionsData.AuthorizationKey is not null)
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
         }
+
     }
 }

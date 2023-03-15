@@ -10,7 +10,6 @@ namespace ReceptAppen2.Components
 {
     internal class Validation : IValidation
     {
-        // STEG 1
         private delegate bool MyDelegate(bool one, bool two);
         public bool IsValidated(string socialSecurityNr, string passWord)
         {

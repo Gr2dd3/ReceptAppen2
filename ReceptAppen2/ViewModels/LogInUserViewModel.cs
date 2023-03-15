@@ -17,6 +17,7 @@ namespace ReceptAppen2.ViewModels
         {
             TryLogIn = new LogInFacade();
 
+            //TODO: Använda bool SessionsData.IsLoggedIn istället?
             if (SessionsData.LoggedInUser == null)
             {
                 if (await TryLogIn.CanLogIn(Socsecnr, Pass1))
