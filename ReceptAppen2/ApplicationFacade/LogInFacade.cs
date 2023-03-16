@@ -1,7 +1,6 @@
-﻿
-
-namespace ReceptAppen2.ApplicationFacade
+﻿namespace ReceptAppen2.ApplicationFacade
 {
+    // using Facade to make sure that the user is validated, authorized and authenticated (and hide that code)
     public class LogInFacade : ILogInFacade
     {
 

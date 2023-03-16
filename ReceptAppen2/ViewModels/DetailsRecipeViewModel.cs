@@ -1,6 +1,4 @@
-﻿using System.Web;
-
-namespace ReceptAppen2.ViewModels
+﻿namespace ReceptAppen2.ViewModels
 {
     public partial class DetailsRecipeViewModel : ObservableObject
     {

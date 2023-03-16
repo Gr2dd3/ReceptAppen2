@@ -1,7 +1,4 @@
-﻿
-using DnsClient;
-
-namespace ReceptAppen2.Components
+﻿namespace ReceptAppen2.Components
 {
     internal class Authentication : IAuthentication
     {

@@ -1,5 +1,4 @@
-﻿
-namespace ReceptAppen2.Models
+﻿namespace ReceptAppen2.Models
 {
     public class Recipe
     {

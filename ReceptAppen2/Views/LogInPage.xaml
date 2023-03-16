@@ -32,21 +32,21 @@
                     Text="Logga in" />
 
                 <Entry
+                    x:Name="SocSecNumber"
                     Grid.Row="2"
                     Grid.Column="1"
                     Grid.ColumnSpan="2"
                     Placeholder="Personnummer (ååååmmddnnnn)"
-                    Keyboard="Numeric"
-                    Text="{Binding SocSecNumber}" />
+                    Keyboard="Numeric" />
 
                 <Entry
+                    x:Name="Password"
                     Grid.Row="3"
                     Grid.Column="1"
                     Grid.ColumnSpan="2"
                     IsPassword="true"
                     Placeholder="Lösenord"
-                    Keyboard="Numeric"
-                    Text="{Binding Password}" />
+                    Keyboard="Numeric" />
 
                 <Button
                     Grid.Row="4"
