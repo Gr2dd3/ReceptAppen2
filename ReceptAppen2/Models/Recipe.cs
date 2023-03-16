@@ -3,11 +3,6 @@ namespace ReceptAppen2.Models
 {
     public class Recipe
     {
-        //TODO: Ta bort kommentarer?
-        //public List<ExtraPortion> ExtraPortions { get; set; }
-        //public GroceryBags GroceryBags { get; set; }
-        //public NutritionPerPortion NutritionPerPortion { get; set; }
-        //public List<CookingStepsWithTimer> CookingStepsWithTimers { get; set; }
         public int Id { get; set; }
         public string Title { get; set; }
         public int ImageId { get; set; }

@@ -5,7 +5,7 @@ namespace ReceptAppen2.ViewModels
     public partial class DetailsRecipeViewModel : ObservableObject
     {
         [ObservableProperty]
-        Recipe recipe1;
+        Recipe fetchedRecipe;
 
         [ObservableProperty]
         List<string> cookingsteps;
@@ -20,37 +20,53 @@ namespace ReceptAppen2.ViewModels
         string cookingTime;
 
         [ObservableProperty]
-        int portions;
-
-        [ObservableProperty]
         ObservableCollection<string> ingredients;
 
         public DetailsRecipeViewModel(Recipe recipe)
         {
             Ingredients = new ObservableCollection<string>();
-            recipe1 = recipe;
+            FetchedRecipe = recipe;
             GetRecipeDetails();
             GetCookingsteps();
         }
 
+        [RelayCommand]
+        private async void SaveRecipe()
+        {
+            try
+            {
+                var saveRecipe = new RecipeDb()
+                {
+                    Id = new Guid(),
+                    UserId = SessionsData.LoggedInUser.Id,
+                    RecipeId = FetchedRecipe.Id
+                };
+
+                await MongoDBService.GetDbCollection().InsertOneAsync(saveRecipe);
+
+                await Shell.Current.DisplayAlert("Klart!", "Recept tillagt", "OK");
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert("Oops", $" Något blev fel: {ex.Message}", "OK");
+            }
+        }
+
         private void GetRecipeDetails()
         {
-            if (Recipe1 is not null)
+            if (FetchedRecipe is not null)
             {
-                if (Recipe1.ImageUrl is not null)
-                    ImageUrl = Recipe1.ImageUrl;
+                if (FetchedRecipe.ImageUrl is not null)
+                    ImageUrl = FetchedRecipe.ImageUrl;
 
-                if (Recipe1.Title is not null)
-                    Title = Recipe1.Title;
+                if (FetchedRecipe.Title is not null)
+                    Title = FetchedRecipe.Title;
 
-                if (Recipe1.CookingTime is not null)
-                    CookingTime = Recipe1.CookingTime;
+                if (FetchedRecipe.CookingTime is not null)
+                    CookingTime = FetchedRecipe.CookingTime;
 
-                foreach (var item in Recipe1.IngredientGroups)
+                foreach (var item in FetchedRecipe.IngredientGroups)
                 {
-                    if (item is not null)
-                        Portions = item.Portions;
-
                     foreach (var ingredient in (item.Ingredients))
                     {
                         if (ingredient is not null)
@@ -59,15 +75,13 @@ namespace ReceptAppen2.ViewModels
                 }
             }
         }
-
         private void GetCookingsteps()
         {
             Cookingsteps = new List<string>();
 
             int numberOfSteps = 1;
-            Recipe1.CookingSteps?.ForEach(x => Cookingsteps.Add($"{numberOfSteps++}. " + DecodeHtml(x.ToString())));
+            FetchedRecipe.CookingSteps?.ForEach(x => Cookingsteps.Add($"{numberOfSteps++}. " + DecodeHtml(x.ToString())));
         }
-
         private string DecodeHtml(string textToDecode)
         {
             string decodedHtmlText = textToDecode.Replace("&auml;", "ä")
@@ -82,28 +96,6 @@ namespace ReceptAppen2.ViewModels
                 .Replace("<strong>", "")
                 .Replace("</strong>", "");
             return decodedHtmlText;
-        }
-
-
-        [RelayCommand]
-        private async void SaveRecipe()
-        {
-            try
-            {
-                var saveRecipe = new RecipeDb()
-                {
-                    UserId = SessionsData.LoggedInUser.Id,
-                    RecipeId = Recipe1.Id
-                };
-
-                await MongoDBService.GetDbCollection().InsertOneAsync(saveRecipe);
-
-                await Shell.Current.DisplayAlert("Klart!", "Recept tillagt", "OK");
-            }
-            catch (Exception ex)
-            {
-                await Shell.Current.DisplayAlert("Oops", $" Något blev fel: {ex.Message}", "OK");
-            }
         }
     }
 }

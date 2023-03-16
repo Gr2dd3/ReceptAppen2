@@ -5,10 +5,10 @@ namespace ReceptAppen2.ViewModels
     {
 
         [ObservableProperty]
-        string pass1;
+        string password;
 
         [ObservableProperty]
-        string socsecnr;
+        string socSecNumber;
 
         public LogInFacade TryLogIn { get; set; }
 
@@ -17,10 +17,9 @@ namespace ReceptAppen2.ViewModels
         {
             TryLogIn = new LogInFacade();
 
-            //TODO: Använda bool SessionsData.IsLoggedIn istället?
-            if (SessionsData.LoggedInUser == null)
+            if (!SessionsData.IsloggedIn)
             {
-                if (await TryLogIn.CanLogIn(Socsecnr, Pass1))
+                if (await TryLogIn.CanLogIn(SocSecNumber, Password))
                 {
                     SessionsData.LoggedInUser = await UserService.GetUserAsync();
                     if (SessionsData.LoggedInUser is not null)

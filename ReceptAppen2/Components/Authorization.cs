@@ -8,10 +8,8 @@ namespace ReceptAppen2.Components
 {
     internal class Authorization : IAuthorization
     {
-        // STEG 2
         public bool GetAuthorizationKey(string socialSecurityNr, string passWord)
         {
-            // STEG 2 HÄR
             var plainText = socialSecurityNr + ":" + passWord;
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
             SessionsData.AuthorizationKey = System.Convert.ToBase64String(plainTextBytes);

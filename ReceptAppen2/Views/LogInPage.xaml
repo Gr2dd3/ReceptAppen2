@@ -39,7 +39,7 @@
                     Grid.ColumnSpan="2"
                     Placeholder="Personnummer (ååååmmddnnnn)"
                     Keyboard="Numeric"
-                    Text="{Binding Socsecnr}" />
+                    Text="{Binding SocSecNumber}" />
 
                 <!--  PASSWORD  -->
                 <Entry
@@ -49,7 +49,7 @@
                     IsPassword="true"
                     Placeholder="Lösenord"
                     Keyboard="Numeric"
-                    Text="{Binding Pass1}" />
+                    Text="{Binding Password}" />
 
                 <!--  Logga in Knapp  -->
                 <Button

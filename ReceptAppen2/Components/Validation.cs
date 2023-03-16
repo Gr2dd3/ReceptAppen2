@@ -11,18 +11,20 @@ namespace ReceptAppen2.Components
     internal class Validation : IValidation
     {
         private delegate bool MyDelegate(bool one, bool two);
+
+
         public bool IsValidated(string socialSecurityNr, string passWord)
         {
             bool correctTypeOfPassWord = false;
             bool isASocialSecurityNr = false;
             MyDelegate validate = GetBool;
 
-            if (GetRightSocialNr(socialSecurityNr) is true)
+            if (GetRightSocialNr(socialSecurityNr))
             {
                 isASocialSecurityNr = true;
             }
 
-            if (GetRightTypeOfPassword(passWord) is true)
+            if (GetRightTypeOfPassword(passWord))
             {
                 correctTypeOfPassWord = true;
             }
@@ -35,7 +37,6 @@ namespace ReceptAppen2.Components
         {
             Regex reg = new Regex("^\\d" + "{" + nrOfDigits + "}$");
 
-
             if (pattern is not null)
             {
                 MatchCollection matches = reg.Matches(pattern);
@@ -46,8 +47,6 @@ namespace ReceptAppen2.Components
                 MatchCollection matches = reg.Matches("0");
                 return matches;
             }
-
-
         }
         private static bool GetRightTypeOfPassword(string passWord)
         {
@@ -68,7 +67,6 @@ namespace ReceptAppen2.Components
         }
         private static bool GetRightSocialNr(string socialSecurityNr)
         {
-            // Luhn Algorithm
             bool isASocialSecurityNr = false;
 
             MatchCollection matches = GetRegex(12, socialSecurityNr);
@@ -76,40 +74,34 @@ namespace ReceptAppen2.Components
             if (matches.Count == 1)
             {
                 int sum = 0;
-
                 string resultToString = matches[0].Value.ToString();
                 char[] charNumbers = resultToString.ToCharArray();
-
                 int lastDigit = int.Parse(charNumbers[charNumbers.Length - 1].ToString());
-
                 var charList = charNumbers.ToList();
 
-                //int i = charList.Count - 1;
-
-                for (int i = charList.Count - 1; i >= 2; i--)
+                for (int position = charList.Count - 1; position >= 2; position--)
                 {
-                    int.TryParse(charList[i].ToString(), out int nr);
-                    // Ojämna index
-                    if (i % 2 == 0)
+                    int.TryParse(charList[position].ToString(), out int digitInSocSecNr);
+                    if (position % 2 == 0)
                     {
-                        nr = nr * 2;
-                        if (nr > 9)
+                        digitInSocSecNr *= 2;
+                        if (digitInSocSecNr > 9)
                         {
-                            List<char> twoNr = nr.ToString().ToList();
-                            sum += (int.Parse(twoNr[0].ToString()) + int.Parse(twoNr[1].ToString()));
+                            List<char> digitInSocSecNrResult = digitInSocSecNr.ToString().ToList();
+                            sum += (int.Parse(digitInSocSecNrResult[0].ToString()) + int.Parse(digitInSocSecNrResult[1].ToString()));
                         }
                         else
                         {
-                            sum += nr;
+                            sum += digitInSocSecNr;
                         }
                     }
                     else
                     {
-                        sum += nr;
+                        sum += digitInSocSecNr;
                     }
                 }
                 int result = sum % 10;
-                // add check for month and date in if
+
                 if (result == 0)
                 {
                     isASocialSecurityNr = true;
@@ -127,11 +119,11 @@ namespace ReceptAppen2.Components
             return isASocialSecurityNr;
         }
 
-        private static bool GetBool(bool one, bool two)
+        private static bool GetBool(bool checkSocialSecurityNr, bool checkPassword)
         {
             bool isValid;
 
-            if (one is true && two is true)
+            if (checkSocialSecurityNr is true && checkPassword is true)
             {
                 isValid = true;
             }
