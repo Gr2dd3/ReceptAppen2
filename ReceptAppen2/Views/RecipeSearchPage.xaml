@@ -28,7 +28,6 @@
                     TextColor="{StaticResource Accent}" />
             </HorizontalStackLayout>
 
-            <!--  SKAPA SEARCHBAR  -->
             <Entry
                 Grid.Row="1"
                 Grid.Column="0"
@@ -84,21 +83,20 @@
                                     MaxLines="2"
                                     Style="{StaticResource MediumLabel}"
                                     Text="{Binding Title, StringFormat='{0}'}" />
-                                <!--  Tillagningstid  -->
                                 <Label
                                     Grid.Row="1"
                                     Grid.Column="1"
                                     Padding="0,8,0,0"
                                     Style="{StaticResource SmallLabel}"
                                     Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
-                                <!--  Svårighetsgrad  -->
                                 <Label
                                     Grid.Row="2"
                                     Grid.Column="1"
                                     Padding="0,8,0,0"
                                     Style="{StaticResource SmallLabel}"
                                     Text="{Binding Difficulty, StringFormat='Svårighetsgrad: {0}'}" />
-                                <!--  Preamble HTML  -->
+                                
+                                <!-- Short presentation of dish -->
                                 <Label
                                     Grid.Row="3"
                                     Grid.Column="1"

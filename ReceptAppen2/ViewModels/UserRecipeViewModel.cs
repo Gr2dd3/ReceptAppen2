@@ -16,8 +16,8 @@ namespace ReceptAppen2.ViewModels
         User user;
 
         private List<RecipeDb> UserIdRecipeIdFromDb { get; set; }
-
         private List<int> RecipesId { get; set; }
+
         public UserRecipeViewModel()
         {
             RecipesId = new List<int>();
@@ -36,7 +36,6 @@ namespace ReceptAppen2.ViewModels
             Recipes.Remove(recipe);
         }
 
-
         private async Task GetRecipesIdFromDb()
         {
             UserIdRecipeIdFromDb = new List<RecipeDb>();
@@ -48,7 +47,6 @@ namespace ReceptAppen2.ViewModels
                     RecipesId.Add(item.RecipeId);
             }
         }
-
         private async void GetUserRecipes()
         {
             await GetRecipesIdFromDb();

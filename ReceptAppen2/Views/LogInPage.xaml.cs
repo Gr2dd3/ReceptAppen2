@@ -12,7 +12,6 @@ public partial class LogInPage : ContentPage
 
     private async void OnClickedGoToUserPage(object sender, EventArgs e)
     {
-        //TODO: Finns bättre lösning?
         await vm.LogIn();
         
         if (SessionsData.IsloggedIn)

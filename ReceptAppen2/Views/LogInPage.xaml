@@ -23,7 +23,6 @@
                 RowDefinitions="0, Auto, 50, 50, Auto, Auto, 50*"
                 RowSpacing="10">
 
-                <!--  TITLE  -->
                 <Label
                     Grid.Row="1"
                     Grid.Column="1"
@@ -32,7 +31,6 @@
                     HorizontalOptions="Center"
                     Text="Logga in" />
 
-                <!--  SOCIAL SECURITY NR  -->
                 <Entry
                     Grid.Row="2"
                     Grid.Column="1"
@@ -41,7 +39,6 @@
                     Keyboard="Numeric"
                     Text="{Binding SocSecNumber}" />
 
-                <!--  PASSWORD  -->
                 <Entry
                     Grid.Row="3"
                     Grid.Column="1"
@@ -51,7 +48,6 @@
                     Keyboard="Numeric"
                     Text="{Binding Password}" />
 
-                <!--  Logga in Knapp  -->
                 <Button
                     Grid.Row="4"
                     Grid.Column="1"
@@ -59,7 +55,6 @@
                     Style="{StaticResource ButtonOutline}"
                     Text="Logga in" />
 
-                <!--  Gå tillbaka knapp  -->
                 <Button
                     Grid.Row="4"
                     Grid.Column="2"

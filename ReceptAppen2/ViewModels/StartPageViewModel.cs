@@ -15,7 +15,7 @@
             }
             catch (Exception ex)
             {
-                Shell.Current.DisplayAlert("Fel", $"Något stämmer inte: {ex.Message}", "OK");
+                Shell.Current.DisplayAlert("Fel", $"Meddelande: {ex.Message}", "OK");
             }
 
         }

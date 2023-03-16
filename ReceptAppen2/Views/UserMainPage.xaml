@@ -14,7 +14,6 @@
             Padding="10"
             ColumnDefinitions="*, *"
             RowDefinitions="Auto, Auto, *, Auto">
-            <!--  Överskrift och LoginKnapp  -->
             <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
 
                 <Label
@@ -86,6 +85,8 @@
                         FontSize="22"
                         Style="{StaticResource ButtonOutline}"
                         Text="Mina recept" />
+                    
+                    <!-- Prepared for more content -->
                     <!--<Button
                         Grid.Row="1"
                         Grid.Column="0"

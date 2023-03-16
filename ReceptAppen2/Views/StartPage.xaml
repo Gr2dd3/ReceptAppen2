@@ -12,7 +12,6 @@
             Padding="10"
             ColumnDefinitions="*, *"
             RowDefinitions="Auto, Auto">
-            <!--  Överskrift och LoginKnapp  -->
             <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
                 <Label
                     Grid.Row="0"
@@ -64,7 +63,6 @@
                                     Grid.Column="1"
                                     Padding="5"
                                     RowDefinitions="20, Auto, Auto, Auto, Auto">
-                                    <!--  Title  -->
                                     <Label
                                         Grid.Row="1"
                                         Grid.Column="1"
@@ -72,19 +70,17 @@
                                         MaxLines="2"
                                         Style="{StaticResource MediumLabel}"
                                         Text="{Binding Title, StringFormat='{0}'}" />
-                                    <!--  Tillagningstid  -->
                                     <Label
                                         Grid.Row="2"
                                         Padding="0,8,0,0"
                                         Style="{StaticResource SmallLabel}"
                                         Text="{Binding CookingTime, StringFormat='Tillagningstid: {0}'}" />
-                                    <!--  Svårighetsgrad  -->
                                     <Label
                                         Grid.Row="3"
                                         Padding="0,8,0,0"
                                         Style="{StaticResource SmallLabel}"
                                         Text="{Binding Difficulty, StringFormat='Svårighetsgrad: {0}'}" />
-                                    <!--  Preamble HTML  -->
+                                    <!--  Short presentation of dish  -->
                                     <Label
                                         Grid.Row="4"
                                         Padding="0,8,0,0"
