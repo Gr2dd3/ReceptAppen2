@@ -3,6 +3,7 @@ namespace ReceptAppen2.ViewModels
 {
     public partial class LogInUserViewModel : ObservableObject
     {
+        static readonly UserSingleton host = UserSingleton.GetUser();
 
         [ObservableProperty]
         string password;
@@ -17,13 +18,13 @@ namespace ReceptAppen2.ViewModels
         {
             TryLogIn = new LogInFacade();
 
-            if (!SessionsData.IsloggedIn)
+            if (!host.IsloggedIn)
             {
                 if (await TryLogIn.CanLogIn(SocSecNumber, Password))
                 {
-                    SessionsData.LoggedInUser = await UserService.GetUserAsync();
-                    if (SessionsData.LoggedInUser is not null)
-                        SessionsData.IsloggedIn = true;
+                    host.LoggedInUser = await UserService.GetUserAsync();
+                    if (host.LoggedInUser is not null)
+                        host.IsloggedIn = true;
                 }
                 else
                 {

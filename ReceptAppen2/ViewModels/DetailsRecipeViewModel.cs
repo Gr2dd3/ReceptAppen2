@@ -4,6 +4,8 @@ namespace ReceptAppen2.ViewModels
 {
     public partial class DetailsRecipeViewModel : ObservableObject
     {
+        static readonly UserSingleton host = UserSingleton.GetUser();
+
         [ObservableProperty]
         Recipe fetchedRecipe;
 
@@ -38,7 +40,7 @@ namespace ReceptAppen2.ViewModels
                 var saveRecipe = new RecipeDb()
                 {
                     Id = new Guid(),
-                    UserId = SessionsData.LoggedInUser.Id,
+                    UserId = host.LoggedInUser.Id,
                     RecipeId = FetchedRecipe.Id
                 };
 

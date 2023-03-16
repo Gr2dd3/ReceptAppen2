@@ -1,4 +1,4 @@
-﻿using static ReceptAppen2.Models.SessionsData;
+﻿
 
 namespace ReceptAppen2.ApplicationFacade
 {

@@ -8,6 +8,7 @@ namespace ReceptAppen2.ViewModels
 {
     public partial class UserRecipeViewModel : ObservableObject
     {
+        static readonly UserSingleton host = UserSingleton.GetUser();
 
         [ObservableProperty]
         ObservableCollection<Recipe> recipes;
@@ -22,8 +23,8 @@ namespace ReceptAppen2.ViewModels
         {
             RecipesId = new List<int>();
             Recipes = new ObservableCollection<Recipe>();
-            if (SessionsData.IsloggedIn)
-                User = SessionsData.LoggedInUser;
+            if (host.IsloggedIn)
+                User = host.LoggedInUser;
             GetUserRecipes();
         }
 
@@ -32,7 +33,7 @@ namespace ReceptAppen2.ViewModels
         {
             var recipe = (Recipe)r;
             await MongoDBService.GetDbCollection()
-                .DeleteOneAsync(x => x.RecipeId == recipe.Id && x.UserId == SessionsData.LoggedInUser.Id);
+                .DeleteOneAsync(x => x.RecipeId == recipe.Id && x.UserId == host.LoggedInUser.Id);
             Recipes.Remove(recipe);
         }
 
@@ -43,7 +44,7 @@ namespace ReceptAppen2.ViewModels
 
             foreach (var item in UserIdRecipeIdFromDb)
             {
-                if (item.UserId == SessionsData.LoggedInUser.Id)
+                if (item.UserId == host.LoggedInUser.Id)
                     RecipesId.Add(item.RecipeId);
             }
         }

@@ -3,8 +3,7 @@
     public class RecipeSearchService
     {
         private static string _apiBaseAddress = "https://handla.api.ica.se";
-
-
+        static readonly UserSingleton host = UserSingleton.GetUser();
         public static async Task<RecipeSearch> GetRecipeSearchAsync(string searchPhrase)
         {
             var response = await GetApiRequest($"/api/recipes/searchwithfilters?phrase={searchPhrase}&recordsPerPage=20&pageNumber=1&sorting=0", true, false);
@@ -53,12 +52,12 @@
 
             if (HasHeaders)
             {
-                request.Headers.Add("Authorization", "Basic " + SessionsData.AuthorizationKey);
-                request.Headers.Add("AuthenticationTicket", SessionsData.AuthenticationTicket);
+                request.Headers.Add("Authorization", "Basic " + host.AuthorizationKey);
+                request.Headers.Add("AuthenticationTicket", host.AuthenticationTicket);
             }
             else if (HasOneHeaderOnly)
             {
-                request.Headers.Add("Authorization", "Basic " + SessionsData.AuthorizationKey);
+                request.Headers.Add("Authorization", "Basic " + host.AuthorizationKey);
             }
             var response = await client.SendAsync(request);
 

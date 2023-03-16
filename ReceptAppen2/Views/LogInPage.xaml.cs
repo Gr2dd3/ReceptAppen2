@@ -4,6 +4,7 @@ namespace ReceptAppen2.Views;
 public partial class LogInPage : ContentPage
 {
     LogInUserViewModel vm = new();
+    static readonly UserSingleton host = UserSingleton.GetUser();
     public LogInPage()
     {
         InitializeComponent();
@@ -14,7 +15,7 @@ public partial class LogInPage : ContentPage
     {
         await vm.LogIn();
         
-        if (SessionsData.IsloggedIn)
+        if (host.IsloggedIn)
         {
             await Navigation.PushAsync(new UserMainPage());
         }

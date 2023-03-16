@@ -8,13 +8,14 @@ namespace ReceptAppen2.Components
 {
     internal class Authorization : IAuthorization
     {
+        static readonly UserSingleton host = UserSingleton.GetUser();
         public bool GetAuthorizationKey(string socialSecurityNr, string passWord)
         {
             var plainText = socialSecurityNr + ":" + passWord;
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
-            SessionsData.AuthorizationKey = System.Convert.ToBase64String(plainTextBytes);
+            host.AuthorizationKey = System.Convert.ToBase64String(plainTextBytes);
 
-            if (SessionsData.AuthorizationKey is not null)
+            if (host.AuthorizationKey is not null)
                 return true;
             else
                 return false;

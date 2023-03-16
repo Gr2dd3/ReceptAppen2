@@ -1,14 +1,14 @@
-﻿using static ReceptAppen2.Models.SessionsData;
-namespace ReceptAppen2.Services
+﻿namespace ReceptAppen2.Services
 {
     internal class UserService
     {
+        static readonly UserSingleton host = UserSingleton.GetUser();
         internal static async Task<User> GetUserAsync()
         {
             User user = null;
-            if (Response.IsSuccessStatusCode)
+            if (host.Response.IsSuccessStatusCode)
             {
-                string responseString = await Response.Content.ReadAsStringAsync();
+                string responseString = await host.Response.Content.ReadAsStringAsync();
                 user = JsonSerializer.Deserialize<User>(responseString);
                 SetAuthenticationTicket();
             }
@@ -17,7 +17,7 @@ namespace ReceptAppen2.Services
 
         private static void SetAuthenticationTicket()
         {
-            SessionsData.AuthenticationTicket = SessionsData.Response.Headers
+            host.AuthenticationTicket = host.Response.Headers
              .Where(x => x.Key.Contains("AuthenticationTicket"))
              .Select(x => x.Value.FirstOrDefault()).FirstOrDefault().ToString();    
 
