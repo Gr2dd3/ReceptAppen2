@@ -1,4 +1,4 @@
-﻿namespace ReceptAppen2.Models
+﻿namespace ReceptAppen2.Singletons
 {
     //Using singleton since only one user is logged in and used on several places. (Keep calling only one instance a.k.a. same user)
     public class UserSingleton

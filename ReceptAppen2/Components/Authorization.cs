@@ -1,4 +1,6 @@
-﻿namespace ReceptAppen2.Components
+﻿using ReceptAppen2.Singletons;
+
+namespace ReceptAppen2.Components
 {
     internal class Authorization : IAuthorization
     {

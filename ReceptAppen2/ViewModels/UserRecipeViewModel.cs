@@ -1,4 +1,6 @@
-﻿namespace ReceptAppen2.ViewModels
+﻿using ReceptAppen2.Singletons;
+
+namespace ReceptAppen2.ViewModels
 {
     public partial class UserRecipeViewModel : ObservableObject
     {

@@ -1,3 +1,5 @@
+using ReceptAppen2.Singletons;
+
 namespace ReceptAppen2.Views;
 public partial class LogInPage : ContentPage
 {

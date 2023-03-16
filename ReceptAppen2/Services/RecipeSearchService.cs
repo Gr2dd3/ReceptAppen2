@@ -1,4 +1,6 @@
-﻿namespace ReceptAppen2.Services
+﻿using ReceptAppen2.Singletons;
+
+namespace ReceptAppen2.Services
 {
     public class RecipeSearchService
     {
